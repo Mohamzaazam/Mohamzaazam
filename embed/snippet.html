@@ -1,0 +1,102 @@
+<!-- ========================================================================= -->
+<!-- Hamza Azam · Algorithmic Kinematic Wireframe & Co-Simulation Widget         -->
+<!-- Embeddable Widget for mohamzaazam.github.io (Home or Chapter 02/03)         -->
+<!-- ========================================================================= -->
+
+<div class="biomechatronics-cad-widget" style="
+  background: #070b14;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  margin: 36px 0;
+  max-width: 100%;
+">
+  <!-- CAD Technical Header Bar -->
+  <div style="
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  ">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #06b6d4;
+        box-shadow: 0 0 10px #06b6d4;
+      "></span>
+      <span style="color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.8px;">
+        ZHEJIANG UNIVERSITY · KINEMATIC CO-SIMULATION
+      </span>
+    </div>
+    <div style="font-size: 11px; color: #94a3b8;">
+      [D-H FRAMES ⇄ HM-DMP &amp; PI²]
+    </div>
+  </div>
+
+  <!-- Animated Vector SVG Container -->
+  <div style="position: relative; width: 100%; background: #060913; line-height: 0;">
+    <img 
+      src="./assets/algorithmic-locomotion.svg" 
+      alt="Algorithmic Kinematic Wireframe and Hm-DMP Exoskeleton Locomotion Dynamics"
+      style="width: 100%; height: auto; display: block;"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Precision Technical Highlights -->
+  <div style="
+    padding: 16px 22px;
+    background: rgba(11, 19, 38, 0.95);
+    border-top: 1px solid rgba(56, 189, 248, 0.15);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  ">
+    <!-- Left Paper Highlight -->
+    <div style="border-left: 2px solid #ef4444; padding-left: 14px;">
+      <div style="color: #f87171; font-size: 10px; font-weight: 700; letter-spacing: 0.5px;">
+        BIOLOGICAL INVERSE DYNAMICS (ESWA 2026)
+      </div>
+      <div style="color: #f1f5f9; font-size: 12.5px; font-weight: 600; margin-top: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+        Subject-Independent Hip Moment Estimation
+      </div>
+      <div style="color: #94a3b8; font-size: 11px; margin-top: 3px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+        Inferring continuous joint torque τ_hip from bilateral encoder angles alone across transitional steps.
+      </div>
+      <a href="https://doi.org/10.1016/j.eswa.2026.132047" target="_blank" style="
+        color: #38bdf8;
+        font-size: 10.5px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 6px;
+      ">doi:10.1016/j.eswa.2026.132047 ↗</a>
+    </div>
+
+    <!-- Right Paper Highlight -->
+    <div style="border-left: 2px solid #06b6d4; padding-left: 14px;">
+      <div style="color: #38bdf8; font-size: 10px; font-weight: 700; letter-spacing: 0.5px;">
+        ROBOTIC CONTROL &amp; REINFORCEMENT LEARNING (IROS 2025)
+      </div>
+      <div style="color: #f1f5f9; font-size: 12.5px; font-weight: 600; margin-top: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+        Hm-DMP &amp; PI² Exoskeleton Gait Adaptation
+      </div>
+      <div style="color: #94a3b8; font-size: 11px; margin-top: 3px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+        Harmonic Dynamic Movement Primitives coupled with Path Integral optimization for compliant push-off.
+      </div>
+      <a href="https://doi.org/10.1109/IROS60139.2025.11247606" target="_blank" style="
+        color: #38bdf8;
+        font-size: 10.5px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 6px;
+      ">doi:10.1109/IROS60139.2025.11247606 ↗</a>
+    </div>
+  </div>
+</div>
