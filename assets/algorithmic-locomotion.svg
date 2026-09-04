@@ -1,791 +1,200 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" width="100%" height="100%" role="img" aria-label="Codex Locomotionis: Vitruvian Biomechatronics, Subject-Independent Hip Moments, and Hm-DMP Exoskeleton Automaton">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" width="100%" height="100%" role="img" aria-label="Animated Character Composed Entirely of @ Signs Walking and Bringing Doctoral Research Information">
   <defs>
-    <!-- Renaissance Aged Codex Parchment Gradient -->
-    <radialGradient id="parchmentBg" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#211810"/>
-      <stop offset="55%" stop-color="#18110a"/>
-      <stop offset="100%" stop-color="#0c0704"/>
-    </radialGradient>
-
-    <!-- Antique Copperplate Ground Datum Gradient -->
-    <linearGradient id="copperFloorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#b87333" stop-opacity="0.08"/>
-      <stop offset="25%" stop-color="#c49a45" stop-opacity="0.85"/>
-      <stop offset="50%" stop-color="#d4af37" stop-opacity="0.95"/>
-      <stop offset="75%" stop-color="#c49a45" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#b87333" stop-opacity="0.08"/>
-    </linearGradient>
-
-    <!-- Brass Astrolabe Dial Gradient -->
-    <radialGradient id="astrolabeDial" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#261b11"/>
-      <stop offset="70%" stop-color="#1c140c"/>
-      <stop offset="100%" stop-color="#120c07"/>
-    </radialGradient>
-
-    <!-- Warm Golden Bloom Filter -->
-    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- Vitruvian Geometric Manuscript Grid -->
-    <pattern id="manuscriptGrid" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(196, 154, 69, 0.05)" stroke-width="0.8"/>
-      <path d="M 34 36 L 38 36 M 36 34 L 36 38" stroke="rgba(212, 175, 55, 0.15)" stroke-width="0.8"/>
-    </pattern>
-
     <style><![CDATA[
-      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=JetBrains+Mono:wght@400;600&display=swap');
-      .codex-title { font-family: "Cinzel", "Palatino Linotype", Georgia, serif; font-size: 11.5px; font-weight: 700; letter-spacing: 1.2px; fill: #d4af37; }
-      .codex-sub { font-family: "Cinzel", "Palatino Linotype", Georgia, serif; font-size: 9.5px; font-weight: 500; fill: #9e8162; letter-spacing: 0.6px; }
-      .codex-math { font-family: "JetBrains Mono", monospace; font-size: 9.5px; font-weight: 600; }
-      .datum-num { font-family: "Cinzel", Georgia, serif; font-size: 8.5px; fill: #8c7355; font-weight: 700; }
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap');
+      .mono-bg { fill: #0a0a0a; }
+      .outer-frame { fill: none; stroke: #1a1a1a; stroke-width: 1; }
+      .card-bg { fill: #111111; stroke: #222222; stroke-width: 1; }
+      .ground-line { stroke: #222222; stroke-width: 1.5; }
+      .treadmill-tick { stroke: #333333; stroke-width: 1.2; }
+      .at-node { font-family: 'JetBrains Mono', 'Courier New', monospace; text-anchor: middle; dominant-baseline: central; user-select: none; }
+      .terminal-header { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #555555; font-weight: 600; letter-spacing: 0.5px; }
     ]]></style>
   </defs>
 
-  <!-- Background Base & Vitruvian Grid -->
-  <rect width="1200" height="510" fill="url(#parchmentBg)"/>
-  <rect width="1200" height="510" fill="url(#manuscriptGrid)"/>
+  <!-- Clean Monochrome Background -->
+  <rect width="1000" height="200" class="mono-bg"/>
+  <rect x="6" y="6" width="988" height="188" rx="4" class="outer-frame"/>
 
-  <!-- Vitruvian Squaring-the-Circle & Harmonic Proportions Background Watermark -->
-  <g id="vitruvian-background-harmonics" opacity="0.3">
-    <!-- Center Vitruvian Circle -->
-    <circle cx="600" cy="245" r="185" fill="none" stroke="#c49a45" stroke-width="1.0"/>
-    <circle cx="600" cy="245" r="130" fill="none" stroke="#c49a45" stroke-width="0.8" stroke-dasharray="3 5"/>
-    <rect x="415" y="60" width="370" height="370" fill="none" stroke="#c49a45" stroke-width="0.8"/>
-    <!-- Diagonal golden ratio rays -->
-    <line x1="415" y1="60" x2="785" y2="430" stroke="#c49a45" stroke-width="0.6" stroke-dasharray="4 6"/>
-    <line x1="785" y1="60" x2="415" y2="430" stroke="#c49a45" stroke-width="0.6" stroke-dasharray="4 6"/>
+  <!-- Datum Ground Line -->
+  <line x1="25" y1="168.0" x2="975" y2="168.0" class="ground-line"/>
+
+  <!-- Treadmill Moving Ground Baseline Ticks -->
+  <g id="treadmill-datum">
+    <animateTransform attributeName="transform" type="translate" values="0,0;-24,0" dur="0.625s" repeatCount="indefinite"/>
+    <line x1="0" y1="168.0" x2="0" y2="173.0" class="treadmill-tick"/> <line x1="24" y1="168.0" x2="24" y2="173.0" class="treadmill-tick"/> <line x1="48" y1="168.0" x2="48" y2="173.0" class="treadmill-tick"/> <line x1="72" y1="168.0" x2="72" y2="173.0" class="treadmill-tick"/> <line x1="96" y1="168.0" x2="96" y2="173.0" class="treadmill-tick"/> <line x1="120" y1="168.0" x2="120" y2="173.0" class="treadmill-tick"/> <line x1="144" y1="168.0" x2="144" y2="173.0" class="treadmill-tick"/> <line x1="168" y1="168.0" x2="168" y2="173.0" class="treadmill-tick"/> <line x1="192" y1="168.0" x2="192" y2="173.0" class="treadmill-tick"/> <line x1="216" y1="168.0" x2="216" y2="173.0" class="treadmill-tick"/> <line x1="240" y1="168.0" x2="240" y2="173.0" class="treadmill-tick"/> <line x1="264" y1="168.0" x2="264" y2="173.0" class="treadmill-tick"/> <line x1="288" y1="168.0" x2="288" y2="173.0" class="treadmill-tick"/> <line x1="312" y1="168.0" x2="312" y2="173.0" class="treadmill-tick"/> <line x1="336" y1="168.0" x2="336" y2="173.0" class="treadmill-tick"/> <line x1="360" y1="168.0" x2="360" y2="173.0" class="treadmill-tick"/> <line x1="384" y1="168.0" x2="384" y2="173.0" class="treadmill-tick"/> <line x1="408" y1="168.0" x2="408" y2="173.0" class="treadmill-tick"/> <line x1="432" y1="168.0" x2="432" y2="173.0" class="treadmill-tick"/> <line x1="456" y1="168.0" x2="456" y2="173.0" class="treadmill-tick"/> <line x1="480" y1="168.0" x2="480" y2="173.0" class="treadmill-tick"/> <line x1="504" y1="168.0" x2="504" y2="173.0" class="treadmill-tick"/> <line x1="528" y1="168.0" x2="528" y2="173.0" class="treadmill-tick"/> <line x1="552" y1="168.0" x2="552" y2="173.0" class="treadmill-tick"/> <line x1="576" y1="168.0" x2="576" y2="173.0" class="treadmill-tick"/> <line x1="600" y1="168.0" x2="600" y2="173.0" class="treadmill-tick"/> <line x1="624" y1="168.0" x2="624" y2="173.0" class="treadmill-tick"/> <line x1="648" y1="168.0" x2="648" y2="173.0" class="treadmill-tick"/> <line x1="672" y1="168.0" x2="672" y2="173.0" class="treadmill-tick"/> <line x1="696" y1="168.0" x2="696" y2="173.0" class="treadmill-tick"/> <line x1="720" y1="168.0" x2="720" y2="173.0" class="treadmill-tick"/> <line x1="744" y1="168.0" x2="744" y2="173.0" class="treadmill-tick"/> <line x1="768" y1="168.0" x2="768" y2="173.0" class="treadmill-tick"/> <line x1="792" y1="168.0" x2="792" y2="173.0" class="treadmill-tick"/> <line x1="816" y1="168.0" x2="816" y2="173.0" class="treadmill-tick"/> <line x1="840" y1="168.0" x2="840" y2="173.0" class="treadmill-tick"/> <line x1="864" y1="168.0" x2="864" y2="173.0" class="treadmill-tick"/> <line x1="888" y1="168.0" x2="888" y2="173.0" class="treadmill-tick"/> <line x1="912" y1="168.0" x2="912" y2="173.0" class="treadmill-tick"/> <line x1="936" y1="168.0" x2="936" y2="173.0" class="treadmill-tick"/> <line x1="960" y1="168.0" x2="960" y2="173.0" class="treadmill-tick"/> <line x1="984" y1="168.0" x2="984" y2="173.0" class="treadmill-tick"/> <line x1="1008" y1="168.0" x2="1008" y2="173.0" class="treadmill-tick"/> <line x1="1032" y1="168.0" x2="1032" y2="173.0" class="treadmill-tick"/> <line x1="1056" y1="168.0" x2="1056" y2="173.0" class="treadmill-tick"/>
   </g>
 
-  <!-- Top Manuscript Calibration Header & Caliper Bar -->
-  <g id="codex-header-bar">
-    <line x1="35" y1="22" x2="1165" y2="22" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1"/>
-    <path d="M 35 18 v 8 M 120 19 v 6 M 220 19 v 6 M 320 17 v 10 M 420 19 v 6 M 520 19 v 6 M 600 15 v 14 M 680 19 v 6 M 780 19 v 6 M 880 17 v 10 M 980 19 v 6 M 1080 19 v 6 M 1165 18 v 8" stroke="rgba(212, 175, 55, 0.45)" stroke-width="1"/>
-    <text x="40" y="15" class="codex-sub">LIBER PRIMUS · DE MOTU ANIMALIUM ET ARTICULIS</text>
-    <text x="600" y="15" text-anchor="middle" class="codex-sub">PROPORTIO VITRUVIANA · SACRAL EQUILIBRIUM [0, 0, 0]</text>
-    <text x="1160" y="15" text-anchor="end" class="codex-sub">ZHEJIANGENSIS UNIVERSITAS · CODEX AZAM</text>
-  </g>
+  <!-- ================= INFORMATION CARRIER CONSOLE ================= -->
+  <!-- Information Card Display -->
+  <rect x="200" y="36" width="765" height="114" rx="6" class="card-bg"/>
 
-  <!-- Antique Engraved Copperplate Ground Datum Line with Dynamic Treadmill Ticks -->
-  <g id="ground-datum">
-    <line x1="30" y1="430" x2="1170" y2="430" stroke="url(#copperFloorGrad)" stroke-width="2.5"/>
-    <line x1="120" y1="431" x2="1080" y2="431" stroke="url(#copperFloorGrad)" stroke-width="4" opacity="0.3" filter="url(#goldGlow)"/>
+  <!-- Terminal Header Bar -->
+  <line x1="200" y1="56" x2="965" y2="56" stroke="#1c1c1c" stroke-width="1"/>
+  <text x="215" y="49" class="terminal-header">HAMZA AZAM · RESEARCH DOSSIER</text>
+  <text x="950" y="49" text-anchor="end" class="terminal-header">ZHEJIANG UNIVERSITY</text>
 
-    <!-- Floor Calibration Roman Ticks -->
-    <path d="M 80 430 v 6 M 180 430 v 6 M 280 430 v 9 M 380 430 v 6 M 480 430 v 6 M 600 430 v 12 M 720 430 v 6 M 820 430 v 6 M 920 430 v 9 M 1020 430 v 6 M 1120 430 v 6" stroke="rgba(196, 154, 69, 0.6)" stroke-width="1.2"/>
-    <text x="280" y="454" text-anchor="middle" class="datum-num">DATUM ANATOMICUM · ESWA 2026</text>
-    <text x="600" y="454" text-anchor="middle" class="datum-num">PLANUM EQUILIBRII CO-SIMULATI</text>
-    <text x="920" y="454" text-anchor="middle" class="datum-num">DATUM AUTOMATON · IROS 2025</text>
-  </g>
-
-  <!-- ================= CENTER: ASTROLABIUM DE STATU MOTUS (STATE-SPACE) ================= -->
-  <g id="astrolabium-phase-portrait">
-    <!-- Astrolabe Brass Bezel -->
-    <circle cx="600" cy="265" r="105" fill="url(#astrolabeDial)" stroke="#c49a45" stroke-width="2.4" filter="url(#goldGlow)"/>
-    <circle cx="600" cy="265" r="97" fill="none" stroke="#8c5a2b" stroke-width="1.2"/>
-
-    <!-- Roman Astrolabe Degree Ticks -->
-    <g stroke="#d4af37" stroke-width="0.9" opacity="0.75">
-      <line x1="600" y1="168" x2="600" y2="176"/>
-      <line x1="600" y1="354" x2="600" y2="362"/>
-      <line x1="503" y1="265" x2="511" y2="265"/>
-      <line x1="689" y1="265" x2="697" y2="265"/>
-      <line x1="667" y1="198" x2="661" y2="204"/>
-      <line x1="533" y1="332" x2="539" y2="326"/>
-      <line x1="667" y1="332" x2="661" y2="326"/>
-      <line x1="533" y1="198" x2="539" y2="204"/>
+  <!-- Dynamic Information Slides (Synchronized 20s Cycle) -->
+    <!-- Slide 1: Musculoskeletal Modeling &amp; Gait Biomechanics -->
+    <g id="slide-1" opacity="1">
+      <animate attributeName="opacity" values="1;1;0;0;0;0;0;0;0;0;1" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="20s" repeatCount="indefinite"/>
+      
+      <!-- Category Tag -->
+      <text x="225" y="74" fill="#777777" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">01 / 05 · DOCTORAL RESEARCH · ZHEJIANG UNIVERSITY</text>
+      
+      <!-- Headline Title -->
+      <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Musculoskeletal Modeling &amp; Gait Biomechanics</text>
+      
+      <!-- Detail Line -->
+      <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Inferring unobservable joint dynamics from wearable sensors outside laboratory constraints.</text>
+      
+      <!-- Step Indicators -->
+      <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#262626"/>
+    </g>
+    <!-- Slide 2: Subject-Independent Hip Moment Estimation -->
+    <g id="slide-2" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0;0;0;0;0;0;0" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="20s" repeatCount="indefinite"/>
+      
+      <!-- Category Tag -->
+      <text x="225" y="74" fill="#777777" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">02 / 05 · FLAGSHIP PUBLICATION · ESWA 2026</text>
+      
+      <!-- Headline Title -->
+      <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Subject-Independent Hip Moment Estimation</text>
+      
+      <!-- Detail Line -->
+      <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Continuous sagittal moments from bilateral encoder angles in transitional &amp; steady gait (R² &gt; 0.92).</text>
+      
+      <!-- Step Indicators -->
+      <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#262626"/>
+    </g>
+    <!-- Slide 3: Dynamic Exoskeleton Gait Adaptation (Hm-DMP &amp; PI²) -->
+    <g id="slide-3" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;1;1;0;0;0;0;0" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="20s" repeatCount="indefinite"/>
+      
+      <!-- Category Tag -->
+      <text x="225" y="74" fill="#777777" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">03 / 05 · ROBOTIC EXOSKELETON CONTROL · IEEE/RSJ IROS 2025</text>
+      
+      <!-- Headline Title -->
+      <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Dynamic Exoskeleton Gait Adaptation (Hm-DMP &amp; PI²)</text>
+      
+      <!-- Detail Line -->
+      <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Harmonizing biological locomotion with robotic assistance using Dynamic Movement Primitives.</text>
+      
+      <!-- Step Indicators -->
+      <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#262626"/>
+    </g>
+    <!-- Slide 4: MetaTran: Hybrid Transformers for Fatigue Life -->
+    <g id="slide-4" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;1;1;0;0;0" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="20s" repeatCount="indefinite"/>
+      
+      <!-- Category Tag -->
+      <text x="225" y="74" fill="#777777" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">04 / 05 · DEEP LEARNING TRANSFORMERS · MST 2026</text>
+      
+      <!-- Headline Title -->
+      <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">MetaTran: Hybrid Transformers for Fatigue Life</text>
+      
+      <!-- Detail Line -->
+      <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">1D-dilated convolutions and self-attention transformers predicting multi-scale biological &amp; structural fatigue.</text>
+      
+      <!-- Step Indicators -->
+      <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#262626"/>
+    </g>
+    <!-- Slide 5: Closed-Loop Mobility Matching &amp; Wearable Robotics -->
+    <g id="slide-5" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;1;1;0" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="20s" repeatCount="indefinite"/>
+      
+      <!-- Category Tag -->
+      <text x="225" y="74" fill="#777777" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">05 / 05 · WEARABLE BIOMECHATRONICS PARADIGM</text>
+      
+      <!-- Headline Title -->
+      <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Closed-Loop Mobility Matching &amp; Wearable Robotics</text>
+      
+      <!-- Detail Line -->
+      <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Series Elastic Actuators · Zero Per-Subject Calibration · Adaptive Real-Time Torque Assistance.</text>
+      
+      <!-- Step Indicators -->
+      <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/>
     </g>
 
-    <!-- Roman Cardinal Numerals (XII, III, VI, IX) -->
-    <text x="600" y="186" text-anchor="middle" class="datum-num" fill="#d4af37">XII</text>
-    <text x="682" y="268" text-anchor="middle" class="datum-num" fill="#d4af37">III</text>
-    <text x="600" y="348" text-anchor="middle" class="datum-num" fill="#d4af37">VI</text>
-    <text x="518" y="268" text-anchor="middle" class="datum-num" fill="#d4af37">IX</text>
-
-    <!-- Vitruvian Reticle Crosshairs -->
-    <line x1="510" y1="265" x2="690" y2="265" stroke="rgba(212, 175, 55, 0.35)" stroke-width="0.8" stroke-dasharray="4 3"/>
-    <line x1="600" y1="175" x2="600" y2="355" stroke="rgba(212, 175, 55, 0.35)" stroke-width="0.8" stroke-dasharray="4 3"/>
-    <circle cx="600" cy="265" r="35" fill="none" stroke="rgba(196, 154, 69, 0.2)" stroke-width="0.8"/>
-    <circle cx="600" cy="265" r="65" fill="none" stroke="rgba(196, 154, 69, 0.2)" stroke-width="0.8"/>
-
-    <!-- Clockwise Dynamic Flow Fleurons -->
-    <path d="M 655 252 l 4 7 l -8 -2 Z" fill="#d4af37" opacity="0.8"/>
-    <path d="M 545 278 l -4 -7 l 8 2 Z" fill="#d4af37" opacity="0.8"/>
-
-    <!-- Closed-Loop Harmonic Limit Cycle Attractor Orbit -->
-    <path d="M 658 248 C 665 265, 660 300, 626 328 C 595 352, 555 330, 542 278 C 532 238, 565 220, 615 225 C 645 228, 652 238, 658 248 Z" fill="rgba(212, 175, 55, 0.08)" stroke="#d4af37" stroke-width="2.2" filter="url(#goldGlow)"/>
-
-    <!-- Dynamic Celestial Sunburst State Point [theta, d_theta/dt] (17 Synchronized Keyframes) -->
-    <circle r="5" fill="#ffeed0" stroke="#b87333" stroke-width="2" filter="url(#goldGlow)">
-      <animate attributeName="cx" values="658; 660; 656; 644; 626; 604; 580; 558; 544; 540; 546; 562; 586; 614; 638; 652; 658" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="248; 265; 288; 312; 328; 332; 324; 304; 278; 254; 236; 226; 224; 226; 232; 240; 248" dur="2.4s" repeatCount="indefinite"/>
-    </circle>
-    <!-- Trailing Golden Stardust Pulse Halo -->
-    <circle r="9" fill="none" stroke="#d4af37" stroke-width="1.2" opacity="0.7">
-      <animate attributeName="cx" values="658; 660; 656; 644; 626; 604; 580; 558; 544; 540; 546; 562; 586; 614; 638; 652; 658" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="248; 265; 288; 312; 328; 332; 324; 304; 278; 254; 236; 226; 224; 226; 232; 240; 248" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="r" values="5; 13; 5; 13; 5; 13; 5; 13; 5; 13; 5; 13; 5; 13; 5; 13; 5" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8" dur="2.4s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- Astrolabe Titles -->
-    <text x="600" y="146" text-anchor="middle" class="codex-title">ASTROLABIUM DE STATU MOTUS</text>
-    <text x="600" y="160" text-anchor="middle" class="codex-sub">ATTRACTOR HARMONICUS (Hm-DMP)</text>
-    <text x="674" y="258" text-anchor="end" fill="#c49a45" font-family="Cinzel" font-size="9">θ_coxa</text>
-    <text x="608" y="202" text-anchor="start" fill="#c49a45" font-family="Cinzel" font-size="9">dθ/dt</text>
-    <text x="600" y="380" text-anchor="middle" fill="#2d7a6e" class="codex-math">λ_max &lt; 0 · Aequilibrum Orbitale</text>
-
-    <!-- Co-Simulation Sanguine & Gold Quill Ink Data Streams -->
-    <path d="M 430 235 C 470 215, 485 230, 492 245" fill="none" stroke="#c85a3a" stroke-width="1.6" stroke-dasharray="5 4">
-      <animate attributeName="stroke-dashoffset" values="36;0" dur="1s" repeatCount="indefinite"/>
-    </path>
-    <polygon points="492,245 484,241 486,249" fill="#c85a3a"/>
-    <text x="475" y="222" text-anchor="middle" fill="#c85a3a" class="codex-math">θ_L, θ_R (Anguli)</text>
-
-    <path d="M 708 285 C 730 300, 740 315, 770 295" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-dasharray="5 4">
-      <animate attributeName="stroke-dashoffset" values="0;36" dur="1s" repeatCount="indefinite"/>
-    </path>
-    <polygon points="770,295 762,291 764,299" fill="#d4af37"/>
-    <text x="735" y="320" text-anchor="middle" fill="#d4af37" class="codex-math">τ_auxiliaris [PI²]</text>
-  </g>
-
-  <!-- ================= LEFT: HOMO VITRUVIANUS (ANATOMICAL STUDY) ================= -->
-  <g id="homo-vitruvianus-walker">
-    <!-- Callout Title -->
-    <g transform="translate(60, 42)">
-      <circle cx="0" cy="0" r="4" fill="#c85a3a"/>
-      <text x="14" y="4" class="codex-title" fill="#c85a3a">HOMO VITRUVIANUS · ANATOMIA</text>
-      <text x="14" y="18" class="codex-sub">Aestimatio Momentorum Coxae · ESWA 2026</text>
-      <text x="14" y="32" fill="#c85a3a" class="codex-math">τ_coxa = f_ML(θ_L, θ_R, dθ_L, dθ_R) [Sine Platis Vis]</text>
-    </g>
-
-    <!-- Back Arm (Leonardo Sepia Wash - 17 Keyframes) -->
-    <path stroke="#5c4533" stroke-width="3.2" stroke-linecap="round" fill="none" opacity="0.45">
-      <animate attributeName="d" values="
-        M 300,151 L 315,203 L 312,250;
-        M 300,151 L 314,205 L 309,252;
-        M 300,149 L 310,207 L 302,254;
-        M 300,145 L 304,208 L 292,255;
-        M 300,142 L 297,206 L 280,251;
-        M 300,141 L 291,204 L 270,246;
-        M 300,143 L 286,203 L 260,244;
-        M 300,147 L 284,204 L 255,243;
-        M 300,151 L 285,207 L 257,247;
-        M 300,151 L 288,208 L 264,249;
-        M 300,149 L 293,208 L 273,251;
-        M 300,145 L 300,207 L 285,253;
-        M 300,142 L 306,205 L 296,252;
-        M 300,141 L 311,204 L 305,251;
-        M 300,143 L 314,203 L 310,250;
-        M 300,147 L 315,203 L 312,250;
-        M 300,151 L 315,203 L 312,250"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Back Leg (Contralateral Thigh, Shank, Foot - 17 Keyframes) -->
-    <g opacity="0.42">
-      <!-- Thigh -->
-      <path stroke="#705741" stroke-width="5.5" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="
-          M 300,235 L 324,328;
-          M 299,235 L 320,329;
-          M 299,233 L 331,324;
-          M 298,229 L 346,312;
-          M 298,226 L 353,304;
-          M 298,225 L 358,300;
-          M 299,227 L 358,303;
-          M 299,231 L 353,310;
-          M 300,235 L 349,317;
-          M 301,235 L 347,319;
-          M 301,233 L 342,320;
-          M 302,229 L 332,320;
-          M 302,226 L 319,320;
-          M 302,225 L 315,320;
-          M 301,227 L 318,321;
-          M 301,231 L 323,324;
-          M 300,235 L 324,328"
-          dur="2.4s" repeatCount="indefinite"/>
-      </path>
-      <!-- Shank -->
-      <path stroke="#705741" stroke-width="4.5" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="
-          M 324,328 L 291,418;
-          M 320,329 L 286,418;
-          M 331,324 L 284,408;
-          M 346,312 L 289,390;
-          M 353,304 L 302,385;
-          M 358,300 L 320,388;
-          M 358,303 L 336,396;
-          M 353,310 L 345,406;
-          M 349,317 L 348,413;
-          M 347,319 L 342,415;
-          M 342,320 L 335,416;
-          M 332,320 L 327,416;
-          M 319,320 L 319,416;
-          M 315,320 L 311,416;
-          M 318,321 L 304,416;
-          M 323,324 L 297,417;
-          M 324,328 L 291,418"
-          dur="2.4s" repeatCount="indefinite"/>
-      </path>
-      <!-- Foot Bone -->
-      <path stroke="#705741" stroke-width="3.6" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="
-          M 276,425 L 323,430;
-          M 269,418 L 319,430;
-          M 267,408 L 316,421;
-          M 276,376 L 317,391;
-          M 290,370 L 330,383;
-          M 308,372 L 348,384;
-          M 324,381 L 364,392;
-          M 334,391 L 374,400;
-          M 338,430 L 378,421;
-          M 330,430 L 371,428;
-          M 322,430 L 363,430;
-          M 314,430 L 355,430;
-          M 306,430 L 347,430;
-          M 298,430 L 339,430;
-          M 291,430 L 332,430;
-          M 283,429 L 327,429;
-          M 276,425 L 323,430"
-          dur="2.4s" repeatCount="indefinite"/>
-      </path>
-    </g>
-
-    <!-- Vertebral Spine Column (17 Keyframes - Perfectly Anchored) -->
-    <path stroke="#e8dec4" stroke-width="4.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 300,235 L 300,151;
-        M 300,235 L 300,151;
-        M 300,233 L 300,149;
-        M 300,229 L 300,145;
-        M 300,226 L 300,142;
-        M 300,225 L 300,141;
-        M 300,227 L 300,143;
-        M 300,231 L 300,147;
-        M 300,235 L 300,151;
-        M 300,235 L 300,151;
-        M 300,233 L 300,149;
-        M 300,229 L 300,145;
-        M 300,226 L 300,142;
-        M 300,225 L 300,141;
-        M 300,227 L 300,143;
-        M 300,231 L 300,147;
-        M 300,235 L 300,151"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Traveling Action Potential Wave -->
-    <path stroke="#d4af37" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="5 12" fill="none">
-      <animate attributeName="d" values="
-        M 300,235 L 300,151;
-        M 300,235 L 300,151;
-        M 300,233 L 300,149;
-        M 300,229 L 300,145;
-        M 300,226 L 300,142;
-        M 300,225 L 300,141;
-        M 300,227 L 300,143;
-        M 300,231 L 300,147;
-        M 300,235 L 300,151;
-        M 300,235 L 300,151;
-        M 300,233 L 300,149;
-        M 300,229 L 300,145;
-        M 300,226 L 300,142;
-        M 300,225 L 300,141;
-        M 300,227 L 300,143;
-        M 300,231 L 300,147;
-        M 300,235 L 300,151"
-        dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-dashoffset" values="34;0" dur="0.6s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Anatomical Pelvis Bone Basin (17 Keyframes) -->
-    <ellipse cx="300" rx="17" ry="9" fill="rgba(232, 222, 196, 0.22)" stroke="#e8dec4" stroke-width="1.8">
-      <animate attributeName="cy" values="235; 235; 233; 229; 226; 225; 227; 231; 235; 235; 233; 229; 226; 225; 227; 231; 235" dur="2.4s" repeatCount="indefinite"/>
-    </ellipse>
-
-    <!-- Vitruvian Head Contour (17 Keyframes) -->
-    <ellipse cx="300" rx="11" ry="14" fill="rgba(245, 239, 224, 0.18)" stroke="#f5efe0" stroke-width="1.6">
-      <animate attributeName="cy" values="119; 119; 117; 113; 110; 109; 111; 115; 119; 119; 117; 113; 110; 109; 111; 115; 119" dur="2.4s" repeatCount="indefinite"/>
-    </ellipse>
-
-    <!-- Front Arm (17 Keyframes) -->
-    <path stroke="#e8dec4" stroke-width="3.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 300,151 L 285,207 L 257,247;
-        M 300,151 L 288,208 L 264,249;
-        M 300,149 L 293,208 L 273,251;
-        M 300,145 L 300,207 L 285,253;
-        M 300,142 L 306,205 L 296,252;
-        M 300,141 L 311,204 L 305,251;
-        M 300,143 L 314,203 L 310,250;
-        M 300,147 L 315,203 L 312,250;
-        M 300,151 L 315,203 L 312,250;
-        M 300,151 L 314,205 L 309,252;
-        M 300,149 L 310,207 L 302,254;
-        M 300,145 L 304,208 L 292,255;
-        M 300,142 L 297,206 L 280,251;
-        M 300,141 L 291,204 L 270,246;
-        M 300,143 L 286,203 L 260,244;
-        M 300,147 L 284,204 L 255,243;
-        M 300,151 L 285,207 L 257,247"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Front Leg: Anatomical Muscle Bellies with Sanguine & Sepia Tone -->
-    <!-- Rectus Femoris (Quadriceps Anterior Thigh - 17 Keyframes) -->
-    <path stroke="#c85a3a" stroke-width="3.2" stroke-linecap="round" fill="none" opacity="0.85">
-      <animate attributeName="d" values="
-        M 294,235 Q 315,274 345,314;
-        M 295,235 Q 314,275 343,316;
-        M 295,233 Q 310,275 338,317;
-        M 296,229 Q 306,273 328,317;
-        M 296,226 Q 301,272 315,317;
-        M 296,225 Q 300,271 311,317;
-        M 295,227 Q 302,273 314,318;
-        M 295,231 Q 306,276 319,321;
-        M 294,235 Q 308,280 320,325;
-        M 293,235 Q 305,281 316,326;
-        M 293,233 Q 308,277 327,321;
-        M 292,229 Q 315,268 342,309;
-        M 292,226 Q 320,262 349,301;
-        M 292,225 Q 323,260 354,297;
-        M 293,227 Q 324,262 354,300;
-        M 293,231 Q 320,268 349,307;
-        M 294,235 Q 315,274 345,314"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Hamstrings (Posterior Thigh - 17 Keyframes) -->
-    <path stroke="#8c4227" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="5 3" fill="none" opacity="0.8">
-      <animate attributeName="d" values="
-        M 306,237 Q 332,279 353,320;
-        M 307,237 Q 330,281 351,322;
-        M 307,235 Q 328,282 346,323;
-        M 308,231 Q 322,282 336,323;
-        M 308,228 Q 312,282 323,323;
-        M 308,227 Q 310,281 319,323;
-        M 307,229 Q 312,283 322,324;
-        M 307,233 Q 316,286 327,327;
-        M 306,237 Q 318,290 328,331;
-        M 305,237 Q 314,291 324,332;
-        M 305,235 Q 316,287 335,327;
-        M 304,231 Q 324,278 350,315;
-        M 304,228 Q 330,272 357,307;
-        M 304,227 Q 334,270 362,303;
-        M 305,229 Q 334,272 362,306;
-        M 305,233 Q 330,278 357,313;
-        M 306,237 Q 332,279 353,320"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Gastrocnemius (Calf Muscle - 17 Keyframes) -->
-    <path stroke="#c85a3a" stroke-width="3.0" stroke-linecap="round" fill="none" opacity="0.85">
-      <animate attributeName="d" values="
-        M 349,317 Q 364,364 348,413;
-        M 347,319 Q 362,366 342,415;
-        M 342,320 Q 356,368 335,416;
-        M 332,320 Q 346,368 327,416;
-        M 319,320 Q 332,368 319,416;
-        M 315,320 Q 328,368 311,416;
-        M 318,321 Q 332,369 304,416;
-        M 323,324 Q 338,372 297,417;
-        M 324,328 Q 336,375 291,418;
-        M 320,329 Q 330,376 286,418;
-        M 331,324 Q 336,366 284,408;
-        M 346,312 Q 344,351 289,390;
-        M 353,304 Q 354,345 302,385;
-        M 358,300 Q 362,344 320,388;
-        M 358,303 Q 366,350 336,396;
-        M 353,310 Q 366,358 345,406;
-        M 349,317 Q 364,364 348,413"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Front Leg Bones (Femur, Tibia, Foot) - 17 Keyframes - STRICT ZERO SLIP & ZERO PENETRATION -->
-    <!-- Thigh Bone -->
-    <path stroke="#f5efe0" stroke-width="6.2" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 300,235 L 349,317;
-        M 301,235 L 347,319;
-        M 301,233 L 342,320;
-        M 302,229 L 332,320;
-        M 302,226 L 319,320;
-        M 302,225 L 315,320;
-        M 301,227 L 318,321;
-        M 301,231 L 323,324;
-        M 300,235 L 324,328;
-        M 299,235 L 320,329;
-        M 299,233 L 331,324;
-        M 298,229 L 346,312;
-        M 298,226 L 353,304;
-        M 298,225 L 358,300;
-        M 299,227 L 358,303;
-        M 299,231 L 353,310;
-        M 300,235 L 349,317"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Shank Bone -->
-    <path stroke="#f5efe0" stroke-width="5.2" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 349,317 L 348,413;
-        M 347,319 L 342,415;
-        M 342,320 L 335,416;
-        M 332,320 L 327,416;
-        M 319,320 L 319,416;
-        M 315,320 L 311,416;
-        M 318,321 L 304,416;
-        M 323,324 L 297,417;
-        M 324,328 L 291,418;
-        M 320,329 L 286,418;
-        M 331,324 L 284,408;
-        M 346,312 L 289,390;
-        M 353,304 L 302,385;
-        M 358,300 L 320,388;
-        M 358,303 L 336,396;
-        M 353,310 L 345,406;
-        M 349,317 L 348,413"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Foot Structure (Calcaneus Heel to Metatarsal Toe - Zero Sliding during stance 0-60%) -->
-    <path stroke="#f5efe0" stroke-width="4.2" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 338,430 L 378,421;
-        M 330,430 L 371,428;
-        M 322,430 L 363,430;
-        M 314,430 L 355,430;
-        M 306,430 L 347,430;
-        M 298,430 L 339,430;
-        M 291,430 L 332,430;
-        M 283,429 L 327,429;
-        M 276,425 L 323,430;
-        M 269,418 L 319,430;
-        M 267,408 L 316,421;
-        M 276,376 L 317,391;
-        M 290,370 L 330,383;
-        M 308,372 L 348,384;
-        M 324,381 L 364,392;
-        M 334,391 L 374,400;
-        M 338,430 L 378,421"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Articulation Joint Pivots (17 Keyframes) -->
-    <circle r="4" fill="#ffeed0" stroke="#c85a3a" stroke-width="1.5">
-      <animate attributeName="cx" values="300; 301; 301; 302; 302; 302; 301; 301; 300; 299; 299; 298; 298; 298; 299; 299; 300" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="235; 235; 233; 229; 226; 225; 227; 231; 235; 235; 233; 229; 226; 225; 227; 231; 235" dur="2.4s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="3.8" fill="#ffeed0" stroke="#c85a3a" stroke-width="1.5">
-      <animate attributeName="cx" values="349; 347; 342; 332; 319; 315; 318; 323; 324; 320; 331; 346; 353; 358; 358; 353; 349" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="317; 319; 320; 320; 320; 320; 321; 324; 328; 329; 324; 312; 304; 300; 303; 310; 317" dur="2.4s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="3.5" fill="#ffeed0" stroke="#c85a3a" stroke-width="1.5">
-      <animate attributeName="cx" values="348; 342; 335; 327; 319; 311; 304; 297; 291; 286; 284; 289; 302; 320; 336; 345; 348" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="413; 415; 416; 416; 416; 416; 416; 417; 418; 418; 408; 390; 385; 388; 396; 406; 413" dur="2.4s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-
-  <!-- ================= RIGHT: AUTOMATON CO-SIMULATUM (ROBOTIC EXOSKELETON) ================= -->
-  <g id="automaton-exoskeleton-walker">
-    <!-- Callout Title -->
-    <g transform="translate(1140, 42)">
-      <circle cx="0" cy="0" r="4" fill="#c49a45"/>
-      <text x="-14" y="4" text-anchor="end" class="codex-title" fill="#d4af37">AUTOMATON CO-SIMULATUM</text>
-      <text x="-14" y="18" text-anchor="end" class="codex-sub">Hm-DMP &amp; PI² Adaptatio · IROS 2025</text>
-      <text x="-14" y="32" text-anchor="end" fill="#c49a45" class="codex-math">τ_assist(t) = K_p(θ_d - θ) + f_HmDMP(ϕ)</text>
-    </g>
-
-    <!-- Back Automaton Arm (Bronze Wash - 17 Keyframes) -->
-    <path stroke="#4a3625" stroke-width="4.2" stroke-linecap="round" fill="none" opacity="0.4">
-      <animate attributeName="d" values="
-        M 900,151 L 915,203 L 912,250;
-        M 900,151 L 914,205 L 909,252;
-        M 900,149 L 910,207 L 902,254;
-        M 900,145 L 904,208 L 892,255;
-        M 900,142 L 897,206 L 880,251;
-        M 900,141 L 891,204 L 870,246;
-        M 900,143 L 886,203 L 860,244;
-        M 900,147 L 884,204 L 855,243;
-        M 900,151 L 885,207 L 857,247;
-        M 900,151 L 888,208 L 864,249;
-        M 900,149 L 893,208 L 873,251;
-        M 900,145 L 900,207 L 885,253;
-        M 900,142 L 906,205 L 896,252;
-        M 900,141 L 911,204 L 905,251;
-        M 900,143 L 914,203 L 910,250;
-        M 900,147 L 915,203 L 912,250;
-        M 900,151 L 915,203 L 912,250"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Back Robotic Leg (17 Keyframes) -->
-    <g opacity="0.38">
-      <path stroke="#38281a" stroke-width="7.5" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="
-          M 900,235 L 924,328;
-          M 899,235 L 920,329;
-          M 899,233 L 931,324;
-          M 898,229 L 946,312;
-          M 898,226 L 953,304;
-          M 898,225 L 958,300;
-          M 899,227 L 958,303;
-          M 899,231 L 953,310;
-          M 900,235 L 949,317;
-          M 901,235 L 947,319;
-          M 901,233 L 942,320;
-          M 902,229 L 932,320;
-          M 902,226 L 919,320;
-          M 902,225 L 915,320;
-          M 901,227 L 918,321;
-          M 901,231 L 923,324;
-          M 900,235 L 924,328"
-          dur="2.4s" repeatCount="indefinite"/>
-      </path>
-      <path stroke="#38281a" stroke-width="6.5" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="
-          M 924,328 L 891,418;
-          M 920,329 L 886,418;
-          M 931,324 L 884,408;
-          M 946,312 L 889,390;
-          M 953,304 L 902,385;
-          M 958,300 L 920,388;
-          M 958,303 L 936,396;
-          M 953,310 L 945,406;
-          M 949,317 L 948,413;
-          M 947,319 L 942,415;
-          M 942,320 L 935,416;
-          M 932,320 L 927,416;
-          M 919,320 L 919,416;
-          M 915,320 L 911,416;
-          M 918,321 L 904,416;
-          M 923,324 L 897,417;
-          M 924,328 L 891,418"
-          dur="2.4s" repeatCount="indefinite"/>
-      </path>
-    </g>
-
-    <!-- Automaton Spine & Bronze Pelvic Chassis (17 Keyframes) -->
-    <line x1="895" y1="156" x2="900" y2="235" stroke="#8c5a2b" stroke-width="3.8"/>
-    <rect x="883" width="20" height="64" rx="3" fill="#241a12" stroke="#c49a45" stroke-width="1.8">
-      <animate attributeName="y" values="175; 175; 173; 169; 166; 165; 167; 171; 175; 175; 173; 169; 166; 165; 167; 171; 175" dur="2.4s" repeatCount="indefinite"/>
-    </rect>
-
-    <!-- Pilot Automaton Brass Mask / Visor (17 Keyframes) -->
-    <rect x="887" width="26" height="26" rx="5" fill="#241a12" stroke="#d4af37" stroke-width="1.8">
-      <animate attributeName="y" values="105; 105; 103; 99; 96; 95; 97; 101; 105; 105; 103; 99; 96; 95; 97; 101; 105" dur="2.4s" repeatCount="indefinite"/>
-    </rect>
-
-    <!-- Front Carbon-Bronze Structural Spars (17 Keyframes) -->
-    <!-- Thigh Spar -->
-    <path stroke="#2d1e13" stroke-width="10" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 900,235 L 949,317;
-        M 901,235 L 947,319;
-        M 901,233 L 942,320;
-        M 902,229 L 932,320;
-        M 902,226 L 919,320;
-        M 902,225 L 915,320;
-        M 901,227 L 918,321;
-        M 901,231 L 923,324;
-        M 900,235 L 924,328;
-        M 899,235 L 920,329;
-        M 899,233 L 931,324;
-        M 898,229 L 946,312;
-        M 898,226 L 953,304;
-        M 898,225 L 958,300;
-        M 899,227 L 958,303;
-        M 899,231 L 953,310;
-        M 900,235 L 949,317"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#c49a45" stroke-width="2.2" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 900,235 L 949,317;
-        M 901,235 L 947,319;
-        M 901,233 L 942,320;
-        M 902,229 L 932,320;
-        M 902,226 L 919,320;
-        M 902,225 L 915,320;
-        M 901,227 L 918,321;
-        M 901,231 L 923,324;
-        M 900,235 L 924,328;
-        M 899,235 L 920,329;
-        M 899,233 L 931,324;
-        M 898,229 L 946,312;
-        M 898,226 L 953,304;
-        M 898,225 L 958,300;
-        M 899,227 L 958,303;
-        M 899,231 L 953,310;
-        M 900,235 L 949,317"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Shank Spar -->
-    <path stroke="#2d1e13" stroke-width="8.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 949,317 L 948,413;
-        M 947,319 L 942,415;
-        M 942,320 L 935,416;
-        M 932,320 L 927,416;
-        M 919,320 L 919,416;
-        M 915,320 L 911,416;
-        M 918,321 L 904,416;
-        M 923,324 L 897,417;
-        M 924,328 L 891,418;
-        M 920,329 L 886,418;
-        M 931,324 L 884,408;
-        M 946,312 L 889,390;
-        M 953,304 L 902,385;
-        M 958,300 L 920,388;
-        M 958,303 L 936,396;
-        M 953,310 L 945,406;
-        M 949,317 L 948,413"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#c49a45" stroke-width="1.8" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 949,317 L 948,413;
-        M 947,319 L 942,415;
-        M 942,320 L 935,416;
-        M 932,320 L 927,416;
-        M 919,320 L 919,416;
-        M 915,320 L 911,416;
-        M 918,321 L 904,416;
-        M 923,324 L 897,417;
-        M 924,328 L 891,418;
-        M 920,329 L 886,418;
-        M 931,324 L 884,408;
-        M 946,312 L 889,390;
-        M 953,304 L 902,385;
-        M 958,300 L 920,388;
-        M 958,303 L 936,396;
-        M 953,310 L 945,406;
-        M 949,317 L 948,413"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Foot Spar (17 Keyframes) -->
-    <path stroke="#2d1e13" stroke-width="6.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 938,430 L 978,421;
-        M 930,430 L 971,428;
-        M 922,430 L 963,430;
-        M 914,430 L 955,430;
-        M 906,430 L 947,430;
-        M 898,430 L 939,430;
-        M 891,430 L 932,430;
-        M 883,429 L 927,429;
-        M 876,425 L 923,430;
-        M 869,418 L 919,430;
-        M 867,408 L 916,421;
-        M 876,376 L 917,391;
-        M 890,370 L 930,383;
-        M 908,372 L 948,384;
-        M 924,381 L 964,392;
-        M 934,391 L 974,400;
-        M 938,430 L 978,421"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#c49a45" stroke-width="1.8" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 938,430 L 978,421;
-        M 930,430 L 971,428;
-        M 922,430 L 963,430;
-        M 914,430 L 955,430;
-        M 906,430 L 947,430;
-        M 898,430 L 939,430;
-        M 891,430 L 932,430;
-        M 883,429 L 927,429;
-        M 876,425 L 923,430;
-        M 869,418 L 919,430;
-        M 867,408 L 916,421;
-        M 876,376 L 917,391;
-        M 890,370 L 930,383;
-        M 908,372 L 948,384;
-        M 924,381 L 964,392;
-        M 934,391 L 974,400;
-        M 938,430 L 978,421"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Rotating Clockwork Spur Gears at Hip Joint -->
-    <g transform="translate(900, 235)">
-      <circle r="16" fill="#241a12" stroke="#c49a45" stroke-width="2"/>
-      <circle r="12" fill="none" stroke="#d4af37" stroke-width="1.2" stroke-dasharray="3 3">
-        <animate attributeName="stroke-dashoffset" values="0; 75.4" dur="2.4s" repeatCount="indefinite"/>
-      </circle>
-      <circle r="3.5" fill="#ffeed0"/>
-    </g>
-
-    <!-- Rotating Gear at Knee Joint (Centered & Smoothly Translated) -->
-    <g>
-      <circle r="14" fill="#241a12" stroke="#b87333" stroke-width="1.8">
-        <animate attributeName="cx" values="949; 947; 942; 932; 919; 915; 918; 923; 924; 920; 931; 946; 953; 958; 958; 953; 949" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="cy" values="317; 319; 320; 320; 320; 320; 321; 324; 328; 329; 324; 312; 304; 300; 303; 310; 317" dur="2.4s" repeatCount="indefinite"/>
-      </circle>
-      <circle r="10" fill="none" stroke="#c49a45" stroke-width="1.2" stroke-dasharray="2 3">
-        <animate attributeName="cx" values="949; 947; 942; 932; 919; 915; 918; 923; 924; 920; 931; 946; 953; 958; 958; 953; 949" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="cy" values="317; 319; 320; 320; 320; 320; 321; 324; 328; 329; 324; 312; 304; 300; 303; 310; 317" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="stroke-dashoffset" values="62.83; 0" dur="2.4s" repeatCount="indefinite"/>
-      </circle>
-      <circle r="3" fill="#ffeed0">
-        <animate attributeName="cx" values="949; 947; 942; 932; 919; 915; 918; 923; 924; 920; 931; 946; 953; 958; 958; 953; 949" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="cy" values="317; 319; 320; 320; 320; 320; 321; 324; 328; 329; 324; 312; 304; 300; 303; 310; 317" dur="2.4s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-
-    <!-- Dynamic Assistive Torque Arc during push-off (Active during push-off 0.38 - 0.58) -->
-    <path stroke="#d4af37" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0" filter="url(#goldGlow)">
-      <animate attributeName="d" values="
-        M 922,220 A 26,26 0 0,1 924,248;
-        M 924,222 A 26,26 0 0,1 926,250;
-        M 920,224 A 26,26 0 0,1 918,252;
-        M 914,226 A 26,26 0 0,1 910,254;
-        M 910,224 A 26,26 0 0,1 906,252;
-        M 906,220 A 26,26 0 0,1 904,248;
-        M 910,222 A 26,26 0 0,1 908,250;
-        M 914,224 A 26,26 0 0,1 912,252;
-        M 918,222 A 26,26 0 0,1 916,250;
-        M 922,220 A 26,26 0 0,1 924,248;
-        M 924,222 A 26,26 0 0,1 926,250;
-        M 920,224 A 26,26 0 0,1 918,252;
-        M 914,226 A 26,26 0 0,1 910,254;
-        M 910,224 A 26,26 0 0,1 906,252;
-        M 906,220 A 26,26 0 0,1 904,248;
-        M 910,222 A 26,26 0 0,1 908,250;
-        M 922,220 A 26,26 0 0,1 924,248"
-        dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0; 0; 0; 0; 0; 0; 0.4; 0.9; 1.0; 0.6; 0; 0; 0; 0; 0; 0; 0" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Front Robotic Arm (17 Keyframes) -->
-    <path stroke="#8c5a2b" stroke-width="4.6" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="
-        M 900,151 L 885,207 L 857,247;
-        M 900,151 L 888,208 L 864,249;
-        M 900,149 L 893,208 L 873,251;
-        M 900,145 L 900,207 L 885,253;
-        M 900,142 L 906,205 L 896,252;
-        M 900,141 L 911,204 L 905,251;
-        M 900,143 L 914,203 L 910,250;
-        M 900,147 L 915,203 L 912,250;
-        M 900,151 L 915,203 L 912,250;
-        M 900,151 L 914,205 L 909,252;
-        M 900,149 L 910,207 L 902,254;
-        M 900,145 L 904,208 L 892,255;
-        M 900,142 L 897,206 L 880,251;
-        M 900,141 L 891,204 L 870,246;
-        M 900,143 L 886,203 L 860,244;
-        M 900,147 L 884,204 L 855,243;
-        M 900,151 L 885,207 L 857,247"
-        dur="2.4s" repeatCount="indefinite"/>
-    </path>
+  <!-- ================= THE COMPLETE CHARACTER (COMPOSED EXCLUSIVELY OF @ SIGNS) ================= -->
+  <!-- Every single anatomical node of the character is strictly an @ sign: NO lines, NO dots, NO paths! -->
+  <g id="walking-at-character">
+    <!-- Background / Contralateral Arm (@) -->
+    <text class="at-node" x="104.5" y="81.7" font-size="13px" font-weight="600" fill="#555555">@
+      <animate attributeName="x" values="104.5;107.3;109.6;111.2;111.7;111.2;109.6;107.3;104.5;101.7;99.4;97.8;97.3;97.8;99.4;101.7;104.5" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="81.7;82.6;84.6;86.7;87.6;86.7;84.6;82.6;81.7;82.6;84.6;86.7;87.6;86.7;84.6;82.6;81.7" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="104.5" y="92.5" font-size="13px" font-weight="600" fill="#555555">@
+      <animate attributeName="x" values="104.5;109.0;112.8;115.2;116.1;115.2;112.8;109.0;104.5;100.0;96.2;93.8;92.9;93.8;96.2;100.0;104.5" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="92.5;93.2;94.9;96.7;97.4;96.7;94.9;93.2;92.5;93.2;94.9;96.7;97.4;96.7;94.9;93.2;92.5" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <!-- Background / Contralateral Leg (@) -->
+    <text class="at-node" x="103.4" y="106.4" font-size="14px" font-weight="600" fill="#555555">@
+      <animate attributeName="x" values="103.4;102.8;103.0;109.2;114.8;117.6;117.1;112.2;111.7;110.1;108.6;107.2;106.0;105.0;104.3;103.8;103.4" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="106.4;107.3;109.7;112.3;111.6;108.7;106.4;106.3;105.2;106.6;109.3;112.1;113.3;112.4;110.0;107.5;106.4" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="101.8" y="124.4" font-size="15px" font-weight="600" fill="#555555">@
+      <animate attributeName="x" values="101.8;100.0;99.8;111.8;122.8;128.6;127.9;118.7;118.4;115.9;113.4;111.1;108.8;106.7;104.9;103.4;101.8" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="124.4;125.1;127.4;130.1;127.7;123.0;120.8;123.1;121.9;123.6;126.7;129.6;131.1;130.3;128.0;125.5;124.4" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="96.1" y="143.8" font-size="14px" font-weight="600" fill="#555555">@
+      <animate attributeName="x" values="96.1;93.2;92.2;100.7;110.6;118.7;123.2;121.9;122.7;118.8;115.0;111.3;107.8;104.6;101.6;98.8;96.1" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="143.8;142.8;146.2;144.3;140.9;138.0;138.2;142.0;144.2;145.1;147.3;148.8;149.5;149.2;148.0;145.7;143.8" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="90.3" y="163.3" font-size="14px" font-weight="600" fill="#555555">@
+      <animate attributeName="x" values="90.3;86.4;84.7;89.7;98.4;108.8;118.5;125.1;127.0;121.7;116.6;111.6;106.9;102.4;98.2;94.2;90.3" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="163.3;160.6;165.1;158.5;154.1;153.1;155.5;160.9;166.5;166.5;168.0;168.0;168.0;168.0;168.0;166.0;163.3" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="103.0" y="160.5" font-size="13px" font-weight="600" fill="#555555">@
+      <animate attributeName="x" values="103.0;98.7;97.7;102.6;111.3;121.7;131.4;138.1;139.7;134.7;129.6;124.6;119.9;115.4;111.2;107.2;103.0" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="160.5;156.2;165.4;159.6;155.8;154.9;157.0;161.5;169.2;167.3;168.0;168.0;168.0;168.0;168.0;164.7;160.5" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <!-- Torso & Spine (@) -->
+    <text class="at-node" x="105.0" y="88.5" font-size="17px" font-weight="800" fill="#ffffff">@
+      <animate attributeName="x" values="105.0;105.7;106.3;106.7;106.8;106.7;106.3;105.7;105.0;104.3;103.7;103.3;103.2;103.3;103.7;104.3;105.0" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="88.5;89.5;92.0;94.5;95.5;94.5;92.0;89.5;88.5;89.5;92.0;94.5;95.5;94.5;92.0;89.5;88.5" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="104.5" y="68.5" font-size="17px" font-weight="800" fill="#ffffff">@
+      <animate attributeName="x" values="104.5;105.2;105.8;106.2;106.3;106.2;105.8;105.2;104.5;103.8;103.2;102.8;102.7;102.8;103.2;103.8;104.5" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="68.5;69.5;72.0;74.5;75.5;74.5;72.0;69.5;68.5;69.5;72.0;74.5;75.5;74.5;72.0;69.5;68.5" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="104.0" y="52.5" font-size="15px" font-weight="700" fill="#ffffff">@
+      <animate attributeName="x" values="104.0;104.7;105.3;105.7;105.8;105.7;105.3;104.7;104.0;103.3;102.7;102.3;102.2;102.3;102.7;103.3;104.0" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="52.5;53.5;56.0;58.5;59.5;58.5;56.0;53.5;52.5;53.5;56.0;58.5;59.5;58.5;56.0;53.5;52.5" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="104.0" y="34.5" font-size="24px" font-weight="900" fill="#ffffff">@
+      <animate attributeName="x" values="104.0;104.7;105.3;105.7;105.8;105.7;105.3;104.7;104.0;103.3;102.7;102.3;102.2;102.3;102.7;103.3;104.0" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="34.5;35.5;38.0;40.5;41.5;40.5;38.0;35.5;34.5;35.5;38.0;40.5;41.5;40.5;38.0;35.5;34.5" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <!-- Foreground / Primary Leg (@) -->
+    <text class="at-node" x="111.7" y="105.2" font-size="15px" font-weight="700" fill="#ffffff">@
+      <animate attributeName="x" values="111.7;111.5;111.1;110.5;109.6;108.3;106.9;105.2;103.4;101.5;100.5;105.9;111.2;114.3;114.5;110.8;111.7" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="105.2;106.6;109.3;112.1;113.3;112.4;110.0;107.5;106.4;107.3;109.7;112.3;111.6;108.7;106.4;106.3;105.2" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="118.4" y="121.9" font-size="16px" font-weight="800" fill="#ffffff">@
+      <animate attributeName="x" values="118.4;117.3;116.0;114.4;112.4;110.0;107.5;104.8;101.8;98.6;97.2;108.5;119.2;125.3;125.4;117.4;118.4" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="121.9;123.6;126.7;129.6;131.1;130.3;128.0;125.5;124.4;125.1;127.4;130.1;127.7;123.0;120.8;123.1;121.9" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="122.7" y="144.2" font-size="15px" font-weight="700" fill="#ffffff">@
+      <animate attributeName="x" values="122.7;120.2;117.5;114.7;111.4;107.9;104.1;100.2;96.1;91.8;89.7;97.4;107.0;115.4;120.7;120.5;122.7" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="144.2;145.1;147.3;148.8;149.5;149.2;148.0;145.7;143.8;142.8;146.2;144.3;140.9;138.0;138.2;142.0;144.2" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="127.0" y="166.5" font-size="15px" font-weight="700" fill="#ffffff">@
+      <animate attributeName="x" values="127.0;123.1;119.1;114.9;110.5;105.7;100.8;95.6;90.3;85.1;82.1;86.3;94.8;105.5;115.9;123.7;127.0" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="166.5;166.5;168.0;168.0;168.0;168.0;168.0;166.0;163.3;160.6;165.1;158.5;154.1;153.1;155.5;160.9;166.5" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="139.7" y="169.2" font-size="14px" font-weight="700" fill="#ffffff">@
+      <animate attributeName="x" values="139.7;136.1;132.1;127.9;123.5;118.7;113.8;108.5;103.0;97.3;95.1;99.3;107.7;118.4;128.9;136.7;139.7" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="169.2;167.3;168.0;168.0;168.0;168.0;168.0;164.7;160.5;156.2;165.4;159.6;155.8;154.9;157.0;161.5;169.2" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <!-- Foreground / Primary Arm (@) -->
+    <text class="at-node" x="104.5" y="81.7" font-size="14px" font-weight="700" fill="#ffffff">@
+      <animate attributeName="x" values="104.5;103.1;101.9;101.2;100.9;101.2;101.9;103.1;104.5;105.9;107.1;107.8;108.1;107.8;107.1;105.9;104.5" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="81.7;82.6;84.6;86.7;87.6;86.7;84.6;82.6;81.7;82.6;84.6;86.7;87.6;86.7;84.6;82.6;81.7" dur="1.25s" repeatCount="indefinite"/>
+    </text>
+    <text class="at-node" x="104.5" y="92.5" font-size="14px" font-weight="700" fill="#ffffff">@
+      <animate attributeName="x" values="104.5;101.3;98.7;97.1;96.5;97.1;98.7;101.3;104.5;107.7;110.3;111.9;112.5;111.9;110.3;107.7;104.5" dur="1.25s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="92.5;93.2;94.9;96.7;97.4;96.7;94.9;93.2;92.5;93.2;94.9;96.7;97.4;96.7;94.9;93.2;92.5" dur="1.25s" repeatCount="indefinite"/>
+    </text>
   </g>
 </svg>

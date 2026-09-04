@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/algorithmic-locomotion.svg" alt="Codex Locomotionis: Vitruvian Biomechatronics &amp; Exoskeleton Automaton Co-Simulation" width="100%">
+  <img src="./assets/algorithmic-locomotion.svg" alt="Animated @ Character Walking and Bringing Doctoral Research Information" width="100%">
 </p>
 
 <h1 align="center">Hamza Azam</h1>
@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <a href="https://mohamzaazam.github.io"><img src="https://img.shields.io/badge/Website-mohamzaazam.github.io-b87333?style=flat-square&logo=google-chrome&logoColor=white" alt="Personal Website"></a>
-  <a href="https://orcid.org/0000-0002-3508-7332"><img src="https://img.shields.io/badge/ORCID-0000--0002--3508--7332-d4af37?style=flat-square&logo=orcid&logoColor=white" alt="ORCID"></a>
-  <a href="https://scholar.google.com/citations?user=laEDQTkAAAAJ&hl=en"><img src="https://img.shields.io/badge/Google_Scholar-Citations-8c5a2b?style=flat-square&logo=google-scholar&logoColor=white" alt="Google Scholar"></a>
+  <a href="https://mohamzaazam.github.io"><img src="https://img.shields.io/badge/Website-Portfolio-181818?style=flat-square&logo=google-chrome&logoColor=white" alt="Personal Website"></a>
+  <a href="https://orcid.org/0000-0002-3508-7332"><img src="https://img.shields.io/badge/ORCID-0000--0002--3508--7332-181818?style=flat-square&logo=orcid&logoColor=white" alt="ORCID"></a>
+  <a href="https://scholar.google.com/citations?user=laEDQTkAAAAJ&hl=en"><img src="https://img.shields.io/badge/Google_Scholar-Citations-181818?style=flat-square&logo=google-scholar&logoColor=white" alt="Google Scholar"></a>
 </p>
 
 ---

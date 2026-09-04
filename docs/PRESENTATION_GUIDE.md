@@ -100,4 +100,3 @@ Use [`embed/snippet.html`](../embed/snippet.html), a responsive, self-contained 
 - **Personal Website**: [`mohamzaazam.github.io`](https://mohamzaazam.github.io)
 - **ORCID**: [`0000-0002-3508-7332`](https://orcid.org/0000-0002-3508-7332)
 - **Google Scholar**: [`Hamza Azam`](https://scholar.google.com/citations?user=laEDQTkAAAAJ&hl=en)
-- **Email**: [`mohamzaazam@gmail.com`](mailto:mohamzaazam@gmail.com)
