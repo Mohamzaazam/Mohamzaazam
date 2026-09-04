@@ -1,6 +1,6 @@
 /**
- * Hamza Azam · Algorithmic Kinematic Wireframe & State-Space Geometry Renderer
- * Precision HTML5 Canvas CAD drafting engine for co-simulation locomotion.
+ * Hamza Azam · Vitruvian Biomechatronics & Renaissance Codex Canvas Renderer
+ * Leonardo da Vinci Anatomical Study & Clockwork Automaton Co-Simulation Engine
  * Zhejiang University · Ningbo Global Innovation Center
  */
 
@@ -8,7 +8,10 @@ class CadRenderer {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
-    this.stateSpace = new (window.StateSpaceVisualizer || require('./state-space').StateSpaceVisualizer)();
+    const StateSpaceClass = (typeof window !== 'undefined' && window.StateSpaceVisualizer)
+      ? window.StateSpaceVisualizer
+      : require('./state-space').StateSpaceVisualizer;
+    this.stateSpace = new StateSpaceClass();
   }
 
   /**
@@ -22,354 +25,692 @@ class CadRenderer {
 
     ctx.clearRect(0, 0, w, h);
 
-    // 1. Technical CAD Millimeter Grid
-    this.drawCadGrid(w, h);
+    // 1. Aged Renaissance Codex Parchment & Vitruvian Geometry
+    this.drawCodexParchment(w, h);
 
-    // 2. Precision Ground Datum Line & Millimeter Ticks
-    this.drawGroundDatum(w, groundY);
+    // 2. Antique Engraved Copperplate Ground Datum Baseline (with synchronized treadmill track ticks)
+    this.drawCopperplateDatum(w, groundY, state.phase);
 
     // 3. Kinematic Solvers
-    const k = (window.KinematicsEngine || require('./kinematics')).getKinematics(state.phase, state.walkSpeed);
-    const solveChain = (window.KinematicsEngine || require('./kinematics')).solveKinematicChain;
+    const kinEngine = (typeof window !== 'undefined' && window.KinematicsEngine)
+      ? window.KinematicsEngine
+      : require('./kinematics');
+    const k = kinEngine.getKinematics(state.phase, state.walkSpeed);
+    const solveChain = kinEngine.solveKinematicChain;
 
     const bioX = state.viewMode === 'bio' ? w / 2 : (state.viewMode === 'both' ? 240 : -999);
     const exoX = state.viewMode === 'exo' ? w / 2 : (state.viewMode === 'both' ? w - 240 : -999);
     const centerOrbX = w / 2;
-    const centerOrbY = groundY - 180;
+    const centerOrbY = groundY - 185;
 
-    // 4. Render Neuromusculoskeletal Model
+    // 4. Render Biological Anatomical Model (Leonardo da Vinci Codex Style)
     if (state.viewMode === 'both' || state.viewMode === 'bio') {
       const bioFront = solveChain(bioX, groundY, k, false);
       const bioBack = solveChain(bioX, groundY, k, true);
-      this.drawMusculoskeletalModel(bioX, groundY, k, bioFront, bioBack, state);
+      this.drawAnatomicalVitruvianModel(bioX, groundY, k, bioFront, bioBack, state);
     }
 
-    // 5. Render Wearable Powered Exoskeleton
+    // 5. Render Wearable Powered Exoskeleton (Renaissance Clockwork Automaton)
     if (state.viewMode === 'both' || state.viewMode === 'exo') {
       const exoFront = solveChain(exoX, groundY, k, false);
       const exoBack = solveChain(exoX, groundY, k, true);
-      this.drawExoskeletonModel(exoX, groundY, k, exoFront, exoBack, state);
+      this.drawClockworkAutomatonModel(exoX, groundY, k, exoFront, exoBack, state);
     }
 
-    // 6. Render State-Space Phase Portrait (In Center when in Coupled mode)
+    // 6. Render Astrolabe State-Space Phase Portrait
     if (state.viewMode === 'both') {
-      this.stateSpace.render(ctx, centerOrbX, centerOrbY, 190, k);
-      this.drawCoSimulationStreams(bioX, exoX, centerOrbX, centerOrbY);
+      this.stateSpace.render(ctx, centerOrbX, centerOrbY, 205, k);
+      this.drawQuillDataStreams(bioX, exoX, centerOrbX, centerOrbY);
     } else {
-      // In single view mode, render state space in corner
-      this.stateSpace.render(ctx, w - 120, 115, 170, k);
+      this.stateSpace.render(ctx, w - 125, 120, 180, k);
     }
   }
 
   /**
-   * Draws fine blueprint background grid with millimeter divisions.
+   * Draws aged Renaissance parchment texture, Vitruvian circles, and manuscript annotations.
    */
-  drawCadGrid(w, h) {
+  drawCodexParchment(w, h) {
     const { ctx } = this;
     ctx.save();
 
-    // Fine grid lines
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.04)';
-    ctx.lineWidth = 0.6;
-    const step = 20;
-    for (let x = 0; x < w; x += step) {
-      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
-    }
-    for (let y = 0; y < h; y += step) {
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
-    }
+    // Dark Antique Parchment Gradient
+    const bgGrad = ctx.createRadialGradient(w / 2, h / 2, 50, w / 2, h / 2, Math.max(w, h) * 0.75);
+    bgGrad.addColorStop(0, '#1c150e');
+    bgGrad.addColorStop(0.55, '#160f09');
+    bgGrad.addColorStop(1, '#0c0805');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, w, h);
 
-    // Major grid lines
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.09)';
+    // Vitruvian Squaring-the-Circle & Harmonic Proportions
+    ctx.strokeStyle = 'rgba(196, 154, 69, 0.07)';
     ctx.lineWidth = 1.0;
-    const majorStep = 100;
-    for (let x = 0; x < w; x += majorStep) {
-      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
-    }
-    for (let y = 0; y < h; y += majorStep) {
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
-    }
 
-    // Top Datum Ruler
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
-    ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(20, 18); ctx.lineTo(w - 20, 18); ctx.stroke();
-    for (let x = 20; x <= w - 20; x += 50) {
-      ctx.beginPath(); ctx.moveTo(x, 14); ctx.lineTo(x, 22); ctx.stroke();
-    }
-
-    ctx.restore();
-  }
-
-  /**
-   * Draws ground datum line with millimeter calibration ticks.
-   */
-  drawGroundDatum(w, groundY) {
-    const { ctx } = this;
-    ctx.save();
-
-    // Gradient Ground Plane
-    const grad = ctx.createLinearGradient(0, 0, w, 0);
-    grad.addColorStop(0, 'rgba(239, 68, 68, 0.1)');
-    grad.addColorStop(0.3, 'rgba(239, 68, 68, 0.8)');
-    grad.addColorStop(0.5, 'rgba(16, 185, 129, 0.9)');
-    grad.addColorStop(0.7, 'rgba(6, 182, 212, 0.8)');
-    grad.addColorStop(1, 'rgba(6, 182, 212, 0.1)');
-
-    ctx.strokeStyle = grad;
-    ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(30, groundY); ctx.lineTo(w - 30, groundY); ctx.stroke();
-
-    // Ground Calibration Ticks
-    ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
-    ctx.lineWidth = 1;
-    for (let x = 40; x < w - 40; x += 40) {
-      ctx.beginPath(); ctx.moveTo(x, groundY); ctx.lineTo(x, groundY + 6); ctx.stroke();
-    }
-
-    ctx.restore();
-  }
-
-  /**
-   * Renders the Neuromusculoskeletal Kinematic Wireframe with muscle action cables.
-   */
-  drawMusculoskeletalModel(cx, groundY, k, front, back, state) {
-    const { ctx } = this;
-    ctx.save();
-
-    // 1. Back Arm
-    this.drawLimb(back.shoulder, back.elbow, back.wrist, '#475569', 3.0, 0.35);
-
-    // 2. Back Leg (Femur & Tibia)
-    this.drawLimb(back.hip, back.knee, back.ankle, '#94a3b8', 4.5, 0.35);
-    ctx.strokeStyle = '#94a3b8';
-    ctx.lineWidth = 3.5;
-    ctx.beginPath(); ctx.moveTo(back.heel.x, back.heel.y); ctx.lineTo(back.toe.x, back.toe.y); ctx.stroke();
-
-    // 3. Torso: Spine Column with traveling Action Potential
-    ctx.strokeStyle = '#cbd5e1';
-    ctx.lineWidth = 4.5;
-    ctx.beginPath(); ctx.moveTo(cx, front.pelvisY); ctx.lineTo(cx, front.shoulderY); ctx.stroke();
-
-    // Neural Pulse Traveling
-    ctx.strokeStyle = '#fbbf24';
-    ctx.lineWidth = 2.5;
-    ctx.setLineDash([6, 12]);
-    ctx.lineDashOffset = -(state.phase * 40);
-    ctx.beginPath(); ctx.moveTo(cx, front.shoulderY); ctx.lineTo(cx, front.pelvisY); ctx.stroke();
-    ctx.setLineDash([]);
-
-    // Pelvis Bone Ring
-    ctx.fillStyle = 'rgba(203, 213, 225, 0.25)';
-    ctx.strokeStyle = '#e2e8f0';
-    ctx.lineWidth = 2;
+    // Central Vitruvian Canon Circle
     ctx.beginPath();
-    ctx.ellipse(cx, front.pelvisY, 16, 8, 0, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.arc(w / 2, h / 2 - 20, 190, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Skull Outline
-    ctx.fillStyle = 'rgba(248, 250, 252, 0.15)';
-    ctx.strokeStyle = '#f8fafc';
+    // Secondary Harmonics
+    ctx.beginPath();
+    ctx.arc(w / 2, h / 2 - 20, 130, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Vitruvian Square
+    ctx.strokeRect(w / 2 - 190, h / 2 - 210, 380, 380);
+
+    // Diagonal Golden Ratio Lines
+    ctx.setLineDash([4, 6]);
+    ctx.beginPath();
+    ctx.moveTo(w / 2 - 190, h / 2 - 210);
+    ctx.lineTo(w / 2 + 190, h / 2 + 170);
+    ctx.moveTo(w / 2 + 190, h / 2 - 210);
+    ctx.lineTo(w / 2 - 190, h / 2 + 170);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Manuscript ruling lines
+    ctx.strokeStyle = 'rgba(196, 154, 69, 0.04)';
+    ctx.lineWidth = 0.6;
+    for (let y = 30; y < h - 20; y += 22) {
+      ctx.beginPath(); ctx.moveTo(25, y); ctx.lineTo(w - 25, y); ctx.stroke();
+    }
+
+    // Antique Top Caliper Datum Bar
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.28)';
+    ctx.lineWidth = 1.0;
+    ctx.beginPath(); ctx.moveTo(35, 24); ctx.lineTo(w - 35, 24); ctx.stroke();
+
+    // Roman Numerals & Caliper Ticks
+    for (let x = 40; x <= w - 40; x += 60) {
+      ctx.beginPath(); ctx.moveTo(x, 20); ctx.lineTo(x, 28); ctx.stroke();
+    }
+
+    ctx.fillStyle = '#9e8162';
+    ctx.font = 'italic 9px "Cinzel", "Palatino Linotype", Georgia, serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('LIBER PRIMUS · DE MOTU ANIMALIUM ET ARTICULIS', 40, 17);
+    ctx.textAlign = 'right';
+    ctx.fillText('ZHEJIANGENSIS UNIVERSITAS · CODEX AZAM', w - 40, 17);
+
+    ctx.restore();
+  }
+
+  /**
+   * Draws antique engraved copperplate datum floor line with synchronized moving calibration ticks.
+   */
+  drawCopperplateDatum(w, groundY, phase) {
+    const { ctx } = this;
+    ctx.save();
+
+    // Burnished Copper & Gold Floor Gradient
+    const floorGrad = ctx.createLinearGradient(0, 0, w, 0);
+    floorGrad.addColorStop(0, 'rgba(184, 115, 51, 0.1)');
+    floorGrad.addColorStop(0.25, 'rgba(196, 154, 69, 0.85)');
+    floorGrad.addColorStop(0.5, 'rgba(212, 175, 55, 0.95)');
+    floorGrad.addColorStop(0.75, 'rgba(184, 115, 51, 0.85)');
+    floorGrad.addColorStop(1, 'rgba(184, 115, 51, 0.1)');
+
+    ctx.strokeStyle = floorGrad;
+    ctx.lineWidth = 2.4;
+    ctx.beginPath();
+    ctx.moveTo(30, groundY);
+    ctx.lineTo(w - 30, groundY);
+    ctx.stroke();
+
+    // Synchronized Moving Caliper Ticks (Treadmill Belt Motion)
+    // Moving rearward at the stance foot velocity: (2 * STRIDE_HALF / 0.60)
+    const tickSpacing = 20;
+    const beltDist = (phase / 0.60) * (2 * 38);
+    const offset = beltDist % tickSpacing;
+
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.6)';
+    ctx.lineWidth = 1.2;
+    for (let x = 35 + ((tickSpacing - offset) % tickSpacing); x < w - 35; x += tickSpacing) {
+      ctx.beginPath();
+      ctx.moveTo(x, groundY);
+      ctx.lineTo(x, groundY + 5);
+      ctx.stroke();
+    }
+
+    // Engraved diagonal cross-hatching beneath datum
+    ctx.strokeStyle = 'rgba(158, 129, 98, 0.30)';
+    ctx.lineWidth = 0.8;
+    for (let x = 45; x < w - 45; x += 16) {
+      ctx.beginPath();
+      ctx.moveTo(x, groundY + 5);
+      ctx.lineTo(x - 8, groundY + 13);
+      ctx.stroke();
+    }
+
+    // Roman Numerals along ground line
+    ctx.fillStyle = '#9e8162';
+    ctx.font = 'bold 8.5px "Cinzel", Georgia, serif';
+    ctx.textAlign = 'center';
+    const romanMarks = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
+    romanMarks.forEach((num, idx) => {
+      const rx = 80 + idx * ((w - 160) / 10);
+      ctx.fillText(num, rx, groundY + 22);
+    });
+
+    ctx.restore();
+  }
+
+  /**
+   * Renders the Biological Musculoskeletal Human in Leonardo da Vinci's Anatomical Codex style.
+   */
+  drawAnatomicalVitruvianModel(cx, groundY, k, front, back, state) {
+    const { ctx } = this;
+    ctx.save();
+
+    // 0. Soft Ground Contact Shadow under stance foot
+    if (front.isStance) {
+      ctx.fillStyle = 'rgba(28, 18, 11, 0.45)';
+      ctx.beginPath();
+      ctx.ellipse((front.heel.x + front.toe.x) / 2, groundY + 2, 26, 4, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // 1. Back Arm (Leonardo Sepia Wash)
+    this.drawLimbBone(back.shoulder, back.elbow, back.wrist, '#5c4533', 3.0, 0.38);
+
+    // 2. Back Leg (Femur, Tibia, and Foot with faint sepia wash)
+    this.drawLimbBone(back.hip, back.knee, back.ankle, '#705741', 4.5, 0.4);
+    this.drawAnatomicalFoot(back, '#705741', 0.4);
+
+    // 3. Torso: Vertebral Column & Sanguine Neural Action Potentials
+    // Spine vertebrae bones
+    ctx.strokeStyle = '#e8dec4';
+    ctx.lineWidth = 4.5;
+    ctx.beginPath();
+    ctx.moveTo(cx, front.pelvisY);
+    ctx.lineTo(cx, front.shoulderY);
+    ctx.stroke();
+
+    // Classical Sanguine Neural Pulse (Amber-Gold Traveling Action Potential)
+    ctx.strokeStyle = '#d4af37';
+    ctx.lineWidth = 2.5;
+    ctx.setLineDash([5, 12]);
+    ctx.lineDashOffset = -(state.phase * 45);
+    ctx.beginPath();
+    ctx.moveTo(cx, front.shoulderY);
+    ctx.lineTo(cx, front.pelvisY);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Anatomical Pelvis Bone Basin (Iliac Crest & Sacrum)
+    ctx.fillStyle = 'rgba(232, 222, 196, 0.22)';
+    ctx.strokeStyle = '#e8dec4';
     ctx.lineWidth = 1.8;
     ctx.beginPath();
-    ctx.ellipse(cx, front.shoulderY - 32, 11, 14, 0, 0, Math.PI * 2);
+    ctx.ellipse(cx, front.pelvisY, 17, 9, (front.thighAngle * 0.2), 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
 
-    // 4. Front Leg: Muscle Lines of Action Force Cables
-    const isPushOff = state.phase >= 0.35 && state.phase <= 0.55;
-    const isStance = state.phase <= 0.60;
-
-    // Rectus Femoris (Anterior Thigh Cable)
-    ctx.strokeStyle = isStance ? '#ef4444' : 'rgba(239, 68, 68, 0.5)';
-    ctx.lineWidth = isStance ? 3.5 : 2.2;
+    // Leonardo Vitruvian Skull Silhouette
+    ctx.fillStyle = 'rgba(245, 239, 224, 0.18)';
+    ctx.strokeStyle = '#f5efe0';
+    ctx.lineWidth = 1.6;
     ctx.beginPath();
-    ctx.moveTo(front.hip.x - 6, front.hip.y + 4);
-    ctx.quadraticCurveTo(
-      front.hip.x - 16 * Math.cos(front.hipAngle),
-      (front.hip.y + front.knee.y) / 2,
-      front.knee.x - 3,
-      front.knee.y - 4
-    );
+    ctx.ellipse(cx, front.shoulderY - 32, 11, 14, 0.05, 0, Math.PI * 2);
+    ctx.fill();
     ctx.stroke();
 
-    // Hamstrings (Posterior Thigh Cable)
-    ctx.strokeStyle = isStance ? '#f97316' : 'rgba(249, 115, 22, 0.5)';
-    ctx.lineWidth = isStance ? 3.2 : 2.0;
-    ctx.setLineDash([5, 3]);
-    ctx.beginPath();
-    ctx.moveTo(front.hip.x + 6, front.hip.y + 6);
-    ctx.quadraticCurveTo(
-      front.hip.x + 14 * Math.cos(front.hipAngle),
-      (front.hip.y + front.knee.y) / 2,
-      front.knee.x + 3,
-      front.knee.y - 2
+    // 4. Front Leg: Anatomical Muscle Bellies with Sanguine / Sepia Cross-Hatching
+    const m = front.muscles;
+
+    // A. Gluteus Maximus (Posterior Hip Extensor - peaks at Initial Contact)
+    this.drawAnatomicalMuscleBelly(
+      { x: cx + 4, y: front.pelvisY - 4 },
+      { x: front.hip.x + 8, y: front.hip.y + 18 },
+      14 * Math.cos(front.thighAngle),
+      m.gluteus,
+      '#a84e32',
+      'Gluteus'
     );
-    ctx.stroke();
-    ctx.setLineDash([]);
 
-    // Gastrocnemius (Calf Cable)
-    ctx.strokeStyle = isPushOff ? '#fbbf24' : '#ef4444';
-    ctx.lineWidth = isPushOff ? 4.0 : 2.5;
-    ctx.beginPath();
-    ctx.moveTo(front.knee.x + 2, front.knee.y + 4);
-    ctx.quadraticCurveTo(
-      front.knee.x + 16 * Math.cos(front.shankAngle),
-      (front.knee.y + front.ankle.y) / 2,
-      front.heel.x + 1,
-      front.heel.y - 4
+    // B. Quadriceps / Rectus Femoris (Anterior Thigh Muscle Belly)
+    this.drawAnatomicalMuscleBelly(
+      { x: front.hip.x - 6, y: front.hip.y + 4 },
+      { x: front.knee.x - 4, y: front.knee.y - 6 },
+      -18 * Math.cos(front.thighAngle),
+      m.rectusFemoris,
+      '#c85a3a', // sanguine terracotta
+      'Rectus Femoris'
     );
+
+    // C. Hamstrings / Biceps Femoris (Posterior Thigh Muscle Belly)
+    this.drawAnatomicalMuscleBelly(
+      { x: front.hip.x + 6, y: front.hip.y + 6 },
+      { x: front.knee.x + 4, y: front.knee.y - 4 },
+      16 * Math.cos(front.thighAngle),
+      m.hamstrings,
+      '#8c4227', // deep sepia sanguine
+      'Hamstrings'
+    );
+
+    // D. Gastrocnemius & Soleus (Calf Muscle Bellies)
+    this.drawAnatomicalMuscleBelly(
+      { x: front.knee.x + 3, y: front.knee.y + 6 },
+      { x: front.heel.x + 2, y: front.heel.y - 12 },
+      17 * Math.cos(front.shankAngle),
+      m.gastrocnemius,
+      front.isPushOff ? '#d4af37' : '#c85a3a', // gold during propulsive push-off!
+      'Gastrocnemius'
+    );
+
+    // E. Tibialis Anterior (Shin Muscle)
+    this.drawAnatomicalMuscleBelly(
+      { x: front.knee.x - 3, y: front.knee.y + 8 },
+      { x: front.ankle.x - 2, y: front.ankle.y - 2 },
+      -8 * Math.cos(front.shankAngle),
+      m.tibialis,
+      '#a84e32',
+      'Tibialis Ant.'
+    );
+
+    // F. Fibrous Tendons (Patellar Ligament & Calcaneal Achilles Tendon)
+    // Achilles Tendon: from gastrocnemius insertion down to calcaneus heel
+    ctx.strokeStyle = '#e8dec4';
+    ctx.lineWidth = 2.4;
+    ctx.beginPath();
+    ctx.moveTo(front.knee.x + 4 * Math.sin(front.shankAngle), front.knee.y + 45 * Math.cos(front.shankAngle));
+    ctx.lineTo(front.heel.x, front.heel.y);
     ctx.stroke();
 
-    // 5. Front Bones
-    this.drawLimb(front.hip, front.knee, front.ankle, '#f1f5f9', 6.0, 1.0);
-    ctx.strokeStyle = '#f1f5f9';
-    ctx.lineWidth = 4.5;
-    ctx.beginPath(); ctx.moveTo(front.heel.x, front.heel.y); ctx.lineTo(front.toe.x, front.toe.y); ctx.stroke();
+    // Patellar Ligament: from patella to tibial tuberosity
+    ctx.strokeStyle = '#e8dec4';
+    ctx.lineWidth = 2.6;
+    ctx.beginPath();
+    ctx.moveTo(front.knee.x - 2, front.knee.y);
+    ctx.lineTo(front.knee.x - 1, front.knee.y + 14);
+    ctx.stroke();
 
-    // 6. Coordinate Reference Triads (Hip & Knee)
-    this.drawCoordinateTriad(front.hipTriad, 'H{1}');
-    this.drawCoordinateTriad(front.kneeTriad, 'K{2}');
-    this.drawCoordinateTriad(front.ankleTriad, 'A{3}');
+    // 5. Bones of the Front Leg (Vellum Ivory with Sepia Shading)
+    this.drawLimbBone(front.hip, front.knee, front.ankle, '#f5efe0', 5.8, 1.0);
+
+    // Anatomical Foot Bone Structure (Calcaneus Heel, Ankle, Ball, and Metatarsal Toe)
+    this.drawAnatomicalFoot(front, '#f5efe0', 1.0);
+
+    // 6. Renaissance Calipers / Angle Measurement Arcs
+    this.drawCaliperArc(front.hip.x, front.hip.y, 24, Math.PI / 2, Math.PI / 2 - front.thighAngle, 'θ_coxa');
+    this.drawCaliperArc(front.knee.x, front.knee.y, 20, front.thighAngle + Math.PI / 2, front.shankAngle + Math.PI / 2, 'θ_genu');
 
     // 7. Front Arm
-    this.drawLimb(front.shoulder, front.elbow, front.wrist, '#cbd5e1', 3.5, 1.0);
+    this.drawLimbBone(front.shoulder, front.elbow, front.wrist, '#e8dec4', 3.6, 1.0);
 
-    // 8. Labels
-    ctx.fillStyle = '#ef4444';
-    ctx.font = 'bold 11px monospace';
+    // 8. Model Title Callout (Renaissance Parchment Scroll Style)
+    ctx.fillStyle = '#d4af37';
+    ctx.font = 'bold 11px "Cinzel", "Palatino Linotype", Georgia, serif';
     ctx.textAlign = 'center';
-    ctx.fillText('NEUROMUSCULOSKELETAL MODEL', cx, groundY + 28);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '9.5px monospace';
-    ctx.fillText('ESWA 2026 · Inverse Dynamics', cx, groundY + 44);
+    ctx.fillText('HOMO VITRUVIANUS · ANATOMIA', cx, groundY + 38);
+
+    ctx.fillStyle = '#9e8162';
+    ctx.font = 'italic 9.5px "Cinzel", Georgia, serif';
+    ctx.fillText('ESWA 2026 · Dynamic Joint Moments', cx, groundY + 52);
 
     ctx.restore();
   }
 
   /**
-   * Renders the Wearable Powered Exoskeleton with actuator gearheads and torque vectors.
+   * Renders the Wearable Powered Exoskeleton in Leonardo's Mechanical Knight Automaton style.
    */
-  drawExoskeletonModel(cx, groundY, k, front, back, state) {
+  drawClockworkAutomatonModel(cx, groundY, k, front, back, state) {
     const { ctx } = this;
     ctx.save();
 
-    // 1. Back Robotic Arm
-    this.drawLimb(back.shoulder, back.elbow, back.wrist, '#334155', 4.5, 0.4);
+    // 0. Soft Ground Shadow under stance foot
+    if (front.isStance) {
+      ctx.fillStyle = 'rgba(28, 18, 11, 0.45)';
+      ctx.beginPath();
+      ctx.ellipse((front.heel.x + front.toe.x) / 2, groundY + 2, 28, 4, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
 
-    // 2. Back Robotic Leg
-    this.drawLimb(back.hip, back.knee, back.ankle, '#1e293b', 7.5, 0.35);
-    ctx.strokeStyle = '#06b6d4';
-    ctx.lineWidth = 1.8;
-    ctx.beginPath(); ctx.moveTo(back.hip.x, back.hip.y); ctx.lineTo(back.knee.x, back.knee.y); ctx.lineTo(back.ankle.x, back.ankle.y); ctx.stroke();
+    // 1. Back Robotic Automaton Arm
+    this.drawLimbBone(back.shoulder, back.elbow, back.wrist, '#4a3625', 4.5, 0.35);
 
-    // 3. Exoskeleton Rigid Spine & Pelvic Chassis Hub
-    ctx.strokeStyle = '#0284c7';
+    // 2. Back Automaton Leg
+    this.drawLimbBone(back.hip, back.knee, back.ankle, '#38281a', 7.0, 0.35);
+    ctx.strokeStyle = '#c49a45';
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.moveTo(back.hip.x, back.hip.y);
+    ctx.lineTo(back.knee.x, back.knee.y);
+    ctx.lineTo(back.ankle.x, back.ankle.y);
+    ctx.stroke();
+
+    // 3. Automaton Rigid Spine & Pelvic Chassis Hub
+    ctx.strokeStyle = '#8c5a2b';
     ctx.lineWidth = 3.5;
-    ctx.beginPath(); ctx.moveTo(cx - 4, front.pelvisY - 75); ctx.lineTo(cx, front.pelvisY); ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(cx - 5, front.pelvisY - 76);
+    ctx.lineTo(cx, front.pelvisY);
+    ctx.stroke();
 
-    ctx.fillStyle = '#0f172a';
-    ctx.strokeStyle = '#38bdf8';
+    // Bronze Chassis Box with Brass Rivets
+    ctx.fillStyle = '#241a12';
+    ctx.strokeStyle = '#c49a45';
     ctx.lineWidth = 1.8;
-    ctx.fillRect(cx - 16, front.pelvisY - 60, 18, 64);
-    ctx.strokeRect(cx - 16, front.pelvisY - 60, 18, 64);
+    ctx.fillRect(cx - 17, front.pelvisY - 60, 20, 64);
+    ctx.strokeRect(cx - 17, front.pelvisY - 60, 20, 64);
 
-    // Status LEDs
-    ctx.fillStyle = '#10b981';
-    ctx.beginPath(); ctx.arc(cx - 7, front.pelvisY - 40, 2.5, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#38bdf8';
-    ctx.beginPath(); ctx.arc(cx - 7, front.pelvisY - 30, 2.5, 0, Math.PI * 2); ctx.fill();
+    // Brass Rivets on Chassis
+    ctx.fillStyle = '#d4af37';
+    [-52, -38, -24, -10].forEach(dy => {
+      ctx.beginPath(); ctx.arc(cx - 7, front.pelvisY + dy, 2.2, 0, Math.PI * 2); ctx.fill();
+    });
 
-    // Pilot Cybernetic Visor
-    ctx.fillStyle = 'rgba(30, 41, 59, 0.5)';
-    ctx.strokeStyle = '#06b6d4';
+    // Pilot Automaton Visor / Brass Mask
+    ctx.fillStyle = 'rgba(36, 26, 18, 0.85)';
+    ctx.strokeStyle = '#d4af37';
     ctx.lineWidth = 1.8;
     ctx.beginPath();
-    ctx.roundRect(cx - 12, front.shoulderY - 42, 24, 26, 4);
+    ctx.roundRect(cx - 13, front.shoulderY - 42, 26, 26, 5);
     ctx.fill();
     ctx.stroke();
 
-    // 4. Front Carbon-Fiber Structural Spars
-    ctx.strokeStyle = '#0f172a';
-    ctx.lineWidth = 10;
-    ctx.beginPath(); ctx.moveTo(front.hip.x, front.hip.y); ctx.lineTo(front.knee.x, front.knee.y); ctx.stroke();
-    ctx.strokeStyle = '#06b6d4';
-    ctx.lineWidth = 2.5;
-    ctx.beginPath(); ctx.moveTo(front.hip.x, front.hip.y); ctx.lineTo(front.knee.x, front.knee.y); ctx.stroke();
+    // 4. Articulated Bronze & Copper Structural Spars
+    // Thigh Spar (Antique Bronze Plate)
+    this.drawBronzeSpar(front.hip, front.knee, 10, '#2d1e13', '#c49a45');
+    // Shank Spar
+    this.drawBronzeSpar(front.knee, front.ankle, 8.5, '#2d1e13', '#c49a45');
+    // Articulated Foot Spar (Heel to Ball to Toe)
+    this.drawBronzeSpar(front.heel, front.ball, 6, '#2d1e13', '#c49a45');
+    this.drawBronzeSpar(front.ball, front.toe, 5, '#2d1e13', '#c49a45');
 
-    ctx.strokeStyle = '#0f172a';
-    ctx.lineWidth = 8;
-    ctx.beginPath(); ctx.moveTo(front.knee.x, front.knee.y); ctx.lineTo(front.ankle.x, front.ankle.y); ctx.stroke();
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 2.2;
-    ctx.beginPath(); ctx.moveTo(front.knee.x, front.knee.y); ctx.lineTo(front.ankle.x, front.ankle.y); ctx.stroke();
+    // 5. Clockwork Spur Gears & Harmonic Drives at Joints
+    // Hip Actuator Harmonic Gearhead (Rotates dynamically with angular velocity!)
+    this.drawClockworkGear(front.hip.x, front.hip.y, 16, front.gearAngle, 12, '#c49a45', '#8c5a2b');
 
-    ctx.strokeStyle = '#0f172a';
-    ctx.lineWidth = 6;
-    ctx.beginPath(); ctx.moveTo(front.heel.x, front.heel.y); ctx.lineTo(front.toe.x, front.toe.y); ctx.stroke();
-    ctx.strokeStyle = '#06b6d4';
-    ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(front.heel.x, front.heel.y); ctx.lineTo(front.toe.x, front.toe.y); ctx.stroke();
+    // Knee SEA Actuator (Series Elastic Actuator with Helical Copper Spring)
+    this.drawClockworkGear(front.knee.x, front.knee.y, 14, -front.gearAngle * 1.3, 10, '#b87333', '#c49a45');
 
-    // 5. Actuator Gearheads (Concentric CAD circles)
-    // Hip Actuator
-    this.drawActuatorHousing(front.hip.x, front.hip.y, 14, '#38bdf8', '#fbbf24');
-    // Knee SEA Actuator
-    this.drawActuatorHousing(front.knee.x, front.knee.y, 13, '#06b6d4', '#10b981');
+    // Ankle Sensor Encoders (Rotates with ankle pitch)
+    this.drawClockworkGear(front.ankle.x, front.ankle.y, 8, front.footAngle * 4.0, 6, '#d4af37', '#241a12');
 
-    // 6. Active Assistive Torque Arc (Active during terminal stance push-off 0.28 - 0.58)
-    if (state.phase >= 0.28 && state.phase <= 0.58) {
-      const torqueMag = Math.sin((state.phase - 0.28) / 0.30 * Math.PI);
-      ctx.strokeStyle = `rgba(56, 189, 248, ${torqueMag.toFixed(2)})`;
+    // 6. Series Elastic Actuator (SEA) Coiled Brass Spring
+    // Dynamically compresses and rebounds with torque!
+    this.drawCoiledSpring(
+      front.knee.x + 8 * Math.sin(front.thighAngle),
+      front.knee.y - 20 * Math.cos(front.thighAngle),
+      front.knee.x + 8 * Math.sin(front.shankAngle),
+      front.knee.y + 18 * Math.cos(front.shankAngle),
+      front.springCompression
+    );
+
+    // 7. Dynamic Assistive Torque Indicator (Active during push-off 0.38 - 0.58)
+    if (state.phase >= 0.38 && state.phase <= 0.58) {
+      const torqueProgress = Math.sin(((state.phase - 0.38) / 0.20) * Math.PI);
+      ctx.save();
+      ctx.strokeStyle = `rgba(212, 175, 55, ${(0.3 + 0.7 * torqueProgress).toFixed(2)})`;
       ctx.lineWidth = 3.5;
+      ctx.shadowColor = '#d4af37';
+      ctx.shadowBlur = 12;
       ctx.beginPath();
-      ctx.arc(front.hip.x, front.hip.y, 22, -Math.PI * 0.8, Math.PI * 0.2);
+      ctx.arc(front.hip.x, front.hip.y, 25, -Math.PI * 0.75, Math.PI * 0.25);
       ctx.stroke();
+      ctx.restore();
 
-      // Torque label
-      ctx.fillStyle = '#38bdf8';
-      ctx.font = 'bold 9px monospace';
-      ctx.fillText(`+${(state.maxTorqueGain * torqueMag).toFixed(0)} N·m`, front.hip.x + 24, front.hip.y - 12);
+      // Torque Banner Callout
+      ctx.fillStyle = '#ffeed0';
+      ctx.font = 'bold 9.5px "Cinzel", Georgia, serif';
+      ctx.fillText(
+        `+${(state.maxTorqueGain * torqueProgress).toFixed(0)} N·m [τ_auxiliaris]`,
+        front.hip.x + 30,
+        front.hip.y - 14
+      );
     }
 
-    // 7. Ground Reaction Force Vector (GRF) during stance
-    if (state.phase >= 0.05 && state.phase <= 0.55) {
-      const grfMag = Math.sin((state.phase - 0.05) / 0.50 * Math.PI);
-      ctx.strokeStyle = `rgba(16, 185, 129, ${grfMag.toFixed(2)})`;
-      ctx.lineWidth = 3;
+    // 8. Ground Reaction Force (GRF) Vector during stance
+    if (front.isStance) {
+      const grfProgress = Math.sin((front.phase / 0.60) * Math.PI);
+      ctx.save();
+      ctx.strokeStyle = `rgba(184, 115, 51, ${(0.4 + 0.6 * grfProgress).toFixed(2)})`;
+      ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.moveTo(front.toe.x, front.toe.y);
-      ctx.lineTo(front.toe.x - 12 * grfMag, front.toe.y - 42 * grfMag);
+      ctx.moveTo(front.ball.x, front.ball.y);
+      ctx.lineTo(front.ball.x - 14 * grfProgress, front.ball.y - 44 * grfProgress);
       ctx.stroke();
-    }
 
-    // 8. Coordinate Triads
-    this.drawCoordinateTriad(front.hipTriad, 'H_exo');
-    this.drawCoordinateTriad(front.kneeTriad, 'K_exo');
+      // GRF Vector Arrowhead
+      ctx.fillStyle = '#c49a45';
+      ctx.beginPath();
+      ctx.arc(front.ball.x - 14 * grfProgress, front.ball.y - 44 * grfProgress, 3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
 
     // 9. Front Robotic Arm
-    this.drawLimb(front.shoulder, front.elbow, front.wrist, '#475569', 5.0, 1.0);
+    this.drawLimbBone(front.shoulder, front.elbow, front.wrist, '#8c5a2b', 4.8, 1.0);
 
-    // 10. Labels
-    ctx.fillStyle = '#06b6d4';
-    ctx.font = 'bold 11px monospace';
+    // 10. Model Title Callout (Renaissance Parchment Scroll Style)
+    ctx.fillStyle = '#c49a45';
+    ctx.font = 'bold 11px "Cinzel", "Palatino Linotype", Georgia, serif';
     ctx.textAlign = 'center';
-    ctx.fillText('POWERED EXOSKELETON', cx, groundY + 28);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '9.5px monospace';
-    ctx.fillText('IROS 2025 · Hm-DMP & PI²', cx, groundY + 44);
+    ctx.fillText('AUTOMATON CO-SIMULATUM', cx, groundY + 38);
+
+    ctx.fillStyle = '#9e8162';
+    ctx.font = 'italic 9.5px "Cinzel", Georgia, serif';
+    ctx.fillText('IROS 2025 · Hm-DMP & PI² Adaptatio', cx, groundY + 52);
 
     ctx.restore();
   }
 
-  drawLimb(p1, p2, p3, strokeStyle, lineWidth, opacity) {
+  /**
+   * Draws an anatomical foot structure: Calcaneus heel -> Ankle -> Ball of foot -> Toe.
+   */
+  drawAnatomicalFoot(leg, color, opacity) {
+    const { ctx } = this;
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3.6;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    ctx.beginPath();
+    // Calcaneus Heel to Ball of foot (plantar fascia base)
+    ctx.moveTo(leg.heel.x, leg.heel.y);
+    ctx.lineTo(leg.ball.x, leg.ball.y);
+    // Ball to Metatarsal Toe
+    ctx.lineTo(leg.toe.x, leg.toe.y);
+    // Toe back up to Ankle
+    ctx.lineTo(leg.ankle.x, leg.ankle.y);
+    // Ankle down to Calcaneus Heel
+    ctx.lineTo(leg.heel.x, leg.heel.y);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  /**
+   * Draws a classical anatomical muscle belly with Renaissance cross-hatching.
+   */
+  drawAnatomicalMuscleBelly(origin, insertion, bulgeOffset, tension, color, label) {
+    const { ctx } = this;
+    ctx.save();
+
+    const midX = (origin.x + insertion.x) / 2 + bulgeOffset;
+    const midY = (origin.y + insertion.y) / 2;
+
+    // Muscle Contour Path
+    ctx.beginPath();
+    ctx.moveTo(origin.x, origin.y);
+    ctx.quadraticCurveTo(midX, midY, insertion.x, insertion.y);
+    ctx.quadraticCurveTo(midX - bulgeOffset * 0.35, midY, origin.x, origin.y);
+    ctx.closePath();
+
+    // Muscle Belly Tone (Terracotta / Sanguine)
+    ctx.fillStyle = color;
+    ctx.globalAlpha = 0.20 + 0.45 * tension;
+    ctx.fill();
+
+    // Contour Line
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.4 + 1.2 * tension;
+    ctx.globalAlpha = 0.65 + 0.35 * tension;
+    ctx.stroke();
+
+    // Leonardo Da Vinci Delicate Cross-Hatching inside the muscle belly
+    ctx.save();
+    ctx.clip(); // clip to muscle contour
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 0.9;
+    ctx.globalAlpha = 0.35 + 0.45 * tension;
+
+    const hatchSpacing = Math.max(3, 7 - Math.round(tension * 3));
+    const angle = Math.atan2(insertion.y - origin.y, insertion.x - origin.x) + 0.55;
+    const cosH = Math.cos(angle);
+    const sinH = Math.sin(angle);
+
+    for (let offset = -40; offset <= 40; offset += hatchSpacing) {
+      const hx = midX + offset * -sinH;
+      const hy = midY + offset * cosH;
+      ctx.beginPath();
+      ctx.moveTo(hx - 25 * cosH, hy - 25 * sinH);
+      ctx.lineTo(hx + 25 * cosH, hy + 25 * sinH);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    ctx.restore();
+  }
+
+  /**
+   * Draws an articulated bronze spar with brass bevels and rivets.
+   */
+  drawBronzeSpar(p1, p2, width, coreColor, rimColor) {
+    const { ctx } = this;
+    ctx.save();
+
+    // Core Spar
+    ctx.strokeStyle = coreColor;
+    ctx.lineWidth = width;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(p1.x, p1.y);
+    ctx.lineTo(p2.x, p2.y);
+    ctx.stroke();
+
+    // Brass Bevel Lining
+    ctx.strokeStyle = rimColor;
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.moveTo(p1.x, p1.y);
+    ctx.lineTo(p2.x, p2.y);
+    ctx.stroke();
+
+    // Domed Brass Rivets along the spar
+    const midX = (p1.x + p2.x) / 2;
+    const midY = (p1.y + p2.y) / 2;
+    ctx.fillStyle = rimColor;
+    ctx.beginPath();
+    ctx.arc(midX, midY, 2.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  /**
+   * Draws a rotating Renaissance Clockwork Gearhead with brass spokes and cut teeth.
+   */
+  drawClockworkGear(x, y, radius, rotationAngle, numTeeth, gearColor, innerColor) {
+    const { ctx } = this;
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rotationAngle);
+
+    // Gear Body
+    ctx.fillStyle = innerColor;
+    ctx.strokeStyle = gearColor;
+    ctx.lineWidth = 1.8;
+    ctx.beginPath();
+    ctx.arc(0, 0, radius * 0.82, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Cut Clockwork Teeth
+    ctx.fillStyle = gearColor;
+    for (let i = 0; i < numTeeth; i++) {
+      const toothAngle = (i / numTeeth) * Math.PI * 2;
+      ctx.save();
+      ctx.rotate(toothAngle);
+      ctx.beginPath();
+      ctx.moveTo(-radius * 0.12, -radius * 0.82);
+      ctx.lineTo(-radius * 0.08, -radius);
+      ctx.lineTo(radius * 0.08, -radius);
+      ctx.lineTo(radius * 0.12, -radius * 0.82);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Brass Spokes
+    ctx.strokeStyle = gearColor;
+    ctx.lineWidth = 1.2;
+    for (let i = 0; i < 4; i++) {
+      const spk = (i / 4) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(radius * 0.75 * Math.cos(spk), radius * 0.75 * Math.sin(spk));
+      ctx.stroke();
+    }
+
+    // Central Ruby / Bronze Pivot Hub
+    ctx.fillStyle = '#ffeed0';
+    ctx.beginPath();
+    ctx.arc(0, 0, 3.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  /**
+   * Draws a dynamically flexing Series Elastic Actuator (SEA) helical spring.
+   */
+  drawCoiledSpring(x1, y1, x2, y2, compression) {
+    const { ctx } = this;
+    ctx.save();
+
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const dist = Math.hypot(dx, dy);
+    const angle = Math.atan2(dy, dx);
+
+    ctx.translate(x1, y1);
+    ctx.rotate(angle);
+
+    ctx.strokeStyle = '#c49a45';
+    ctx.lineWidth = 2.0;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+
+    const coils = 6;
+    const coilWidth = 6.5;
+    const coilStep = dist / (coils * 2);
+
+    for (let i = 0; i < coils * 2; i++) {
+      const cx = (i + 0.5) * coilStep;
+      const cy = (i % 2 === 0 ? 1 : -1) * coilWidth * (1 + compression * 0.4);
+      ctx.lineTo(cx, cy);
+    }
+    ctx.lineTo(dist, 0);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  /**
+   * Draws bone segments with smooth rounded joins.
+   */
+  drawLimbBone(p1, p2, p3, strokeStyle, lineWidth, opacity) {
     const { ctx } = this;
     ctx.save();
     ctx.globalAlpha = opacity;
     ctx.strokeStyle = strokeStyle;
     ctx.lineWidth = lineWidth;
     ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
     ctx.beginPath();
     ctx.moveTo(p1.x, p1.y);
     ctx.lineTo(p2.x, p2.y);
@@ -378,58 +719,42 @@ class CadRenderer {
     ctx.restore();
   }
 
-  drawCoordinateTriad(triad, label) {
+  /**
+   * Draws Renaissance caliper measurement arcs showing instantaneous joint angles.
+   */
+  drawCaliperArc(x, y, radius, startAngle, endAngle, label) {
     const { ctx } = this;
     ctx.save();
-    // X Axis (Red)
-    ctx.strokeStyle = '#ef4444';
-    ctx.lineWidth = 1.8;
-    ctx.beginPath(); ctx.moveTo(triad.ox, triad.oy); ctx.lineTo(triad.xx, triad.xy); ctx.stroke();
-    // Y Axis (Green)
-    ctx.strokeStyle = '#10b981';
-    ctx.lineWidth = 1.8;
-    ctx.beginPath(); ctx.moveTo(triad.ox, triad.oy); ctx.lineTo(triad.yx, triad.yy); ctx.stroke();
-    // Pivot dot
-    ctx.fillStyle = '#ffffff';
-    ctx.beginPath(); ctx.arc(triad.ox, triad.oy, 2.5, 0, Math.PI * 2); ctx.fill();
-    ctx.restore();
-  }
-
-  drawActuatorHousing(x, y, radius, outerColor, innerColor) {
-    const { ctx } = this;
-    ctx.save();
-    ctx.fillStyle = '#0b1329';
-    ctx.strokeStyle = outerColor;
-    ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.arc(x, y, radius, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-
-    ctx.strokeStyle = innerColor;
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([3, 3]);
-    ctx.beginPath(); ctx.arc(x, y, radius * 0.6, 0, Math.PI * 2); ctx.stroke();
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.45)';
+    ctx.lineWidth = 1.0;
+    ctx.setLineDash([2, 3]);
+    ctx.beginPath();
+    ctx.arc(x, y, radius, startAngle, endAngle, (startAngle > endAngle));
+    ctx.stroke();
     ctx.setLineDash([]);
-
-    ctx.fillStyle = outerColor;
-    ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fill();
     ctx.restore();
   }
 
-  drawCoSimulationStreams(bioX, exoX, midX, midY) {
+  /**
+   * Draws Renaissance dashed quill ink data interchange lines.
+   */
+  drawQuillDataStreams(bioX, exoX, midX, midY) {
     const { ctx } = this;
     ctx.save();
-    // Bio -> Estimator Data Stream
-    ctx.strokeStyle = 'rgba(239, 68, 68, 0.6)';
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([6, 4]);
+
+    // Bio -> Astrolabe Estimator Stream (Sanguine Quill Ink)
+    ctx.strokeStyle = 'rgba(200, 90, 58, 0.7)';
+    ctx.lineWidth = 1.4;
+    ctx.setLineDash([5, 5]);
     ctx.beginPath();
     ctx.moveTo(bioX + 25, midY - 20);
-    ctx.lineTo(midX - 100, midY - 20);
+    ctx.lineTo(midX - 105, midY - 20);
     ctx.stroke();
 
-    // Controller -> Exo Torque Stream
-    ctx.strokeStyle = 'rgba(6, 182, 212, 0.6)';
+    // Astrolabe -> Automaton Assistive Torque Stream (Gold Quill Ink)
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.7)';
     ctx.beginPath();
-    ctx.moveTo(midX + 100, midY + 20);
+    ctx.moveTo(midX + 105, midY + 20);
     ctx.lineTo(exoX - 25, midY + 20);
     ctx.stroke();
     ctx.setLineDash([]);

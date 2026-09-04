@@ -1,20 +1,20 @@
 /**
- * Hamza Azam · State-Space Phase Portrait & Limit-Cycle Attractor Module
- * Real-time dynamic visualization of Hm-DMP harmonic attractors (theta vs d_theta/dt)
+ * Hamza Azam · Renaissance Astrolabe & State-Space Phase Portrait Module
+ * Astrolabium de Statu Motus · Real-time Dynamic Hm-DMP Harmonic Attractor (theta vs d_theta/dt)
  * Zhejiang University · Ningbo Global Innovation Center
  */
 
 class StateSpaceVisualizer {
   constructor(options = {}) {
-    this.orbitResolution = options.orbitResolution || 64;
-    this.scaleTh = options.scaleTh || 2.2;
-    this.scaleDTh = options.scaleDTh || 0.32;
+    this.orbitResolution = options.orbitResolution || 96;
+    this.scaleTh = options.scaleTh || 2.4;
+    this.scaleDTh = options.scaleDTh || 0.36;
     this.orbitCache = [];
     this.precomputeOrbit();
   }
 
   /**
-   * Precomputes the nominal limit cycle attractor across 360 degrees of phase.
+   * Precomputes the closed limit-cycle attractor orbit across 360 degrees of gait phase.
    */
   precomputeOrbit() {
     this.orbitCache = [];
@@ -34,148 +34,209 @@ class StateSpaceVisualizer {
   }
 
   /**
-   * Renders the complete State-Space Phase Portrait onto a Canvas 2D context.
-   * @param {CanvasRenderingContext2D} ctx - Canvas 2D context
-   * @param {number} cx - Center X coordinate on canvas
-   * @param {number} cy - Center Y coordinate on canvas
-   * @param {number} size - Box dimension (width/height)
-   * @param {object} currentKinematics - Current frame kinematics object
+   * Renders the Renaissance Horological Astrolabe State-Space Portrait.
    */
   render(ctx, cx, cy, size, currentKinematics) {
-    const half = size / 2;
+    const radius = size / 2;
     ctx.save();
 
-    // 1. Oscilloscope Frame & Background
-    ctx.fillStyle = 'rgba(6, 11, 24, 0.85)';
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.3)';
-    ctx.lineWidth = 1.2;
+    // 1. Astrolabe Outer Brass Bezel Ring
+    const bezelGrad = ctx.createRadialGradient(cx, cy, radius * 0.75, cx, cy, radius);
+    bezelGrad.addColorStop(0, '#1c140d');
+    bezelGrad.addColorStop(0.7, '#2a1f14');
+    bezelGrad.addColorStop(0.9, '#8c6227');
+    bezelGrad.addColorStop(1, '#c49a45');
+
+    ctx.fillStyle = '#140e09';
+    ctx.strokeStyle = '#c49a45';
+    ctx.lineWidth = 2.5;
     ctx.beginPath();
-    ctx.roundRect(cx - half, cy - half, size, size, 8);
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
 
-    // Subtle CAD Grid within Oscilloscope
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.08)';
+    // Inner Parchment Field
+    const parchmentGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.92);
+    parchmentGrad.addColorStop(0, '#261c13');
+    parchmentGrad.addColorStop(0.75, '#1e160e');
+    parchmentGrad.addColorStop(1, '#150f09');
+    ctx.fillStyle = parchmentGrad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius * 0.92, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 2. Brass Astrolabe Rim Graduations & Roman Hour Markers
+    ctx.save();
+    ctx.strokeStyle = '#c49a45';
+    for (let i = 0; i < 36; i++) {
+      const angle = (i / 36) * Math.PI * 2;
+      const isMajor = i % 3 === 0;
+      const rInner = isMajor ? radius * 0.88 : radius * 0.91;
+      ctx.lineWidth = isMajor ? 1.5 : 0.75;
+      ctx.beginPath();
+      ctx.moveTo(cx + rInner * Math.cos(angle), cy + rInner * Math.sin(angle));
+      ctx.lineTo(cx + radius * 0.96 * Math.cos(angle), cy + radius * 0.96 * Math.sin(angle));
+      ctx.stroke();
+    }
+
+    // Roman Cardinal Numerals (XII, III, VI, IX)
+    ctx.fillStyle = '#d4af37';
+    ctx.font = 'bold 9px "Cinzel", "Palatino Linotype", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('XII', cx, cy - radius * 0.84);
+    ctx.fillText('VI', cx, cy + radius * 0.84);
+    ctx.fillText('III', cx + radius * 0.84, cy);
+    ctx.fillText('IX', cx - radius * 0.84, cy);
+    ctx.restore();
+
+    // 3. Vitruvian Harmonic Grid & Reticle Crosshairs
+    ctx.save();
+    ctx.strokeStyle = 'rgba(196, 154, 69, 0.12)';
     ctx.lineWidth = 0.8;
-    const gridStep = 25;
-    for (let x = cx - half + gridStep; x < cx + half; x += gridStep) {
-      ctx.beginPath(); ctx.moveTo(x, cy - half); ctx.lineTo(x, cy + half); ctx.stroke();
+    const gridStep = 24;
+    for (let x = cx - radius * 0.75; x <= cx + radius * 0.75; x += gridStep) {
+      ctx.beginPath(); ctx.moveTo(x, cy - radius * 0.75); ctx.lineTo(x, cy + radius * 0.75); ctx.stroke();
     }
-    for (let y = cy - half + gridStep; y < cy + half; y += gridStep) {
-      ctx.beginPath(); ctx.moveTo(cx - half, y); ctx.lineTo(cx + half, y); ctx.stroke();
+    for (let y = cy - radius * 0.75; y <= cy + radius * 0.75; y += gridStep) {
+      ctx.beginPath(); ctx.moveTo(cx - radius * 0.75, y); ctx.lineTo(cx + radius * 0.75, y); ctx.stroke();
     }
 
-    // 2. Central Reticle Axes
-    ctx.strokeStyle = 'rgba(148, 163, 184, 0.35)';
+    // Principal Reticle Axes
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.45)';
     ctx.lineWidth = 1.0;
-    ctx.setLineDash([4, 4]);
-    ctx.beginPath(); ctx.moveTo(cx - half + 10, cy); ctx.lineTo(cx + half - 10, cy); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(cx, cy - half + 10); ctx.lineTo(cx, cy + half - 10); ctx.stroke();
+    ctx.setLineDash([4, 3]);
+    ctx.beginPath(); ctx.moveTo(cx - radius * 0.8, cy); ctx.lineTo(cx + radius * 0.8, cy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx, cy - radius * 0.8); ctx.lineTo(cx, cy + radius * 0.8); ctx.stroke();
     ctx.setLineDash([]);
 
-    // 3. Concentric Limit Guides
-    ctx.strokeStyle = 'rgba(6, 182, 212, 0.15)';
-    ctx.lineWidth = 1.0;
-    ctx.setLineDash([2, 4]);
-    ctx.beginPath(); ctx.arc(cx, cy, 35, 0, Math.PI * 2); ctx.stroke();
-    ctx.beginPath(); ctx.arc(cx, cy, 65, 0, Math.PI * 2); ctx.stroke();
-    ctx.setLineDash([]);
+    // Concentric Vitruvian Circles
+    ctx.strokeStyle = 'rgba(196, 154, 69, 0.18)';
+    ctx.lineWidth = 0.8;
+    ctx.beginPath(); ctx.arc(cx, cy, radius * 0.35, 0, Math.PI * 2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx, cy, radius * 0.65, 0, Math.PI * 2); ctx.stroke();
+    ctx.restore();
 
-    // 4. Vector Field Flow Direction Arrows
-    ctx.fillStyle = 'rgba(16, 185, 129, 0.7)';
-    // Arrow top-right (flow downwards/clockwise)
-    this.drawVectorArrow(ctx, cx + 55, cy - 18, Math.PI * 0.65, 8);
-    // Arrow bottom-left (flow upwards/clockwise)
-    this.drawVectorArrow(ctx, cx - 55, cy + 18, Math.PI * 1.65, 8);
+    // 4. Vector Field Directional Fleurons (Clockwise Dynamic Flow)
+    ctx.fillStyle = 'rgba(196, 154, 69, 0.75)';
+    this.drawFleuron(ctx, cx + radius * 0.52, cy - radius * 0.15, Math.PI * 0.62, 7);
+    this.drawFleuron(ctx, cx - radius * 0.52, cy + radius * 0.15, Math.PI * 1.62, 7);
 
-    // 5. Closed-Loop Limit Cycle Attractor Orbit
-    ctx.beginPath();
-    for (let i = 0; i < this.orbitCache.length; i++) {
-      const pt = this.orbitCache[i];
-      const px = cx + pt.th * this.scaleTh;
-      const py = cy - (pt.dth * this.scaleDTh);
-      if (i === 0) ctx.moveTo(px, py);
-      else ctx.lineTo(px, py);
+    // 5. Limit-Cycle Closed Attractor Orbit (Harmonic Copper & Gold)
+    if (this.orbitCache.length > 0) {
+      ctx.beginPath();
+      for (let i = 0; i < this.orbitCache.length; i++) {
+        const pt = this.orbitCache[i];
+        const px = cx + pt.th * this.scaleTh;
+        const py = cy - (pt.dth * this.scaleDTh);
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+
+      // Subtle warm golden fill
+      ctx.fillStyle = 'rgba(212, 175, 55, 0.07)';
+      ctx.fill();
+
+      // Glowing copper stroke
+      ctx.strokeStyle = '#d4af37';
+      ctx.lineWidth = 2.2;
+      ctx.shadowColor = '#d4af37';
+      ctx.shadowBlur = 9;
+      ctx.stroke();
+      ctx.shadowBlur = 0; // reset
     }
-    ctx.closePath();
-    ctx.fillStyle = 'rgba(6, 182, 212, 0.05)';
-    ctx.fill();
-    ctx.strokeStyle = '#06b6d4';
-    ctx.lineWidth = 2.0;
-    ctx.shadowColor = '#06b6d4';
-    ctx.shadowBlur = 8;
-    ctx.stroke();
-    ctx.shadowBlur = 0; // reset shadow
 
-    // 6. Dynamic Current State Point (theta, d_theta/dt)
+    // 6. Dynamic Instantaneous State Pointer & Sunburst Beacon
     if (currentKinematics) {
       const curX = cx + currentKinematics.hipDeg * this.scaleTh;
       const curY = cy - (currentKinematics.dHipDeg * this.scaleDTh);
 
-      // Trailing Pulse Ring
-      ctx.strokeStyle = 'rgba(16, 185, 129, 0.6)';
-      ctx.lineWidth = 1.2;
-      ctx.beginPath();
-      ctx.arc(curX, curY, 8, 0, Math.PI * 2);
-      ctx.stroke();
+      // Astrolabe Sight Line from Origin
+      ctx.strokeStyle = 'rgba(212, 175, 55, 0.35)';
+      ctx.lineWidth = 1.0;
+      ctx.setLineDash([2, 3]);
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(curX, curY); ctx.stroke();
+      ctx.setLineDash([]);
 
-      // State Point Cursor
-      ctx.fillStyle = '#38bdf8';
-      ctx.strokeStyle = '#ffffff';
+      // Dynamic Sunburst Beacon
+      ctx.save();
+      ctx.shadowColor = '#fbbf24';
+      ctx.shadowBlur = 12;
+
+      // Outer Halo
+      ctx.strokeStyle = '#d4af37';
+      ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.arc(curX, curY, 8, 0, Math.PI * 2); ctx.stroke();
+
+      // Glowing Sun Center
+      ctx.fillStyle = '#ffeed0';
+      ctx.strokeStyle = '#b87333';
       ctx.lineWidth = 1.8;
-      ctx.shadowColor = '#38bdf8';
-      ctx.shadowBlur = 10;
-      ctx.beginPath();
-      ctx.arc(curX, curY, 4.5, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-      ctx.shadowBlur = 0;
+      ctx.beginPath(); ctx.arc(curX, curY, 4.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.restore();
 
-      // Coordinate Callout Tag
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '9px monospace';
+      // Antique Cartouche Coordinate Callout
+      ctx.save();
+      const txt = `[θ: ${currentKinematics.hipDeg > 0 ? '+' : ''}${currentKinematics.hipDeg.toFixed(1)}°, dθ: ${currentKinematics.dHipDeg > 0 ? '+' : ''}${currentKinematics.dHipDeg.toFixed(0)}°/s]`;
+      ctx.font = 'bold 9px "Cinzel", "JetBrains Mono", Georgia, monospace';
+      const textW = ctx.measureText(txt).width;
+      const boxX = Math.min(cx + radius * 0.85 - textW - 8, Math.max(cx - radius * 0.85, curX + 10));
+      const boxY = Math.min(cy + radius * 0.75 - 18, Math.max(cy - radius * 0.75, curY - 10));
+
+      ctx.fillStyle = 'rgba(24, 17, 11, 0.92)';
+      ctx.strokeStyle = '#c49a45';
+      ctx.lineWidth = 0.8;
+      ctx.fillRect(boxX, boxY - 11, textW + 10, 15);
+      ctx.strokeRect(boxX, boxY - 11, textW + 10, 15);
+
+      ctx.fillStyle = '#ffeed0';
       ctx.textAlign = 'left';
-      ctx.fillText(
-        `[${currentKinematics.hipDeg > 0 ? '+' : ''}${currentKinematics.hipDeg.toFixed(1)}°, ${currentKinematics.dHipDeg > 0 ? '+' : ''}${currentKinematics.dHipDeg.toFixed(0)}°/s]`,
-        curX + 8,
-        curY - 6
-      );
+      ctx.fillText(txt, boxX + 5, boxY);
+      ctx.restore();
     }
 
-    // 7. Oscilloscope Annotations
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = 'bold 10px monospace';
+    // 7. Astrolabe Titles & Latin Mirror-Script Flourish
+    ctx.save();
+    ctx.fillStyle = '#d4af37';
+    ctx.font = 'bold 10.5px "Cinzel", "Palatino Linotype", Georgia, serif';
     ctx.textAlign = 'center';
-    ctx.fillText('HM-DMP STATE-SPACE ORBIT', cx, cy - half + 14);
+    ctx.fillText('ASTROLABIUM DE STATU MOTUS', cx, cy - radius * 0.62);
 
-    ctx.fillStyle = '#64748b';
-    ctx.font = '8.5px monospace';
-    ctx.fillText('LIMIT-CYCLE PHASE ATTRACTOR', cx, cy - half + 26);
+    ctx.fillStyle = '#9e8162';
+    ctx.font = 'italic 8.5px "Cinzel", "Palatino Linotype", Georgia, serif';
+    ctx.fillText('ATTRACTOR HARMONICUS (Hm-DMP)', cx, cy - radius * 0.50);
 
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '9px monospace';
+    // Axis Labels
+    ctx.fillStyle = '#c49a45';
+    ctx.font = 'bold 9px "Cinzel", Georgia, serif';
     ctx.textAlign = 'right';
-    ctx.fillText('θ_hip', cx + half - 10, cy - 5);
+    ctx.fillText('θ_coxa', cx + radius * 0.74, cy - 6);
     ctx.textAlign = 'left';
-    ctx.fillText('dθ/dt', cx + 6, cy - half + 38);
+    ctx.fillText('dθ/dt', cx + 6, cy - radius * 0.70);
 
-    ctx.fillStyle = '#10b981';
-    ctx.font = 'bold 9px monospace';
+    // Stability Banner
+    ctx.fillStyle = '#2d7a6e';
+    ctx.font = 'bold 8.5px "Cinzel", Georgia, serif';
     ctx.textAlign = 'center';
-    ctx.fillText('λ_max < 0 · ORBITAL STABILITY', cx, cy + half - 10);
+    ctx.fillText('λ_max < 0 · AEQUILIBRIUM ORBITALE', cx, cy + radius * 0.64);
+    ctx.restore();
 
     ctx.restore();
   }
 
-  drawVectorArrow(ctx, x, y, angle, length) {
+  /**
+   * Draws a classical Renaissance direction fleuron arrow.
+   */
+  drawFleuron(ctx, x, y, angle, length) {
     ctx.save();
     ctx.translate(x, y);
     ctx.rotate(angle);
     ctx.beginPath();
     ctx.moveTo(length, 0);
-    ctx.lineTo(-length, -length / 2);
+    ctx.lineTo(-length, -length / 2.2);
     ctx.lineTo(-length / 2, 0);
-    ctx.lineTo(-length, length / 2);
+    ctx.lineTo(-length, length / 2.2);
     ctx.closePath();
     ctx.fill();
     ctx.restore();

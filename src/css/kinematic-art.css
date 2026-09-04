@@ -1,23 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
 :root {
-  --bg-primary: #040711;
-  --bg-secondary: #080d1a;
-  --panel-bg: rgba(10, 17, 34, 0.88);
-  --border-color: rgba(56, 189, 248, 0.2);
-  --border-bright: rgba(56, 189, 248, 0.45);
+  --bg-primary: #0e0906;
+  --bg-secondary: #150f0a;
+  --panel-bg: rgba(24, 17, 11, 0.94);
+  --border-color: rgba(196, 154, 69, 0.28);
+  --border-bright: rgba(212, 175, 55, 0.6);
   
-  --bio-red: #ef4444;
-  --bio-orange: #f97316;
-  --exo-cyan: #06b6d4;
-  --exo-blue: #38bdf8;
-  --accent-green: #10b981;
-  --accent-gold: #fbbf24;
+  --gold-primary: #d4af37;
+  --gold-accent: #c49a45;
+  --copper-accent: #b87333;
+  --terracotta-sanguine: #c85a3a;
+  --iron-gall: #2a1f16;
+  --patina-green: #2d7a6e;
   
-  --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  --parchment-light: #ffeed0;
+  --parchment-muted: #cbb898;
+  --parchment-dim: #8c785e;
   
+  --font-serif: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 * {
@@ -27,74 +29,78 @@
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 60%),
-    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
-  color: var(--text-main);
+    radial-gradient(circle at 50% 0%, rgba(196, 154, 69, 0.1) 0%, transparent 65%),
+    linear-gradient(rgba(196, 154, 69, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 154, 69, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+  color: var(--parchment-light);
   overflow-x: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Header Bar */
+/* Header Bar (Renaissance Manuscript Titleplate) */
 header {
-  background: rgba(8, 14, 28, 0.94);
+  background: rgba(18, 12, 7, 0.96);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
-  padding: 12px 28px;
+  padding: 14px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .brand-cad-badge {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  border: 1px solid var(--exo-cyan);
+  background: radial-gradient(circle at 35% 35%, #2d1e12, #150d08);
+  border: 1.5px solid var(--gold-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
-  font-weight: 800;
-  font-size: 14px;
-  color: var(--exo-cyan);
-  box-shadow: 0 0 16px rgba(6, 182, 212, 0.3);
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--gold-primary);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
 }
 .brand-cad-badge span {
   font-size: 8px;
-  color: var(--accent-green);
-  letter-spacing: 0.5px;
+  color: var(--patina-green);
+  letter-spacing: 0.6px;
+  font-weight: 700;
 }
 
 .brand-text h1 {
-  font-size: 14.5px;
-  letter-spacing: 0.8px;
+  font-size: 15px;
+  letter-spacing: 1.4px;
   font-weight: 700;
-  font-family: var(--font-mono);
-  color: #ffffff;
+  color: var(--gold-primary);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .brand-text p {
   font-size: 11px;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
+  color: var(--parchment-muted);
+  letter-spacing: 0.4px;
+  font-family: var(--font-serif);
+  margin-top: 2px;
 }
 
 .header-actions {
@@ -102,16 +108,17 @@ header {
   gap: 10px;
 }
 
-/* Button Styles */
+/* Antique Leather & Brass Buttons */
 .btn {
-  background: #0f172a;
-  color: var(--text-main);
-  border: 1px solid #1e293b;
-  padding: 8px 14px;
+  background: #1e150d;
+  color: var(--parchment-light);
+  border: 1px solid #3d2c1c;
+  padding: 8px 15px;
   border-radius: 6px;
   font-size: 11.5px;
-  font-weight: 600;
-  font-family: var(--font-mono);
+  font-weight: 700;
+  font-family: var(--font-serif);
+  letter-spacing: 0.5px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -120,31 +127,33 @@ header {
   text-decoration: none;
 }
 .btn:hover {
-  background: #1e293b;
+  background: #2b1e13;
   border-color: var(--border-bright);
+  box-shadow: 0 0 10px rgba(196, 154, 69, 0.25);
 }
 .btn.primary {
-  background: linear-gradient(135deg, #0284c7, #06b6d4);
-  border: 1px solid #38bdf8;
-  box-shadow: 0 0 12px rgba(6, 182, 212, 0.35);
-  color: #ffffff;
+  background: linear-gradient(135deg, #8c5a2b, #c49a45);
+  border: 1px solid var(--gold-primary);
+  color: #140d07;
+  font-weight: 900;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
 }
 .btn.primary:hover {
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.7);
 }
 .btn.active {
-  border-color: var(--accent-green);
-  color: var(--accent-green);
-  background: rgba(16, 185, 129, 0.12);
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.15);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
 }
 
 /* Main Grid Layout */
 main {
   display: grid;
   grid-template-columns: 1fr 350px;
-  gap: 20px;
-  padding: 20px 28px;
+  gap: 22px;
+  padding: 22px 30px;
   flex: 1;
 }
 
@@ -154,25 +163,25 @@ main {
   }
 }
 
-/* Visualizer Card */
+/* Visualizer Card (Illuminated Manuscript Panel) */
 .visualizer-card {
   background: var(--panel-bg);
   backdrop-filter: blur(14px);
-  border: 1px solid var(--border-color);
+  border: 1.5px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.75);
 }
 
 .vis-header {
-  padding: 12px 20px;
+  padding: 12px 22px;
   border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10, 16, 31, 0.9);
+  background: rgba(20, 14, 9, 0.95);
   flex-wrap: wrap;
   gap: 8px;
 }
@@ -180,36 +189,38 @@ main {
 .status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 11px;
-  font-family: var(--font-mono);
-  padding: 3px 8px;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
   border-radius: 6px;
-  background: rgba(6, 182, 212, 0.12);
-  border: 1px solid rgba(6, 182, 212, 0.35);
-  color: var(--exo-blue);
+  background: rgba(196, 154, 69, 0.14);
+  border: 1px solid rgba(196, 154, 69, 0.4);
+  color: var(--gold-primary);
 }
 
 .status-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--accent-green);
-  box-shadow: 0 0 8px var(--accent-green);
+  background: var(--patina-green);
+  box-shadow: 0 0 8px var(--patina-green);
   animation: pulse 1.6s infinite;
 }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(0.75); }
+  50% { opacity: 0.35; transform: scale(0.75); }
 }
 
-/* Canvas Container & Reticle Overlays */
+/* Canvas Viewport */
 .canvas-container {
   position: relative;
   width: 100%;
   height: 500px;
-  background: radial-gradient(circle at center, #0a1122 0%, #03060d 100%);
+  background: radial-gradient(circle at center, #1b130c 0%, #0c0805 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -222,47 +233,50 @@ canvas {
   height: 100%;
 }
 
-/* Clean Algorithmic HUD Overlay */
+/* Renaissance HUD Cartouche Overlays */
 .canvas-hud {
   position: absolute;
   top: 14px;
-  left: 14px;
-  right: 14px;
+  left: 16px;
+  right: 16px;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
-  gap: 10px;
+  gap: 12px;
 }
 
 .hud-box {
-  background: rgba(6, 11, 22, 0.88);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 7px 12px;
+  background: rgba(20, 14, 8, 0.92);
+  border: 1.2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 14px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
-  backdrop-filter: blur(8px);
+  font-size: 11px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
-.hud-box.bio { border-color: rgba(239, 68, 68, 0.45); }
-.hud-box.meta { border-color: rgba(16, 185, 129, 0.45); }
-.hud-box.exo { border-color: rgba(6, 182, 212, 0.45); }
+.hud-box.bio { border-color: rgba(200, 90, 58, 0.6); }
+.hud-box.meta { border-color: rgba(212, 175, 55, 0.6); }
+.hud-box.exo { border-color: rgba(184, 115, 51, 0.6); }
 
 .hud-label {
   font-size: 9.5px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
+  font-family: var(--font-serif);
 }
 .hud-val {
   font-weight: 800;
-  font-size: 12.5px;
-  margin-top: 2px;
+  font-size: 12px;
+  margin-top: 3px;
+  color: var(--parchment-light);
 }
 
 /* Bottom Controls Bar */
 .controls-panel {
-  padding: 16px 20px;
+  padding: 16px 22px;
   border-top: 1px solid var(--border-color);
-  background: rgba(8, 14, 28, 0.95);
+  background: rgba(18, 12, 8, 0.97);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -276,10 +290,10 @@ canvas {
 
 .scrubber-slider {
   flex: 1;
-  accent-color: var(--exo-cyan);
+  accent-color: var(--gold-primary);
   height: 6px;
   cursor: pointer;
-  background: #1e293b;
+  background: #2a1e14;
   border-radius: 3px;
 }
 
@@ -297,55 +311,55 @@ canvas {
   align-items: center;
 }
 
-/* Sidebar Telemetry & Tuning */
+/* Sidebar Telemetry & Tuning Cards */
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .card {
   background: var(--panel-bg);
   backdrop-filter: blur(14px);
-  border: 1px solid var(--border-color);
+  border: 1.5px solid var(--border-color);
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.5);
 }
 
 .card-title {
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 700;
-  font-family: var(--font-mono);
-  letter-spacing: 1px;
+  font-family: var(--font-serif);
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: var(--exo-blue);
+  color: var(--gold-primary);
   margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
-  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(196, 154, 69, 0.22);
+  padding-bottom: 7px;
 }
 
 .telemetry-item {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .telemetry-item:last-child { margin-bottom: 0; }
 
 .telemetry-label {
-  font-size: 10.5px;
-  color: var(--text-muted);
+  font-size: 11px;
+  color: var(--parchment-muted);
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
-  font-family: var(--font-mono);
+  font-family: var(--font-serif);
 }
 
 .bar-bg {
-  height: 7px;
-  background: #0f172a;
-  border: 1px solid #1e293b;
+  height: 8px;
+  background: #1e150e;
+  border: 1px solid #38271a;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -355,9 +369,9 @@ canvas {
   border-radius: 3px;
   transition: width 0.1s linear;
 }
-.bar-bio { background: linear-gradient(90deg, #ef4444, #f97316); }
-.bar-exo { background: linear-gradient(90deg, #0284c7, #06b6d4); }
-.bar-meta { background: linear-gradient(90deg, #059669, #10b981); }
+.bar-bio { background: linear-gradient(90deg, #c85a3a, #e67e22); }
+.bar-exo { background: linear-gradient(90deg, #b87333, #d4af37); }
+.bar-meta { background: linear-gradient(90deg, #1e6b5c, #2d7a6e); }
 
 /* Interactive Tuning Sliders */
 .slider-group {
@@ -369,17 +383,17 @@ canvas {
   display: flex;
   justify-content: space-between;
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--parchment-muted);
   margin-bottom: 5px;
-  font-family: var(--font-mono);
+  font-family: var(--font-serif);
 }
 
-/* Presentation Slide Deck Modal */
+/* 6-Chapter Presentation Slide Deck Modal */
 .slide-modal {
   display: none;
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(3, 6, 14, 0.95);
+  background: rgba(12, 8, 5, 0.95);
   backdrop-filter: blur(20px);
   z-index: 200;
   justify-content: center;
@@ -389,14 +403,14 @@ canvas {
 .slide-modal.active { display: flex; }
 
 .slide-content {
-  background: #080e1d;
-  border: 1px solid var(--exo-cyan);
-  box-shadow: 0 0 60px rgba(6, 182, 212, 0.25);
+  background: radial-gradient(circle at 35% 35%, #221810, #130d08);
+  border: 2px solid var(--gold-primary);
+  box-shadow: 0 0 60px rgba(212, 175, 55, 0.35);
   border-radius: 14px;
   width: 100%;
   max-width: 900px;
   min-height: 500px;
-  padding: 34px;
+  padding: 36px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -406,46 +420,50 @@ canvas {
 .slide-num {
   position: absolute;
   top: 24px;
-  right: 30px;
-  font-family: var(--font-mono);
-  color: var(--text-dim);
-  font-size: 12px;
+  right: 32px;
+  font-family: var(--font-serif);
+  color: var(--gold-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .slide-body h2 {
-  font-size: 22px;
-  color: #ffffff;
+  font-size: 23px;
+  color: var(--gold-primary);
   margin-bottom: 8px;
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
+  letter-spacing: 0.8px;
 }
 
 .slide-body h3 {
-  font-size: 13.5px;
-  color: var(--exo-blue);
-  margin-bottom: 20px;
-  font-weight: 500;
-  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--parchment-muted);
+  margin-bottom: 22px;
+  font-weight: 600;
+  font-family: var(--font-serif);
+  letter-spacing: 0.4px;
 }
 
 .slide-body ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 13px;
 }
 
 .slide-body li {
   position: relative;
-  padding-left: 24px;
-  font-size: 13.5px;
+  padding-left: 26px;
+  font-size: 14px;
   line-height: 1.6;
-  color: #cbd5e1;
+  color: var(--parchment-light);
 }
 .slide-body li::before {
-  content: "▹";
+  content: "✦";
   position: absolute;
   left: 0;
-  color: var(--exo-cyan);
+  color: var(--gold-primary);
   font-weight: bold;
 }
 
@@ -459,12 +477,12 @@ canvas {
 
 /* Footer */
 footer {
-  background: #03060d;
+  background: #0a0604;
   border-top: 1px solid var(--border-color);
-  padding: 12px 28px;
-  font-size: 11px;
-  font-family: var(--font-mono);
-  color: var(--text-muted);
+  padding: 14px 30px;
+  font-size: 11.5px;
+  font-family: var(--font-serif);
+  color: var(--parchment-muted);
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Industrial experience: Jiangsu Dongyuan Xinsheng Technology (data acquisition to on-device edge deployment).",
         "Editorial leadership: Khair Publications (Deputy Director, Content & Research).",
         "Actively seeking research collaborations in musculoskeletal modeling and exoskeleton control.",
-        "Explore full publications and contact: mohamzaazam.github.io · mohamzaazam@gmail.com"
+        "Explore full publications and academic portfolio: mohamzaazam.github.io · ORCID: 0000-0002-3508-7332"
       ]
     }
   ];

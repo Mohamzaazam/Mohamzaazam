@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hamza Azam · Algorithmic Kinematic Wireframe &amp; Exoskeleton Control | Zhejiang University</title>
-  <meta name="description" content="Precision Algorithmic Kinematic Wireframe & State-Space Geometry of Human Locomotion, Subject-Independent Hip Moment Estimation, and Hm-DMP Exoskeleton Control.">
+  <title>Hamza Azam · Vitruvian Biomechatronics &amp; Renaissance Exoskeleton Automaton | Zhejiang University</title>
+  <meta name="description" content="Codex Locomotionis: Vitruvian Musculoskeletal Modeling, Subject-Independent Hip Moment Estimation (ESWA 2026), and Hm-DMP Exoskeleton Automaton Control (IROS 2025).">
   <link rel="stylesheet" href="src/css/kinematic-art.css">
 </head>
 <body>
 
-  <!-- Top Technical Header -->
+  <!-- Top Renaissance Headerplate -->
   <header>
     <div class="brand">
       <div class="brand-cad-badge">
@@ -18,12 +18,12 @@
       </div>
       <div class="brand-text">
         <h1>HAMZA AZAM · ZHEJIANG UNIVERSITY</h1>
-        <p>Ningbo Global Innovation Center · Musculoskeletal Kinematics &amp; Wearable Robotics</p>
+        <p>Ningbo Global Innovation Center · Vitruvian Biomechatronics &amp; Wearable Robotics</p>
       </div>
     </div>
     <div class="header-actions">
       <button class="btn" id="btn-slide-deck" title="Open Presentation Deck [P]">
-        <span>📽️ 6-Chapter Presentation [P]</span>
+        <span>📜 6-Chapter Presentation [P]</span>
       </button>
       <a href="https://mohamzaazam.github.io" target="_blank" class="btn">
         <span>🌐 mohamzaazam.github.io</span>
@@ -36,19 +36,19 @@
 
   <!-- Main Viewport Grid -->
   <main>
-    <!-- Visualizer Card -->
+    <!-- Visualizer Card (Illuminated Manuscript) -->
     <div class="visualizer-card">
       <div class="vis-header">
         <div style="display: flex; align-items: center; gap: 10px;">
-          <span class="status-badge"><span class="status-dot"></span> ZJU CO-SIMULATION ENGINE</span>
-          <span style="font-size: 11.5px; color: var(--text-muted); font-family: var(--font-mono);">
-            D-H Frames &amp; Moments (ESWA 2026) ⇄ Hm-DMP &amp; PI² (IROS 2025)
+          <span class="status-badge"><span class="status-dot"></span> CODEX LOCOMOTIONIS · CO-SIMULATION</span>
+          <span style="font-size: 11.5px; color: var(--parchment-muted); font-family: var(--font-serif); letter-spacing: 0.4px;">
+            Inverse Dynamics (ESWA 2026) ⇄ Hm-DMP &amp; PI² Automaton (IROS 2025)
           </span>
         </div>
         <div class="btn-group">
-          <button class="btn active" id="mode-both">Coupled</button>
-          <button class="btn" id="mode-bio">Angle Estimator</button>
-          <button class="btn" id="mode-exo">Hm-DMP Exo</button>
+          <button class="btn active" id="mode-both">Coupled Codex</button>
+          <button class="btn" id="mode-bio">Vitruvian Model</button>
+          <button class="btn" id="mode-exo">Automaton Exo</button>
         </div>
       </div>
 
@@ -57,16 +57,16 @@
         <canvas id="simCanvas" width="920" height="500"></canvas>
         <div class="canvas-hud">
           <div class="hud-box bio">
-            <div class="hud-label" style="color: #f87171;">ESTIMATED HIP MOMENT (ESWA 2026)</div>
-            <div class="hud-val" id="hud-bio-val" style="color: #ef4444;">τ_hip: +78 N·m [θ_L, θ_R only]</div>
+            <div class="hud-label" style="color: #c85a3a;">ESTIMATED HIP MOMENT (ESWA 2026)</div>
+            <div class="hud-val" id="hud-bio-val" style="color: #ffeed0;">τ_hip: +78 N·m [θ_L, θ_R only]</div>
           </div>
           <div class="hud-box meta">
-            <div class="hud-label" style="color: #34d399;">MOBILITY MATCHING (IROS 2025)</div>
-            <div class="hud-val" id="hud-meta-val" style="color: #10b981;">98.4% [PI² Policy]</div>
+            <div class="hud-label" style="color: #2d7a6e;">MOBILITY MATCHING (IROS 2025)</div>
+            <div class="hud-val" id="hud-meta-val" style="color: #d4af37;">98.4% [PI² Policy]</div>
           </div>
           <div class="hud-box exo">
-            <div class="hud-label" style="color: #38bdf8;">Hm-DMP ASSISTANCE</div>
-            <div class="hud-val" id="hud-exo-val" style="color: #06b6d4;">τ_assist: +42 N·m</div>
+            <div class="hud-label" style="color: #b87333;">Hm-DMP ASSISTANCE (IROS 2025)</div>
+            <div class="hud-val" id="hud-exo-val" style="color: #ffeed0;">τ_assist: +42 N·m</div>
           </div>
         </div>
       </div>
@@ -74,9 +74,9 @@
       <!-- Interactive Controls Panel -->
       <div class="controls-panel">
         <div class="scrubber-row">
-          <span style="font-family: var(--font-mono); font-size: 11px; width: 85px;" id="gait-phase-label">GAIT: 0%</span>
+          <span style="font-family: var(--font-serif); font-weight: 700; font-size: 11.5px; width: 90px; color: var(--gold-primary);" id="gait-phase-label">GAIT: 0%</span>
           <input type="range" id="gait-slider" class="scrubber-slider" min="0" max="100" value="0" step="0.5">
-          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-gold);" id="gait-event-label">Heel Strike (Initial Contact)</span>
+          <span style="font-family: var(--font-serif); font-size: 12px; color: var(--gold-accent); font-weight: 600;" id="gait-event-label">Heel Strike · Initial Contact</span>
         </div>
 
         <div class="control-buttons-row">
@@ -86,7 +86,7 @@
           </div>
 
           <div class="btn-group">
-            <span style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-right: 4px;">Cadence:</span>
+            <span style="font-size: 11px; color: var(--parchment-muted); font-family: var(--font-serif); margin-right: 4px;">Cadence:</span>
             <button class="btn" id="spd-025">0.25x</button>
             <button class="btn" id="spd-05">0.5x</button>
             <button class="btn active" id="spd-1">1.0x</button>
@@ -96,12 +96,12 @@
       </div>
     </div>
 
-    <!-- Sidebar Telemetry -->
+    <!-- Sidebar Telemetry & Publications -->
     <div class="sidebar">
       <div class="card">
         <div class="card-title">
-          <span>Real Research Telemetry</span>
-          <span style="font-size: 10px; color: var(--text-muted);">Zhejiang Univ</span>
+          <span>Biomechatronic Telemetry</span>
+          <span style="font-size: 10px; color: var(--parchment-dim);">Zhejiang Univ</span>
         </div>
 
         <div class="telemetry-item">
@@ -150,37 +150,37 @@
         </div>
       </div>
 
-      <div class="card" style="border-color: rgba(56, 189, 248, 0.35);">
-        <div class="card-title" style="color: #38bdf8;">Flagship Publications</div>
-        <div style="font-size: 11.5px; line-height: 1.5; color: #cbd5e1; display: flex; flex-direction: column; gap: 10px;">
+      <div class="card" style="border-color: rgba(212, 175, 55, 0.4);">
+        <div class="card-title" style="color: var(--gold-primary);">Flagship Publications</div>
+        <div style="font-size: 11.5px; line-height: 1.5; color: var(--parchment-muted); display: flex; flex-direction: column; gap: 10px;">
           <div>
-            <strong style="color: #f8fafc;">Expert Systems with Appl. (2026)</strong><br>
-            <span style="color: var(--text-muted);">Subject-independent hip moment from bilateral angles.</span><br>
-            <a href="https://doi.org/10.1016/j.eswa.2026.132047" target="_blank" style="color: var(--exo-cyan); text-decoration: none; font-family: var(--font-mono); font-size: 10px;">doi:10.1016/j.eswa.2026.132047 ↗</a>
+            <strong style="color: var(--parchment-light);">Expert Systems with Appl. (2026)</strong><br>
+            <span>Subject-independent hip moment from bilateral angles.</span><br>
+            <a href="https://doi.org/10.1016/j.eswa.2026.132047" target="_blank" style="color: var(--gold-accent); text-decoration: none; font-family: var(--font-mono); font-size: 10px;">doi:10.1016/j.eswa.2026.132047 ↗</a>
           </div>
           <div>
-            <strong style="color: #f8fafc;">IEEE/RSJ IROS (2025)</strong><br>
-            <span style="color: var(--text-muted);">Hm-DMP &amp; PI² gait adaptation framework.</span><br>
-            <a href="https://doi.org/10.1109/IROS60139.2025.11247606" target="_blank" style="color: var(--exo-cyan); text-decoration: none; font-family: var(--font-mono); font-size: 10px;">doi:10.1109/IROS60139.2025.11247606 ↗</a>
+            <strong style="color: var(--parchment-light);">IEEE/RSJ IROS (2025)</strong><br>
+            <span>Hm-DMP &amp; PI² gait adaptation framework.</span><br>
+            <a href="https://doi.org/10.1109/IROS60139.2025.11247606" target="_blank" style="color: var(--gold-accent); text-decoration: none; font-family: var(--font-mono); font-size: 10px;">doi:10.1109/IROS60139.2025.11247606 ↗</a>
           </div>
           <div>
-            <strong style="color: #f8fafc;">Measurement Sci. &amp; Tech. (2026)</strong><br>
-            <span style="color: var(--text-muted);">MetaTran hybrid transformers for fatigue life.</span><br>
-            <a href="https://doi.org/10.1088/1361-6501/ae540b" target="_blank" style="color: var(--exo-cyan); text-decoration: none; font-family: var(--font-mono); font-size: 10px;">doi:10.1088/1361-6501/ae540b ↗</a>
+            <strong style="color: var(--parchment-light);">Measurement Sci. &amp; Tech. (2026)</strong><br>
+            <span>MetaTran hybrid transformers for fatigue life.</span><br>
+            <a href="https://doi.org/10.1088/1361-6501/ae540b" target="_blank" style="color: var(--gold-accent); text-decoration: none; font-family: var(--font-mono); font-size: 10px;">doi:10.1088/1361-6501/ae540b ↗</a>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- Slide Deck Modal -->
+  <!-- 6-Chapter Presentation Slide Deck Modal -->
   <div class="slide-modal" id="slide-modal">
     <div class="slide-content">
       <div class="slide-num" id="slide-number">CHAPTER 01 / 06</div>
       <div class="slide-body" id="slide-body"></div>
       <div class="slide-footer">
         <button class="btn" id="btn-prev-slide">◀ Previous</button>
-        <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--text-muted);">
+        <div style="font-family: var(--font-serif); font-size: 11.5px; color: var(--parchment-dim);">
           Navigate with [Arrow Keys] · Exit with [Esc]
         </div>
         <div style="display: flex; gap: 8px;">
@@ -195,8 +195,8 @@
   <footer>
     <div>Hamza Azam · Zhejiang University (Ningbo Global Innovation Center)</div>
     <div>
-      <a href="https://mohamzaazam.github.io" target="_blank" style="color: var(--exo-blue); text-decoration: none;">mohamzaazam.github.io</a> · 
-      ORCID: <a href="https://orcid.org/0000-0002-3508-7332" target="_blank" style="color: var(--text-muted); text-decoration: none;">0000-0002-3508-7332</a>
+      <a href="https://mohamzaazam.github.io" target="_blank" style="color: var(--gold-accent); text-decoration: none;">mohamzaazam.github.io</a> · 
+      ORCID: <a href="https://orcid.org/0000-0002-3508-7332" target="_blank" style="color: var(--parchment-muted); text-decoration: none;">0000-0002-3508-7332</a>
     </div>
   </footer>
 

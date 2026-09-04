@@ -22,16 +22,16 @@ This guide provides presentation frameworks for **conferences (IROS, ICRA, EMBC)
 ```
 mohamzaazam/
 ├── README.md                      # GitHub Profile README (renders on github.com/mohamzaazam)
-├── index.html                     # Standalone Interactive Algorithmic CAD Dashboard
+├── index.html                     # Standalone Interactive Codex Presentation Dashboard
 ├── assets/
-│   └── algorithmic-locomotion.svg # Vector CAD graphic with coordinate triads & state-space orbit
+│   └── algorithmic-locomotion.svg # Renaissance Codex vector plate with Vitruvian biomechanics & automaton
 ├── src/
 │   ├── css/
-│   │   └── kinematic-art.css      # Dark technical CAD drafting stylesheet
+│   │   └── kinematic-art.css      # Renaissance parchment & copperplate stylesheet
 │   └── js/
-│       ├── kinematics.js          # Continuous biomechanical kinematics solver
-│       ├── state-space.js         # Hm-DMP phase portrait & limit-cycle generator
-│       ├── renderer.js            # Algorithmic CAD wireframe canvas renderer
+│       ├── kinematics.js          # Continuous biomechanical kinematics solver (zero-slip stance)
+│       ├── state-space.js         # Renaissance horological astrolabe phase portrait generator
+│       ├── renderer.js            # Vitruvian anatomical study & clockwork automaton canvas renderer
 │       └── main.js                # UI controls, scrubber & presentation modal
 ├── embed/
 │   └── snippet.html               # Responsive embed widget for mohamzaazam.github.io

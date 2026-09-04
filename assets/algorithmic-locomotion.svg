@@ -1,23 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" width="100%" height="100%" role="img" aria-label="Algorithmic Kinematic Wireframe and State-Space Geometry of Human Locomotion and Exoskeleton Control">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" width="100%" height="100%" role="img" aria-label="Codex Locomotionis: Vitruvian Biomechatronics, Subject-Independent Hip Moments, and Hm-DMP Exoskeleton Automaton">
   <defs>
-    <!-- Dark CAD Background Gradient -->
-    <linearGradient id="cadBg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#050811"/>
-      <stop offset="50%" stop-color="#080e1d"/>
-      <stop offset="100%" stop-color="#04060d"/>
+    <!-- Renaissance Aged Codex Parchment Gradient -->
+    <radialGradient id="parchmentBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#211810"/>
+      <stop offset="55%" stop-color="#18110a"/>
+      <stop offset="100%" stop-color="#0c0704"/>
+    </radialGradient>
+
+    <!-- Antique Copperplate Ground Datum Gradient -->
+    <linearGradient id="copperFloorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b87333" stop-opacity="0.08"/>
+      <stop offset="25%" stop-color="#c49a45" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#d4af37" stop-opacity="0.95"/>
+      <stop offset="75%" stop-color="#c49a45" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#b87333" stop-opacity="0.08"/>
     </linearGradient>
 
-    <!-- Floor Datum Gradient -->
-    <linearGradient id="datumFloorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.05"/>
-      <stop offset="25%" stop-color="#ef4444" stop-opacity="0.7"/>
-      <stop offset="50%" stop-color="#10b981" stop-opacity="0.9"/>
-      <stop offset="75%" stop-color="#06b6d4" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.05"/>
-    </linearGradient>
+    <!-- Brass Astrolabe Dial Gradient -->
+    <radialGradient id="astrolabeDial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#261b11"/>
+      <stop offset="70%" stop-color="#1c140c"/>
+      <stop offset="100%" stop-color="#120c07"/>
+    </radialGradient>
 
-    <!-- State Space Orbit Glow -->
-    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+    <!-- Warm Golden Bloom Filter -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
@@ -25,358 +32,760 @@
       </feMerge>
     </filter>
 
-    <filter id="emeraldGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- Precision Millimeter Pattern Grid -->
-    <pattern id="cadGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(56, 189, 248, 0.05)" stroke-width="0.8"/>
-      <path d="M 8 0 L 8 40 M 16 0 L 16 40 M 24 0 L 24 40 M 32 0 L 32 40" fill="none" stroke="rgba(56, 189, 248, 0.02)" stroke-width="0.5"/>
-      <path d="M 0 8 L 40 8 M 0 16 L 40 16 M 0 24 L 40 24 M 0 32 L 40 32" fill="none" stroke="rgba(56, 189, 248, 0.02)" stroke-width="0.5"/>
-      <!-- Small CAD crosshairs at grid intersections -->
-      <path d="M 38 40 L 42 40 M 40 38 L 40 42" stroke="rgba(56, 189, 248, 0.15)" stroke-width="0.8"/>
+    <!-- Vitruvian Geometric Manuscript Grid -->
+    <pattern id="manuscriptGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(196, 154, 69, 0.05)" stroke-width="0.8"/>
+      <path d="M 34 36 L 38 36 M 36 34 L 36 38" stroke="rgba(212, 175, 55, 0.15)" stroke-width="0.8"/>
     </pattern>
 
     <style><![CDATA[
-      .mono-title { font-family: "JetBrains Mono", "Fira Code", monospace; font-size: 11px; font-weight: 800; letter-spacing: 1px; }
-      .mono-sub { font-family: "JetBrains Mono", "Fira Code", monospace; font-size: 9.5px; font-weight: 500; fill: #64748b; letter-spacing: 0.5px; }
-      .mono-math { font-family: "JetBrains Mono", "Fira Code", monospace; font-size: 10px; font-weight: 600; }
-      .datum-txt { font-family: monospace; font-size: 8px; fill: #334155; }
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=JetBrains+Mono:wght@400;600&display=swap');
+      .codex-title { font-family: "Cinzel", "Palatino Linotype", Georgia, serif; font-size: 11.5px; font-weight: 700; letter-spacing: 1.2px; fill: #d4af37; }
+      .codex-sub { font-family: "Cinzel", "Palatino Linotype", Georgia, serif; font-size: 9.5px; font-weight: 500; fill: #9e8162; letter-spacing: 0.6px; }
+      .codex-math { font-family: "JetBrains Mono", monospace; font-size: 9.5px; font-weight: 600; }
+      .datum-num { font-family: "Cinzel", Georgia, serif; font-size: 8.5px; fill: #8c7355; font-weight: 700; }
     ]]></style>
   </defs>
 
-  <!-- Background Base & Blueprint Grid -->
-  <rect width="1200" height="510" fill="url(#cadBg)"/>
-  <rect width="1200" height="510" fill="url(#cadGrid)"/>
+  <!-- Background Base & Vitruvian Grid -->
+  <rect width="1200" height="510" fill="url(#parchmentBg)"/>
+  <rect width="1200" height="510" fill="url(#manuscriptGrid)"/>
 
-  <!-- Top Technical Calibration Header & Coordinate Datum Rulers -->
-  <g id="technical-datum-header">
-    <line x1="30" y1="20" x2="1170" y2="20" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1"/>
-    <!-- Millimeter tick marks along top border -->
-    <path d="M 30 16 v 8 M 100 18 v 4 M 200 18 v 4 M 300 16 v 8 M 400 18 v 4 M 500 18 v 4 M 600 15 v 10 M 700 18 v 4 M 800 18 v 4 M 900 16 v 8 M 1000 18 v 4 M 1100 18 v 4 M 1170 16 v 8" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
-    <text x="35" y="14" class="datum-txt">X: +0000.0 mm</text>
-    <text x="600" y="14" text-anchor="middle" class="datum-txt">ORIGIN: SACRAL CENTER [0, 0, 0]</text>
-    <text x="1165" y="14" text-anchor="end" class="datum-txt">X: +1200.0 mm</text>
+  <!-- Vitruvian Squaring-the-Circle & Harmonic Proportions Background Watermark -->
+  <g id="vitruvian-background-harmonics" opacity="0.3">
+    <!-- Center Vitruvian Circle -->
+    <circle cx="600" cy="245" r="185" fill="none" stroke="#c49a45" stroke-width="1.0"/>
+    <circle cx="600" cy="245" r="130" fill="none" stroke="#c49a45" stroke-width="0.8" stroke-dasharray="3 5"/>
+    <rect x="415" y="60" width="370" height="370" fill="none" stroke="#c49a45" stroke-width="0.8"/>
+    <!-- Diagonal golden ratio rays -->
+    <line x1="415" y1="60" x2="785" y2="430" stroke="#c49a45" stroke-width="0.6" stroke-dasharray="4 6"/>
+    <line x1="785" y1="60" x2="415" y2="430" stroke="#c49a45" stroke-width="0.6" stroke-dasharray="4 6"/>
   </g>
 
-  <!-- Ground Datum Floor Line -->
+  <!-- Top Manuscript Calibration Header & Caliper Bar -->
+  <g id="codex-header-bar">
+    <line x1="35" y1="22" x2="1165" y2="22" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1"/>
+    <path d="M 35 18 v 8 M 120 19 v 6 M 220 19 v 6 M 320 17 v 10 M 420 19 v 6 M 520 19 v 6 M 600 15 v 14 M 680 19 v 6 M 780 19 v 6 M 880 17 v 10 M 980 19 v 6 M 1080 19 v 6 M 1165 18 v 8" stroke="rgba(212, 175, 55, 0.45)" stroke-width="1"/>
+    <text x="40" y="15" class="codex-sub">LIBER PRIMUS · DE MOTU ANIMALIUM ET ARTICULIS</text>
+    <text x="600" y="15" text-anchor="middle" class="codex-sub">PROPORTIO VITRUVIANA · SACRAL EQUILIBRIUM [0, 0, 0]</text>
+    <text x="1160" y="15" text-anchor="end" class="codex-sub">ZHEJIANGENSIS UNIVERSITAS · CODEX AZAM</text>
+  </g>
+
+  <!-- Antique Engraved Copperplate Ground Datum Line with Dynamic Treadmill Ticks -->
   <g id="ground-datum">
-    <line x1="40" y1="430" x2="1160" y2="430" stroke="url(#datumFloorGrad)" stroke-width="2"/>
-    <line x1="120" y1="431" x2="1080" y2="431" stroke="url(#datumFloorGrad)" stroke-width="4" opacity="0.25" filter="url(#cyanGlow)"/>
-    <!-- Floor Calibration Ticks -->
-    <path d="M 100 430 v 6 M 200 430 v 6 M 300 430 v 8 M 400 430 v 6 M 500 430 v 6 M 600 430 v 10 M 700 430 v 6 M 800 430 v 6 M 900 430 v 8 M 1000 430 v 6 M 1100 430 v 6" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1"/>
-    <text x="300" y="450" text-anchor="middle" class="datum-txt">BIOMECHANICAL DATUM [ESWA 2026]</text>
-    <text x="600" y="450" text-anchor="middle" class="datum-txt">CO-SIMULATION EQUILIBRIUM PLANE</text>
-    <text x="900" y="450" text-anchor="middle" class="datum-txt">ROBOTIC DATUM [IROS 2025]</text>
+    <line x1="30" y1="430" x2="1170" y2="430" stroke="url(#copperFloorGrad)" stroke-width="2.5"/>
+    <line x1="120" y1="431" x2="1080" y2="431" stroke="url(#copperFloorGrad)" stroke-width="4" opacity="0.3" filter="url(#goldGlow)"/>
+
+    <!-- Floor Calibration Roman Ticks -->
+    <path d="M 80 430 v 6 M 180 430 v 6 M 280 430 v 9 M 380 430 v 6 M 480 430 v 6 M 600 430 v 12 M 720 430 v 6 M 820 430 v 6 M 920 430 v 9 M 1020 430 v 6 M 1120 430 v 6" stroke="rgba(196, 154, 69, 0.6)" stroke-width="1.2"/>
+    <text x="280" y="454" text-anchor="middle" class="datum-num">DATUM ANATOMICUM · ESWA 2026</text>
+    <text x="600" y="454" text-anchor="middle" class="datum-num">PLANUM EQUILIBRII CO-SIMULATI</text>
+    <text x="920" y="454" text-anchor="middle" class="datum-num">DATUM AUTOMATON · IROS 2025</text>
   </g>
 
-  <!-- ================= CENTER: STATE-SPACE LIMIT CYCLE OSCILLOSCOPE ================= -->
-  <g id="center-state-space-portrait" transform="translate(0, 0)">
-    <!-- Oscilloscope Frame / Viewport -->
-    <rect x="495" y="160" width="210" height="210" rx="8" fill="rgba(8, 14, 28, 0.85)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.2"/>
-    <rect x="495" y="160" width="210" height="210" rx="8" fill="none" stroke="rgba(6, 182, 212, 0.15)" stroke-width="3" filter="url(#cyanGlow)"/>
+  <!-- ================= CENTER: ASTROLABIUM DE STATU MOTUS (STATE-SPACE) ================= -->
+  <g id="astrolabium-phase-portrait">
+    <!-- Astrolabe Brass Bezel -->
+    <circle cx="600" cy="265" r="105" fill="url(#astrolabeDial)" stroke="#c49a45" stroke-width="2.4" filter="url(#goldGlow)"/>
+    <circle cx="600" cy="265" r="97" fill="none" stroke="#8c5a2b" stroke-width="1.2"/>
 
-    <!-- Reticle Crosshairs -->
-    <line x1="505" y1="265" x2="695" y2="265" stroke="rgba(148, 163, 184, 0.3)" stroke-width="0.8" stroke-dasharray="4 4"/>
-    <line x1="600" y1="170" x2="600" y2="360" stroke="rgba(148, 163, 184, 0.3)" stroke-width="0.8" stroke-dasharray="4 4"/>
+    <!-- Roman Astrolabe Degree Ticks -->
+    <g stroke="#d4af37" stroke-width="0.9" opacity="0.75">
+      <line x1="600" y1="168" x2="600" y2="176"/>
+      <line x1="600" y1="354" x2="600" y2="362"/>
+      <line x1="503" y1="265" x2="511" y2="265"/>
+      <line x1="689" y1="265" x2="697" y2="265"/>
+      <line x1="667" y1="198" x2="661" y2="204"/>
+      <line x1="533" y1="332" x2="539" y2="326"/>
+      <line x1="667" y1="332" x2="661" y2="326"/>
+      <line x1="533" y1="198" x2="539" y2="204"/>
+    </g>
 
-    <!-- Concentric Limit Orbit Guides -->
-    <circle cx="600" cy="265" r="35" fill="none" stroke="rgba(56, 189, 248, 0.12)" stroke-width="0.8" stroke-dasharray="2 4"/>
-    <circle cx="600" cy="265" r="65" fill="none" stroke="rgba(56, 189, 248, 0.15)" stroke-width="0.8" stroke-dasharray="2 4"/>
+    <!-- Roman Cardinal Numerals (XII, III, VI, IX) -->
+    <text x="600" y="186" text-anchor="middle" class="datum-num" fill="#d4af37">XII</text>
+    <text x="682" y="268" text-anchor="middle" class="datum-num" fill="#d4af37">III</text>
+    <text x="600" y="348" text-anchor="middle" class="datum-num" fill="#d4af37">VI</text>
+    <text x="518" y="268" text-anchor="middle" class="datum-num" fill="#d4af37">IX</text>
 
-    <!-- Vector Field Flow Direction Arrows -->
-    <path d="M 655 250 l 4 8 l -8 -2 Z" fill="rgba(16, 185, 129, 0.6)"/>
-    <path d="M 545 280 l -4 -8 l 8 2 Z" fill="rgba(16, 185, 129, 0.6)"/>
+    <!-- Vitruvian Reticle Crosshairs -->
+    <line x1="510" y1="265" x2="690" y2="265" stroke="rgba(212, 175, 55, 0.35)" stroke-width="0.8" stroke-dasharray="4 3"/>
+    <line x1="600" y1="175" x2="600" y2="355" stroke="rgba(212, 175, 55, 0.35)" stroke-width="0.8" stroke-dasharray="4 3"/>
+    <circle cx="600" cy="265" r="35" fill="none" stroke="rgba(196, 154, 69, 0.2)" stroke-width="0.8"/>
+    <circle cx="600" cy="265" r="65" fill="none" stroke="rgba(196, 154, 69, 0.2)" stroke-width="0.8"/>
+
+    <!-- Clockwise Dynamic Flow Fleurons -->
+    <path d="M 655 252 l 4 7 l -8 -2 Z" fill="#d4af37" opacity="0.8"/>
+    <path d="M 545 278 l -4 -7 l 8 2 Z" fill="#d4af37" opacity="0.8"/>
 
     <!-- Closed-Loop Harmonic Limit Cycle Attractor Orbit -->
-    <polygon points="657.6,247.4 660.0,257.6 660.3,269.6 658.2,282.6 653.6,295.9 646.5,308.5 637.1,319.5 625.9,328.1 613.3,333.5 600.0,335.4 586.7,333.5 574.1,328.1 562.9,319.5 553.5,308.5 546.4,295.9 541.8,282.6 539.7,269.6 540.0,257.6 542.4,247.4 546.6,239.3 552.0,233.5 558.4,229.8 565.3,228.0 572.4,227.6 579.5,228.1 586.5,228.9 593.3,229.6 600.0,229.8 606.7,229.6 613.5,228.9 620.5,228.1 627.6,227.6 634.7,228.0 641.6,229.8 648.0,233.5 653.4,239.3 657.6,247.4" fill="none" stroke="#06b6d4" stroke-width="2.2" filter="url(#cyanGlow)"/>
-    <polygon points="657.6,247.4 660.0,257.6 660.3,269.6 658.2,282.6 653.6,295.9 646.5,308.5 637.1,319.5 625.9,328.1 613.3,333.5 600.0,335.4 586.7,333.5 574.1,328.1 562.9,319.5 553.5,308.5 546.4,295.9 541.8,282.6 539.7,269.6 540.0,257.6 542.4,247.4 546.6,239.3 552.0,233.5 558.4,229.8 565.3,228.0 572.4,227.6 579.5,228.1 586.5,228.9 593.3,229.6 600.0,229.8 606.7,229.6 613.5,228.9 620.5,228.1 627.6,227.6 634.7,228.0 641.6,229.8 648.0,233.5 653.4,239.3 657.6,247.4" fill="rgba(6, 182, 212, 0.04)"/>
+    <path d="M 658 248 C 665 265, 660 300, 626 328 C 595 352, 555 330, 542 278 C 532 238, 565 220, 615 225 C 645 228, 652 238, 658 248 Z" fill="rgba(212, 175, 55, 0.08)" stroke="#d4af37" stroke-width="2.2" filter="url(#goldGlow)"/>
 
-    <!-- Moving State Point [theta, d_theta/dt] -->
-    <circle r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.8" filter="url(#cyanGlow)">
-      <animate attributeName="cx" values="657.6; 660.0; 660.3; 658.2; 653.6; 646.5; 637.1; 625.9; 613.3; 600.0; 586.7; 574.1; 562.9; 553.5; 546.4; 541.8; 539.7; 540.0; 542.4; 546.6; 552.0; 558.4; 565.3; 572.4; 579.5; 586.5; 593.3; 600.0; 606.7; 613.5; 620.5; 627.6; 634.7; 641.6; 648.0; 653.4; 657.6" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="247.4; 257.6; 269.6; 282.6; 295.9; 308.5; 319.5; 328.1; 333.5; 335.4; 333.5; 328.1; 319.5; 308.5; 295.9; 282.6; 269.6; 257.6; 247.4; 239.3; 233.5; 229.8; 228.0; 227.6; 228.1; 228.9; 229.6; 229.8; 229.6; 228.9; 228.1; 227.6; 228.0; 229.8; 233.5; 239.3; 247.4" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Dynamic Celestial Sunburst State Point [theta, d_theta/dt] (17 Synchronized Keyframes) -->
+    <circle r="5" fill="#ffeed0" stroke="#b87333" stroke-width="2" filter="url(#goldGlow)">
+      <animate attributeName="cx" values="658; 660; 656; 644; 626; 604; 580; 558; 544; 540; 546; 562; 586; 614; 638; 652; 658" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="248; 265; 288; 312; 328; 332; 324; 304; 278; 254; 236; 226; 224; 226; 232; 240; 248" dur="2.4s" repeatCount="indefinite"/>
     </circle>
-    <!-- Trailing Pulse Echo -->
-    <circle r="8" fill="none" stroke="#10b981" stroke-width="1.2" opacity="0.7">
-      <animate attributeName="cx" values="657.6; 660.0; 660.3; 658.2; 653.6; 646.5; 637.1; 625.9; 613.3; 600.0; 586.7; 574.1; 562.9; 553.5; 546.4; 541.8; 539.7; 540.0; 542.4; 546.6; 552.0; 558.4; 565.3; 572.4; 579.5; 586.5; 593.3; 600.0; 606.7; 613.5; 620.5; 627.6; 634.7; 641.6; 648.0; 653.4; 657.6" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="247.4; 257.6; 269.6; 282.6; 295.9; 308.5; 319.5; 328.1; 333.5; 335.4; 333.5; 328.1; 319.5; 308.5; 295.9; 282.6; 269.6; 257.6; 247.4; 239.3; 233.5; 229.8; 228.0; 227.6; 228.1; 228.9; 229.6; 229.8; 229.6; 228.9; 228.1; 227.6; 228.0; 229.8; 233.5; 239.3; 247.4" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="r" values="4;12;4" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Trailing Golden Stardust Pulse Halo -->
+    <circle r="9" fill="none" stroke="#d4af37" stroke-width="1.2" opacity="0.7">
+      <animate attributeName="cx" values="658; 660; 656; 644; 626; 604; 580; 558; 544; 540; 546; 562; 586; 614; 638; 652; 658" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="248; 265; 288; 312; 328; 332; 324; 304; 278; 254; 236; 226; 224; 226; 232; 240; 248" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="5; 13; 5; 13; 5; 13; 5; 13; 5; 13; 5; 13; 5; 13; 5; 13; 5" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8; 0.2; 0.8" dur="2.4s" repeatCount="indefinite"/>
     </circle>
 
-    <!-- State Space Labels -->
-    <text x="600" y="151" text-anchor="middle" fill="#38bdf8" class="mono-title">HM-DMP STATE-SPACE PHASE PORTRAIT</text>
-    <text x="600" y="180" text-anchor="middle" class="mono-sub">HARMONIC LIMIT-CYCLE ATTRACTOR</text>
-    <text x="690" y="259" text-anchor="end" fill="#94a3b8" font-family="monospace" font-size="9">θ_hip</text>
-    <text x="608" y="180" text-anchor="start" fill="#94a3b8" font-family="monospace" font-size="9">dθ/dt</text>
-    <text x="600" y="355" text-anchor="middle" fill="#10b981" class="mono-math">λ_max &lt; 0 [Orbital Stability Verified]</text>
+    <!-- Astrolabe Titles -->
+    <text x="600" y="146" text-anchor="middle" class="codex-title">ASTROLABIUM DE STATU MOTUS</text>
+    <text x="600" y="160" text-anchor="middle" class="codex-sub">ATTRACTOR HARMONICUS (Hm-DMP)</text>
+    <text x="674" y="258" text-anchor="end" fill="#c49a45" font-family="Cinzel" font-size="9">θ_coxa</text>
+    <text x="608" y="202" text-anchor="start" fill="#c49a45" font-family="Cinzel" font-size="9">dθ/dt</text>
+    <text x="600" y="380" text-anchor="middle" fill="#2d7a6e" class="codex-math">λ_max &lt; 0 · Aequilibrum Orbitale</text>
 
-    <!-- Co-Simulation Data Interchange Flow Lines -->
-    <!-- Bio -> Controller Stream -->
-    <path d="M 430 230 C 470 210, 485 225, 485 240" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6 4">
-      <animate attributeName="stroke-dashoffset" values="40;0" dur="1s" repeatCount="indefinite"/>
+    <!-- Co-Simulation Sanguine & Gold Quill Ink Data Streams -->
+    <path d="M 430 235 C 470 215, 485 230, 492 245" fill="none" stroke="#c85a3a" stroke-width="1.6" stroke-dasharray="5 4">
+      <animate attributeName="stroke-dashoffset" values="36;0" dur="1s" repeatCount="indefinite"/>
     </path>
-    <polygon points="485,240 477,236 479,244" fill="#ef4444"/>
-    <text x="475" y="219" text-anchor="middle" fill="#f87171" class="mono-math">θ_L, θ_R (Encoders)</text>
+    <polygon points="492,245 484,241 486,249" fill="#c85a3a"/>
+    <text x="475" y="222" text-anchor="middle" fill="#c85a3a" class="codex-math">θ_L, θ_R (Anguli)</text>
 
-    <!-- Controller -> Exo Torque Stream -->
-    <path d="M 715 290 C 735 305, 730 320, 770 300" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="6 4">
-      <animate attributeName="stroke-dashoffset" values="0;40" dur="1s" repeatCount="indefinite"/>
+    <path d="M 708 285 C 730 300, 740 315, 770 295" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-dasharray="5 4">
+      <animate attributeName="stroke-dashoffset" values="0;36" dur="1s" repeatCount="indefinite"/>
     </path>
-    <polygon points="770,300 762,296 764,304" fill="#06b6d4"/>
-    <text x="725" y="311" text-anchor="middle" fill="#38bdf8" class="mono-math">τ_assist [PI² Policy]</text>
+    <polygon points="770,295 762,291 764,299" fill="#d4af37"/>
+    <text x="735" y="320" text-anchor="middle" fill="#d4af37" class="codex-math">τ_auxiliaris [PI²]</text>
   </g>
 
-  <!-- ================= LEFT: NEUROMUSCULOSKELETAL MODEL ================= -->
-  <g id="musculoskeletal-walker">
-    <!-- Section Title & Model Formulation Callout -->
+  <!-- ================= LEFT: HOMO VITRUVIANUS (ANATOMICAL STUDY) ================= -->
+  <g id="homo-vitruvianus-walker">
+    <!-- Callout Title -->
     <g transform="translate(60, 42)">
-      <circle cx="0" cy="0" r="4.5" fill="#ef4444"/>
-      <text x="14" y="4" fill="#f87171" class="mono-title">NEUROMUSCULOSKELETAL KINEMATICS</text>
-      <text x="14" y="18" class="mono-sub">Subject-Independent Moment Estimation · ESWA 2026</text>
-      <text x="14" y="32" fill="#ef4444" class="mono-math">τ_hip = f_ML(θ_L, θ_R, dθ_L, dθ_R) [No Force Plates]</text>
+      <circle cx="0" cy="0" r="4" fill="#c85a3a"/>
+      <text x="14" y="4" class="codex-title" fill="#c85a3a">HOMO VITRUVIANUS · ANATOMIA</text>
+      <text x="14" y="18" class="codex-sub">Aestimatio Momentorum Coxae · ESWA 2026</text>
+      <text x="14" y="32" fill="#c85a3a" class="codex-math">τ_coxa = f_ML(θ_L, θ_R, dθ_L, dθ_R) [Sine Platis Vis]</text>
     </g>
 
-    <!-- Back Arm (Right) -->
-    <path stroke="#475569" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.4">
-      <animate attributeName="d" values="M 300.0,153.0 L 315.6,204.7 L 312.9,252.6; M 300.0,154.5 L 314.5,206.6 L 310.8,254.4; M 300.0,155.9 L 313.1,208.3 L 308.0,256.0; M 300.0,156.9 L 311.3,209.7 L 304.7,257.2; M 300.0,157.4 L 309.5,210.6 L 301.2,257.9; M 300.0,157.4 L 307.6,210.9 L 297.6,257.8; M 300.0,156.9 L 305.6,210.6 L 293.9,257.2; M 300.0,155.9 L 303.7,209.8 L 290.4,255.9; M 300.0,154.5 L 301.8,208.5 L 286.9,254.1; M 300.0,153.0 L 300.0,207.0 L 283.5,252.1; M 300.0,151.5 L 298.2,205.4 L 280.2,249.9; M 300.0,150.1 L 296.3,204.0 L 276.8,247.8; M 300.0,149.1 L 294.4,202.8 L 273.3,245.9; M 300.0,148.6 L 292.4,202.0 L 269.8,244.4; M 300.0,148.6 L 290.5,201.7 L 266.4,243.2; M 300.0,149.1 L 288.7,201.9 L 263.1,242.5; M 300.0,150.1 L 286.9,202.5 L 260.1,242.3; M 300.0,151.5 L 285.5,203.5 L 257.5,242.5; M 300.0,153.0 L 284.4,204.7 L 255.6,243.1; M 300.0,154.5 L 283.8,206.0 L 254.5,244.1; M 300.0,155.9 L 283.7,207.4 L 254.4,245.4; M 300.0,156.9 L 284.2,208.5 L 255.3,246.9; M 300.0,157.4 L 285.5,209.4 L 257.5,248.4; M 300.0,157.4 L 287.3,209.9 L 260.8,249.9; M 300.0,156.9 L 289.9,209.9 L 265.2,251.1; M 300.0,155.9 L 292.9,209.4 L 270.7,252.0; M 300.0,154.5 L 296.4,208.4 L 276.9,252.3; M 300.0,153.0 L 300.0,207.0 L 283.5,252.1; M 300.0,151.5 L 303.6,205.3 L 290.3,251.4; M 300.0,150.1 L 307.1,203.6 L 296.7,250.5; M 300.0,149.1 L 310.1,202.1 L 302.4,249.5; M 300.0,148.6 L 312.7,201.1 L 307.2,248.8; M 300.0,148.6 L 314.5,200.6 L 310.8,248.4; M 300.0,149.1 L 315.8,200.8 L 313.2,248.7; M 300.0,150.1 L 316.3,201.6 L 314.2,249.5; M 300.0,151.5 L 316.2,203.0 L 314.1,250.9; M 300.0,153.0 L 315.6,204.7 L 312.9,252.6" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Back Arm (Leonardo Sepia Wash - 17 Keyframes) -->
+    <path stroke="#5c4533" stroke-width="3.2" stroke-linecap="round" fill="none" opacity="0.45">
+      <animate attributeName="d" values="
+        M 300,151 L 315,203 L 312,250;
+        M 300,151 L 314,205 L 309,252;
+        M 300,149 L 310,207 L 302,254;
+        M 300,145 L 304,208 L 292,255;
+        M 300,142 L 297,206 L 280,251;
+        M 300,141 L 291,204 L 270,246;
+        M 300,143 L 286,203 L 260,244;
+        M 300,147 L 284,204 L 255,243;
+        M 300,151 L 285,207 L 257,247;
+        M 300,151 L 288,208 L 264,249;
+        M 300,149 L 293,208 L 273,251;
+        M 300,145 L 300,207 L 285,253;
+        M 300,142 L 306,205 L 296,252;
+        M 300,141 L 311,204 L 305,251;
+        M 300,143 L 314,203 L 310,250;
+        M 300,147 L 315,203 L 312,250;
+        M 300,151 L 315,203 L 312,250"
+        dur="2.4s" repeatCount="indefinite"/>
     </path>
 
-    <!-- Back Leg (Right) -->
-    <g opacity="0.38">
-      <!-- Thigh Bone -->
-      <path stroke="#94a3b8" stroke-width="5.5" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="M 300.0,235.0 L 261.0,322.7; M 300.0,236.5 L 263.6,325.4; M 300.0,237.9 L 267.2,328.1; M 300.0,238.9 L 271.4,330.5; M 300.0,239.4 L 276.1,332.4; M 300.0,239.4 L 280.9,333.5; M 300.0,238.9 L 285.8,333.8; M 300.0,237.9 L 290.6,333.4; M 300.0,236.5 L 295.3,332.4; M 300.0,235.0 L 300.0,331.0; M 300.0,233.5 L 304.7,329.3; M 300.0,232.1 L 309.4,327.6; M 300.0,231.1 L 314.2,326.0; M 300.0,230.6 L 319.1,324.6; M 300.0,230.6 L 323.9,323.5; M 300.0,231.1 L 328.6,322.7; M 300.0,232.1 L 332.8,322.3; M 300.0,233.5 L 336.4,322.3; M 300.0,235.0 L 339.0,322.7; M 300.0,236.5 L 340.6,323.5; M 300.0,237.9 L 340.8,324.8; M 300.0,238.9 L 339.4,326.4; M 300.0,239.4 L 336.5,328.2; M 300.0,239.4 L 331.8,330.0; M 300.0,238.9 L 325.6,331.4; M 300.0,237.9 L 318.0,332.2; M 300.0,236.5 L 309.3,332.1; M 300.0,235.0 L 300.0,331.0; M 300.0,233.5 L 290.7,329.0; M 300.0,232.1 L 282.0,326.4; M 300.0,231.1 L 274.4,323.6; M 300.0,230.6 L 268.2,321.1; M 300.0,230.6 L 263.5,319.4; M 300.0,231.1 L 260.6,318.6; M 300.0,232.1 L 259.2,319.0; M 300.0,233.5 L 259.4,320.5; M 300.0,235.0 L 261.0,322.7" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Back Leg (Contralateral Thigh, Shank, Foot - 17 Keyframes) -->
+    <g opacity="0.42">
+      <!-- Thigh -->
+      <path stroke="#705741" stroke-width="5.5" stroke-linecap="round" fill="none">
+        <animate attributeName="d" values="
+          M 300,235 L 324,328;
+          M 299,235 L 320,329;
+          M 299,233 L 331,324;
+          M 298,229 L 346,312;
+          M 298,226 L 353,304;
+          M 298,225 L 358,300;
+          M 299,227 L 358,303;
+          M 299,231 L 353,310;
+          M 300,235 L 349,317;
+          M 301,235 L 347,319;
+          M 301,233 L 342,320;
+          M 302,229 L 332,320;
+          M 302,226 L 319,320;
+          M 302,225 L 315,320;
+          M 301,227 L 318,321;
+          M 301,231 L 323,324;
+          M 300,235 L 324,328"
+          dur="2.4s" repeatCount="indefinite"/>
       </path>
-      <!-- Shank Bone -->
-      <path stroke="#94a3b8" stroke-width="4.5" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="M 261.0,322.7 L 180.7,378.9; M 263.6,325.4 L 173.2,363.1; M 267.2,328.1 L 172.4,352.8; M 271.4,330.5 L 175.4,350.3; M 276.1,332.4 L 181.0,356.1; M 280.9,333.5 L 189.8,369.6; M 285.8,333.8 L 204.5,388.6; M 290.6,333.4 L 228.0,408.8; M 295.3,332.4 L 260.9,424.2; M 300.0,331.0 L 300.0,429.0; M 304.7,329.3 L 294.3,426.8; M 309.4,327.6 L 305.8,425.6; M 314.2,326.0 L 317.4,424.0; M 319.1,324.6 L 329.2,422.1; M 323.9,323.5 L 341.0,420.0; M 328.6,322.7 L 352.3,417.8; M 332.8,322.3 L 362.7,415.7; M 336.4,322.3 L 371.7,413.7; M 339.0,322.7 L 378.9,412.2; M 340.6,323.5 L 369.7,417.1; M 340.8,324.8 L 361.6,420.6; M 339.4,326.4 L 357.2,422.8; M 336.5,328.2 L 357.1,424.0; M 331.8,330.0 L 359.1,424.1; M 325.6,331.4 L 350.6,426.2; M 318.0,332.2 L 333.3,429.0; M 309.3,332.1 L 314.0,430.0; M 300.0,331.0 L 294.1,428.8; M 290.7,329.0 L 274.7,425.7; M 282.0,326.4 L 257.1,421.2; M 274.4,323.6 L 242.1,416.2; M 268.2,321.1 L 230.5,411.6; M 263.5,319.4 L 222.6,408.4; M 260.6,318.6 L 218.2,407.0; M 259.2,319.0 L 217.3,407.6; M 259.4,320.5 L 197.3,396.3; M 261.0,322.7 L 180.7,378.9" dur="2.4s" repeatCount="indefinite"/>
+      <!-- Shank -->
+      <path stroke="#705741" stroke-width="4.5" stroke-linecap="round" fill="none">
+        <animate attributeName="d" values="
+          M 324,328 L 291,418;
+          M 320,329 L 286,418;
+          M 331,324 L 284,408;
+          M 346,312 L 289,390;
+          M 353,304 L 302,385;
+          M 358,300 L 320,388;
+          M 358,303 L 336,396;
+          M 353,310 L 345,406;
+          M 349,317 L 348,413;
+          M 347,319 L 342,415;
+          M 342,320 L 335,416;
+          M 332,320 L 327,416;
+          M 319,320 L 319,416;
+          M 315,320 L 311,416;
+          M 318,321 L 304,416;
+          M 323,324 L 297,417;
+          M 324,328 L 291,418"
+          dur="2.4s" repeatCount="indefinite"/>
       </path>
       <!-- Foot Bone -->
-      <path stroke="#94a3b8" stroke-width="4" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="M 174.6,371.0 L 200.2,404.2; M 165.8,356.3 L 196.7,384.8; M 163.8,347.7 L 199.9,369.2; M 165.9,347.1 L 205.8,360.4; M 171.2,353.7 L 212.1,363.5; M 180.3,366.2 L 219.9,380.4; M 195.9,383.4 L 231.9,405.1; M 221.0,401.6 L 250.1,431.9; M 256.6,415.1 L 274.6,453.1; M 299.0,419.0 L 303.1,460.9; M 292.2,417.0 L 300.9,458.1; M 304.4,415.7 L 310.3,457.3; M 316.8,414.0 L 319.6,455.9; M 329.4,412.1 L 328.9,454.1; M 341.9,410.1 L 338.0,451.9; M 354.1,408.0 L 346.5,449.3; M 365.3,406.0 L 354.3,446.5; M 375.1,404.3 L 360.9,443.8; M 383.0,403.1 L 365.9,441.5; M 373.4,407.8 L 357.9,446.8; M 364.9,411.2 L 350.8,450.7; M 360.4,413.3 L 347.2,453.2; M 360.2,414.5 L 347.2,454.5; M 362.2,414.6 L 349.2,454.6; M 352.8,416.4 L 343.4,457.4; M 334.0,419.0 L 330.8,460.9; M 313.3,420.0 L 316.3,461.9; M 292.0,419.0 L 300.8,460.1; M 271.4,416.2 L 285.2,455.9; M 252.9,412.1 L 270.5,450.2; M 237.3,407.4 L 257.5,444.3; M 225.5,403.0 L 246.8,439.2; M 217.5,399.8 L 238.9,435.9; M 213.3,398.3 L 233.7,435.0; M 212.9,398.6 L 231.3,436.4; M 192.3,387.7 L 213.5,423.9; M 174.6,371.0 L 200.2,404.2" dur="2.4s" repeatCount="indefinite"/>
+      <path stroke="#705741" stroke-width="3.6" stroke-linecap="round" fill="none">
+        <animate attributeName="d" values="
+          M 276,425 L 323,430;
+          M 269,418 L 319,430;
+          M 267,408 L 316,421;
+          M 276,376 L 317,391;
+          M 290,370 L 330,383;
+          M 308,372 L 348,384;
+          M 324,381 L 364,392;
+          M 334,391 L 374,400;
+          M 338,430 L 378,421;
+          M 330,430 L 371,428;
+          M 322,430 L 363,430;
+          M 314,430 L 355,430;
+          M 306,430 L 347,430;
+          M 298,430 L 339,430;
+          M 291,430 L 332,430;
+          M 283,429 L 327,429;
+          M 276,425 L 323,430"
+          dur="2.4s" repeatCount="indefinite"/>
       </path>
     </g>
 
-    <!-- Torso: Spine Column with Neural Action Potential Pulse -->
-    <path stroke="#cbd5e1" stroke-width="4.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 300.0,235.0 L 300.0,153.0; M 300.0,236.5 L 300.0,154.5; M 300.0,237.9 L 300.0,155.9; M 300.0,238.9 L 300.0,156.9; M 300.0,239.4 L 300.0,157.4; M 300.0,239.4 L 300.0,157.4; M 300.0,238.9 L 300.0,156.9; M 300.0,237.9 L 300.0,155.9; M 300.0,236.5 L 300.0,154.5; M 300.0,235.0 L 300.0,153.0; M 300.0,233.5 L 300.0,151.5; M 300.0,232.1 L 300.0,150.1; M 300.0,231.1 L 300.0,149.1; M 300.0,230.6 L 300.0,148.6; M 300.0,230.6 L 300.0,148.6; M 300.0,231.1 L 300.0,149.1; M 300.0,232.1 L 300.0,150.1; M 300.0,233.5 L 300.0,151.5; M 300.0,235.0 L 300.0,153.0; M 300.0,236.5 L 300.0,154.5; M 300.0,237.9 L 300.0,155.9; M 300.0,238.9 L 300.0,156.9; M 300.0,239.4 L 300.0,157.4; M 300.0,239.4 L 300.0,157.4; M 300.0,238.9 L 300.0,156.9; M 300.0,237.9 L 300.0,155.9; M 300.0,236.5 L 300.0,154.5; M 300.0,235.0 L 300.0,153.0; M 300.0,233.5 L 300.0,151.5; M 300.0,232.1 L 300.0,150.1; M 300.0,231.1 L 300.0,149.1; M 300.0,230.6 L 300.0,148.6; M 300.0,230.6 L 300.0,148.6; M 300.0,231.1 L 300.0,149.1; M 300.0,232.1 L 300.0,150.1; M 300.0,233.5 L 300.0,151.5; M 300.0,235.0 L 300.0,153.0" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <!-- Traveling Synaptic Neural Pulse -->
-    <path stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="6 14" fill="none">
-      <animate attributeName="d" values="M 300.0,235.0 L 300.0,153.0; M 300.0,236.5 L 300.0,154.5; M 300.0,237.9 L 300.0,155.9; M 300.0,238.9 L 300.0,156.9; M 300.0,239.4 L 300.0,157.4; M 300.0,239.4 L 300.0,157.4; M 300.0,238.9 L 300.0,156.9; M 300.0,237.9 L 300.0,155.9; M 300.0,236.5 L 300.0,154.5; M 300.0,235.0 L 300.0,153.0; M 300.0,233.5 L 300.0,151.5; M 300.0,232.1 L 300.0,150.1; M 300.0,231.1 L 300.0,149.1; M 300.0,230.6 L 300.0,148.6; M 300.0,230.6 L 300.0,148.6; M 300.0,231.1 L 300.0,149.1; M 300.0,232.1 L 300.0,150.1; M 300.0,233.5 L 300.0,151.5; M 300.0,235.0 L 300.0,153.0; M 300.0,236.5 L 300.0,154.5; M 300.0,237.9 L 300.0,155.9; M 300.0,238.9 L 300.0,156.9; M 300.0,239.4 L 300.0,157.4; M 300.0,239.4 L 300.0,157.4; M 300.0,238.9 L 300.0,156.9; M 300.0,237.9 L 300.0,155.9; M 300.0,236.5 L 300.0,154.5; M 300.0,235.0 L 300.0,153.0; M 300.0,233.5 L 300.0,151.5; M 300.0,232.1 L 300.0,150.1; M 300.0,231.1 L 300.0,149.1; M 300.0,230.6 L 300.0,148.6; M 300.0,230.6 L 300.0,148.6; M 300.0,231.1 L 300.0,149.1; M 300.0,232.1 L 300.0,150.1; M 300.0,233.5 L 300.0,151.5; M 300.0,235.0 L 300.0,153.0" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-dashoffset" values="40;0" dur="0.6s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Pelvis Ring Structure -->
-    <path fill="rgba(203, 213, 225, 0.2)" stroke="#e2e8f0" stroke-width="2">
-      <animate attributeName="d" values="M 282.0,235.0 C 282.0,225.0 318.0,225.0 318.0,235.0 C 318.0,245.0 282.0,245.0 282.0,235.0 Z; M 282.0,236.5 C 282.0,226.5 318.0,226.5 318.0,236.5 C 318.0,246.5 282.0,246.5 282.0,236.5 Z; M 282.0,237.9 C 282.0,227.9 318.0,227.9 318.0,237.9 C 318.0,247.9 282.0,247.9 282.0,237.9 Z; M 282.0,238.9 C 282.0,228.9 318.0,228.9 318.0,238.9 C 318.0,248.9 282.0,248.9 282.0,238.9 Z; M 282.0,239.4 C 282.0,229.4 318.0,229.4 318.0,239.4 C 318.0,249.4 282.0,249.4 282.0,239.4 Z; M 282.0,239.4 C 282.0,229.4 318.0,229.4 318.0,239.4 C 318.0,249.4 282.0,249.4 282.0,239.4 Z; M 282.0,238.9 C 282.0,228.9 318.0,228.9 318.0,238.9 C 318.0,248.9 282.0,248.9 282.0,238.9 Z; M 282.0,237.9 C 282.0,227.9 318.0,227.9 318.0,237.9 C 318.0,247.9 282.0,247.9 282.0,237.9 Z; M 282.0,236.5 C 282.0,226.5 318.0,226.5 318.0,236.5 C 318.0,246.5 282.0,246.5 282.0,236.5 Z; M 282.0,235.0 C 282.0,225.0 318.0,225.0 318.0,235.0 C 318.0,245.0 282.0,245.0 282.0,235.0 Z; M 282.0,233.5 C 282.0,223.5 318.0,223.5 318.0,233.5 C 318.0,243.5 282.0,243.5 282.0,233.5 Z; M 282.0,232.1 C 282.0,222.1 318.0,222.1 318.0,232.1 C 318.0,242.1 282.0,242.1 282.0,232.1 Z; M 282.0,231.1 C 282.0,221.1 318.0,221.1 318.0,231.1 C 318.0,241.1 282.0,241.1 282.0,231.1 Z; M 282.0,230.6 C 282.0,220.6 318.0,220.6 318.0,230.6 C 318.0,240.6 282.0,240.6 282.0,230.6 Z; M 282.0,230.6 C 282.0,220.6 318.0,220.6 318.0,230.6 C 318.0,240.6 282.0,240.6 282.0,230.6 Z; M 282.0,231.1 C 282.0,221.1 318.0,221.1 318.0,231.1 C 318.0,241.1 282.0,241.1 282.0,231.1 Z; M 282.0,232.1 C 282.0,222.1 318.0,222.1 318.0,232.1 C 318.0,242.1 282.0,242.1 282.0,232.1 Z; M 282.0,233.5 C 282.0,223.5 318.0,223.5 318.0,233.5 C 318.0,243.5 282.0,243.5 282.0,233.5 Z; M 282.0,235.0 C 282.0,225.0 318.0,225.0 318.0,235.0 C 318.0,245.0 282.0,245.0 282.0,235.0 Z; M 282.0,236.5 C 282.0,226.5 318.0,226.5 318.0,236.5 C 318.0,246.5 282.0,246.5 282.0,236.5 Z; M 282.0,237.9 C 282.0,227.9 318.0,227.9 318.0,237.9 C 318.0,247.9 282.0,247.9 282.0,237.9 Z; M 282.0,238.9 C 282.0,228.9 318.0,228.9 318.0,238.9 C 318.0,248.9 282.0,248.9 282.0,238.9 Z; M 282.0,239.4 C 282.0,229.4 318.0,229.4 318.0,239.4 C 318.0,249.4 282.0,249.4 282.0,239.4 Z; M 282.0,239.4 C 282.0,229.4 318.0,229.4 318.0,239.4 C 318.0,249.4 282.0,249.4 282.0,239.4 Z; M 282.0,238.9 C 282.0,228.9 318.0,228.9 318.0,238.9 C 318.0,248.9 282.0,248.9 282.0,238.9 Z; M 282.0,237.9 C 282.0,227.9 318.0,227.9 318.0,237.9 C 318.0,247.9 282.0,247.9 282.0,237.9 Z; M 282.0,236.5 C 282.0,226.5 318.0,226.5 318.0,236.5 C 318.0,246.5 282.0,246.5 282.0,236.5 Z; M 282.0,235.0 C 282.0,225.0 318.0,225.0 318.0,235.0 C 318.0,245.0 282.0,245.0 282.0,235.0 Z; M 282.0,233.5 C 282.0,223.5 318.0,223.5 318.0,233.5 C 318.0,243.5 282.0,243.5 282.0,233.5 Z; M 282.0,232.1 C 282.0,222.1 318.0,222.1 318.0,232.1 C 318.0,242.1 282.0,242.1 282.0,232.1 Z; M 282.0,231.1 C 282.0,221.1 318.0,221.1 318.0,231.1 C 318.0,241.1 282.0,241.1 282.0,231.1 Z; M 282.0,230.6 C 282.0,220.6 318.0,220.6 318.0,230.6 C 318.0,240.6 282.0,240.6 282.0,230.6 Z; M 282.0,230.6 C 282.0,220.6 318.0,220.6 318.0,230.6 C 318.0,240.6 282.0,240.6 282.0,230.6 Z; M 282.0,231.1 C 282.0,221.1 318.0,221.1 318.0,231.1 C 318.0,241.1 282.0,241.1 282.0,231.1 Z; M 282.0,232.1 C 282.0,222.1 318.0,222.1 318.0,232.1 C 318.0,242.1 282.0,242.1 282.0,232.1 Z; M 282.0,233.5 C 282.0,223.5 318.0,223.5 318.0,233.5 C 318.0,243.5 282.0,243.5 282.0,233.5 Z; M 282.0,235.0 C 282.0,225.0 318.0,225.0 318.0,235.0 C 318.0,245.0 282.0,245.0 282.0,235.0 Z" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Anatomical Skull Outline -->
-    <path fill="rgba(248, 250, 252, 0.15)" stroke="#f8fafc" stroke-width="1.8">
-      <animate attributeName="d" values="M 300.0,121.0 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,122.5 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,123.9 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,124.9 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,125.4 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,125.4 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,124.9 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,123.9 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,122.5 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,121.0 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,119.5 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,118.1 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,117.1 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,116.6 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,116.6 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,117.1 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,118.1 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,119.5 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,121.0 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,122.5 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,123.9 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,124.9 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,125.4 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,125.4 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,124.9 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,123.9 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,122.5 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,121.0 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,119.5 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,118.1 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,117.1 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,116.6 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,116.6 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,117.1 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,118.1 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,119.5 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0; M 300.0,121.0 m -12,0 a 12,15 0 1,0 24,0 a 12,15 0 1,0 -24,0" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Front Arm (Left) -->
-    <path stroke="#cbd5e1" stroke-width="3.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 300.0,153.0 L 284.4,204.7 L 255.6,243.1; M 300.0,154.5 L 283.8,206.0 L 254.5,244.1; M 300.0,155.9 L 283.7,207.4 L 254.4,245.4; M 300.0,156.9 L 284.2,208.5 L 255.3,246.9; M 300.0,157.4 L 285.5,209.4 L 257.5,248.4; M 300.0,157.4 L 287.3,209.9 L 260.8,249.9; M 300.0,156.9 L 289.9,209.9 L 265.2,251.1; M 300.0,155.9 L 292.9,209.4 L 270.7,252.0; M 300.0,154.5 L 296.4,208.4 L 276.9,252.3; M 300.0,153.0 L 300.0,207.0 L 283.5,252.1; M 300.0,151.5 L 303.6,205.3 L 290.3,251.4; M 300.0,150.1 L 307.1,203.6 L 296.7,250.5; M 300.0,149.1 L 310.1,202.1 L 302.4,249.5; M 300.0,148.6 L 312.7,201.1 L 307.2,248.8; M 300.0,148.6 L 314.5,200.6 L 310.8,248.4; M 300.0,149.1 L 315.8,200.8 L 313.2,248.7; M 300.0,150.1 L 316.3,201.6 L 314.2,249.5; M 300.0,151.5 L 316.2,203.0 L 314.1,250.9; M 300.0,153.0 L 315.6,204.7 L 312.9,252.6; M 300.0,154.5 L 314.5,206.6 L 310.8,254.4; M 300.0,155.9 L 313.1,208.3 L 308.0,256.0; M 300.0,156.9 L 311.3,209.7 L 304.7,257.2; M 300.0,157.4 L 309.5,210.6 L 301.2,257.9; M 300.0,157.4 L 307.6,210.9 L 297.6,257.8; M 300.0,156.9 L 305.6,210.6 L 293.9,257.2; M 300.0,155.9 L 303.7,209.8 L 290.4,255.9; M 300.0,154.5 L 301.8,208.5 L 286.9,254.1; M 300.0,153.0 L 300.0,207.0 L 283.5,252.1; M 300.0,151.5 L 298.2,205.4 L 280.2,249.9; M 300.0,150.1 L 296.3,204.0 L 276.8,247.8; M 300.0,149.1 L 294.4,202.8 L 273.3,245.9; M 300.0,148.6 L 292.4,202.0 L 269.8,244.4; M 300.0,148.6 L 290.5,201.7 L 266.4,243.2; M 300.0,149.1 L 288.7,201.9 L 263.1,242.5; M 300.0,150.1 L 286.9,202.5 L 260.1,242.3; M 300.0,151.5 L 285.5,203.5 L 257.5,242.5; M 300.0,153.0 L 284.4,204.7 L 255.6,243.1" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Vertebral Spine Column (17 Keyframes - Perfectly Anchored) -->
+    <path stroke="#e8dec4" stroke-width="4.5" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 300,235 L 300,151;
+        M 300,235 L 300,151;
+        M 300,233 L 300,149;
+        M 300,229 L 300,145;
+        M 300,226 L 300,142;
+        M 300,225 L 300,141;
+        M 300,227 L 300,143;
+        M 300,231 L 300,147;
+        M 300,235 L 300,151;
+        M 300,235 L 300,151;
+        M 300,233 L 300,149;
+        M 300,229 L 300,145;
+        M 300,226 L 300,142;
+        M 300,225 L 300,141;
+        M 300,227 L 300,143;
+        M 300,231 L 300,147;
+        M 300,235 L 300,151"
+        dur="2.4s" repeatCount="indefinite"/>
     </path>
 
-    <!-- Front Leg (Left): Muscle Lines of Action Cables -->
-    <!-- Rectus Femoris (Anterior Thigh) -->
-    <path stroke="#ef4444" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.85">
-      <animate attributeName="d" values="M 294.0,239.0 Q 285.4,278.9 336.0,318.7; M 294.0,240.5 Q 285.5,280.0 337.6,319.5; M 294.0,241.9 Q 285.5,281.4 337.8,320.8; M 294.0,242.9 Q 285.4,282.7 336.4,322.4; M 294.0,243.4 Q 285.2,283.8 333.5,324.2; M 294.0,243.4 Q 284.9,284.7 328.8,326.0; M 294.0,242.9 Q 284.6,285.2 322.6,327.4; M 294.0,241.9 Q 284.3,285.0 315.0,328.2; M 294.0,240.5 Q 284.1,284.3 306.3,328.1; M 294.0,239.0 Q 284.0,283.0 297.0,327.0; M 294.0,237.5 Q 284.1,281.2 287.7,325.0; M 294.0,236.1 Q 284.3,279.3 279.0,322.4; M 294.0,235.1 Q 284.6,277.4 271.4,319.6; M 294.0,234.6 Q 284.9,275.9 265.2,317.1; M 294.0,234.6 Q 285.2,275.0 260.5,315.4; M 294.0,235.1 Q 285.4,274.9 257.6,314.6; M 294.0,236.1 Q 285.5,275.6 256.2,315.0; M 294.0,237.5 Q 285.5,277.0 256.4,316.5; M 294.0,239.0 Q 285.4,278.9 258.0,318.7; M 294.0,240.5 Q 285.2,281.0 260.6,321.4; M 294.0,241.9 Q 285.0,283.0 264.2,324.1; M 294.0,242.9 Q 284.7,284.7 268.4,326.5; M 294.0,243.4 Q 284.5,285.9 273.1,328.4; M 294.0,243.4 Q 284.3,286.5 277.9,329.5; M 294.0,242.9 Q 284.2,286.4 282.8,329.8; M 294.0,241.9 Q 284.1,285.7 287.6,329.4; M 294.0,240.5 Q 284.0,284.5 292.3,328.4; M 294.0,239.0 Q 284.0,283.0 297.0,327.0; M 294.0,237.5 Q 284.0,281.4 301.7,325.3; M 294.0,236.1 Q 284.1,279.9 306.4,323.6; M 294.0,235.1 Q 284.2,278.6 311.2,322.0; M 294.0,234.6 Q 284.3,277.6 316.1,320.6; M 294.0,234.6 Q 284.5,277.1 320.9,319.5; M 294.0,235.1 Q 284.7,276.9 325.6,318.7; M 294.0,236.1 Q 285.0,277.2 329.8,318.3; M 294.0,237.5 Q 285.2,277.9 333.4,318.3; M 294.0,239.0 Q 285.4,278.9 336.0,318.7" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <!-- Hamstrings (Posterior Thigh) -->
-    <path stroke="#f97316" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="5 3" fill="none" opacity="0.8">
-      <animate attributeName="d" values="M 306.0,241.0 Q 312.8,278.9 342.0,320.7; M 306.0,242.5 Q 312.7,280.0 343.6,321.5; M 306.0,243.9 Q 312.7,281.4 343.8,322.8; M 306.0,244.9 Q 312.8,282.7 342.4,324.4; M 306.0,245.4 Q 313.0,283.8 339.5,326.2; M 306.0,245.4 Q 313.2,284.7 334.8,328.0; M 306.0,244.9 Q 313.5,285.2 328.6,329.4; M 306.0,243.9 Q 313.8,285.0 321.0,330.2; M 306.0,242.5 Q 313.9,284.3 312.3,330.1; M 306.0,241.0 Q 314.0,283.0 303.0,329.0; M 306.0,239.5 Q 313.9,281.2 293.7,327.0; M 306.0,238.1 Q 313.8,279.3 285.0,324.4; M 306.0,237.1 Q 313.5,277.4 277.4,321.6; M 306.0,236.6 Q 313.2,275.9 271.2,319.1; M 306.0,236.6 Q 313.0,275.0 266.5,317.4; M 306.0,237.1 Q 312.8,274.9 263.6,316.6; M 306.0,238.1 Q 312.7,275.6 262.2,317.0; M 306.0,239.5 Q 312.7,277.0 262.4,318.5; M 306.0,241.0 Q 312.8,278.9 264.0,320.7; M 306.0,242.5 Q 313.0,281.0 266.6,323.4; M 306.0,243.9 Q 313.2,283.0 270.2,326.1; M 306.0,244.9 Q 313.4,284.7 274.4,328.5; M 306.0,245.4 Q 313.6,285.9 279.1,330.4; M 306.0,245.4 Q 313.7,286.5 283.9,331.5; M 306.0,244.9 Q 313.8,286.4 288.8,331.8; M 306.0,243.9 Q 313.9,285.7 293.6,331.4; M 306.0,242.5 Q 314.0,284.5 298.3,330.4; M 306.0,241.0 Q 314.0,283.0 303.0,329.0; M 306.0,239.5 Q 314.0,281.4 307.7,327.3; M 306.0,238.1 Q 313.9,279.9 312.4,325.6; M 306.0,237.1 Q 313.8,278.6 317.2,324.0; M 306.0,236.6 Q 313.7,277.6 322.1,322.6; M 306.0,236.6 Q 313.6,277.1 326.9,321.5; M 306.0,237.1 Q 313.4,276.9 331.6,320.7; M 306.0,238.1 Q 313.2,277.2 335.8,320.3; M 306.0,239.5 Q 313.0,277.9 339.4,320.3; M 306.0,241.0 Q 312.8,278.9 342.0,320.7" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <!-- Gastrocnemius (Calf) -->
-    <path stroke="#fbbf24" stroke-width="2.8" stroke-linecap="round" fill="none" opacity="0.85">
-      <animate attributeName="d" values="M 341.0,326.7 Q 353.7,367.5 384.0,399.1; M 342.6,327.5 Q 355.9,370.3 374.4,403.8; M 342.8,328.8 Q 356.4,372.7 365.9,407.2; M 341.4,330.4 Q 355.2,374.6 361.4,409.3; M 338.5,332.2 Q 352.1,376.1 361.2,410.5; M 333.8,334.0 Q 347.2,377.1 363.2,410.6; M 327.6,335.4 Q 341.1,378.8 353.8,412.4; M 320.0,336.2 Q 333.8,380.6 335.0,415.0; M 311.3,336.1 Q 325.2,381.0 314.3,416.0; M 302.0,335.0 Q 316.0,379.9 293.0,415.0; M 292.7,333.0 Q 306.5,377.4 272.4,412.2; M 284.0,330.4 Q 297.5,373.8 253.9,408.1; M 276.4,327.6 Q 289.5,369.9 238.3,403.4; M 270.2,325.1 Q 282.9,366.4 226.5,399.0; M 265.5,323.4 Q 278.1,363.9 218.5,395.8; M 262.6,322.6 Q 275.0,362.8 214.3,394.3; M 261.2,323.0 Q 273.7,363.3 213.9,394.6; M 261.4,324.5 Q 271.8,358.4 193.3,383.7; M 263.0,326.7 Q 270.1,350.8 175.6,367.0; M 265.6,329.4 Q 269.8,344.2 166.8,352.3; M 269.2,332.1 Q 271.2,340.5 164.8,343.7; M 273.4,334.5 Q 274.6,340.4 166.9,343.1; M 278.1,336.4 Q 279.9,344.2 172.2,349.7; M 282.9,337.5 Q 286.8,351.5 181.3,362.2; M 287.8,337.8 Q 294.7,361.2 196.9,379.4; M 292.6,337.4 Q 302.9,371.1 222.0,397.6; M 297.3,336.4 Q 310.3,378.3 257.6,411.1; M 302.0,335.0 Q 316.0,380.0 300.0,415.0; M 306.7,333.3 Q 320.6,378.1 293.2,413.0; M 311.4,331.6 Q 325.4,376.6 305.4,411.7; M 316.2,330.0 Q 330.2,375.0 317.8,410.0; M 321.1,328.6 Q 335.0,373.4 330.4,408.1; M 325.9,327.5 Q 339.7,371.8 342.9,406.1; M 330.6,326.7 Q 344.1,370.3 355.1,404.0; M 334.8,326.3 Q 348.0,369.0 366.3,402.0; M 338.4,326.3 Q 351.3,368.0 376.1,400.3; M 341.0,326.7 Q 353.7,367.5 384.0,399.1" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Front Bones -->
-    <path stroke="#f1f5f9" stroke-width="6.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 300.0,235.0 L 339.0,322.7; M 300.0,236.5 L 340.6,323.5; M 300.0,237.9 L 340.8,324.8; M 300.0,238.9 L 339.4,326.4; M 300.0,239.4 L 336.5,328.2; M 300.0,239.4 L 331.8,330.0; M 300.0,238.9 L 325.6,331.4; M 300.0,237.9 L 318.0,332.2; M 300.0,236.5 L 309.3,332.1; M 300.0,235.0 L 300.0,331.0; M 300.0,233.5 L 290.7,329.0; M 300.0,232.1 L 282.0,326.4; M 300.0,231.1 L 274.4,323.6; M 300.0,230.6 L 268.2,321.1; M 300.0,230.6 L 263.5,319.4; M 300.0,231.1 L 260.6,318.6; M 300.0,232.1 L 259.2,319.0; M 300.0,233.5 L 259.4,320.5; M 300.0,235.0 L 261.0,322.7; M 300.0,236.5 L 263.6,325.4; M 300.0,237.9 L 267.2,328.1; M 300.0,238.9 L 271.4,330.5; M 300.0,239.4 L 276.1,332.4; M 300.0,239.4 L 280.9,333.5; M 300.0,238.9 L 285.8,333.8; M 300.0,237.9 L 290.6,333.4; M 300.0,236.5 L 295.3,332.4; M 300.0,235.0 L 300.0,331.0; M 300.0,233.5 L 304.7,329.3; M 300.0,232.1 L 309.4,327.6; M 300.0,231.1 L 314.2,326.0; M 300.0,230.6 L 319.1,324.6; M 300.0,230.6 L 323.9,323.5; M 300.0,231.1 L 328.6,322.7; M 300.0,232.1 L 332.8,322.3; M 300.0,233.5 L 336.4,322.3; M 300.0,235.0 L 339.0,322.7" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#f1f5f9" stroke-width="5.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 339.0,322.7 L 378.9,412.2; M 340.6,323.5 L 369.7,417.1; M 340.8,324.8 L 361.6,420.6; M 339.4,326.4 L 357.2,422.8; M 336.5,328.2 L 357.1,424.0; M 331.8,330.0 L 359.1,424.1; M 325.6,331.4 L 350.6,426.2; M 318.0,332.2 L 333.3,429.0; M 309.3,332.1 L 314.0,430.0; M 300.0,331.0 L 294.1,428.8; M 290.7,329.0 L 274.7,425.7; M 282.0,326.4 L 257.1,421.2; M 274.4,323.6 L 242.1,416.2; M 268.2,321.1 L 230.5,411.6; M 263.5,319.4 L 222.6,408.4; M 260.6,318.6 L 218.2,407.0; M 259.2,319.0 L 217.3,407.6; M 259.4,320.5 L 197.3,396.3; M 261.0,322.7 L 180.7,378.9; M 263.6,325.4 L 173.2,363.1; M 267.2,328.1 L 172.4,352.8; M 271.4,330.5 L 175.4,350.3; M 276.1,332.4 L 181.0,356.1; M 280.9,333.5 L 189.8,369.6; M 285.8,333.8 L 204.5,388.6; M 290.6,333.4 L 228.0,408.8; M 295.3,332.4 L 260.9,424.2; M 300.0,331.0 L 300.0,429.0; M 304.7,329.3 L 294.3,426.8; M 309.4,327.6 L 305.8,425.6; M 314.2,326.0 L 317.4,424.0; M 319.1,324.6 L 329.2,422.1; M 323.9,323.5 L 341.0,420.0; M 328.6,322.7 L 352.3,417.8; M 332.8,322.3 L 362.7,415.7; M 336.4,322.3 L 371.7,413.7; M 339.0,322.7 L 378.9,412.2" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#f1f5f9" stroke-width="4.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 383.0,403.1 L 365.9,441.5; M 373.4,407.8 L 357.9,446.8; M 364.9,411.2 L 350.8,450.7; M 360.4,413.3 L 347.2,453.2; M 360.2,414.5 L 347.2,454.5; M 362.2,414.6 L 349.2,454.6; M 352.8,416.4 L 343.4,457.4; M 334.0,419.0 L 330.8,460.9; M 313.3,420.0 L 316.3,461.9; M 292.0,419.0 L 300.8,460.1; M 271.4,416.2 L 285.2,455.9; M 252.9,412.1 L 270.5,450.2; M 237.3,407.4 L 257.5,444.3; M 225.5,403.0 L 246.8,439.2; M 217.5,399.8 L 238.9,435.9; M 213.3,398.3 L 233.7,435.0; M 212.9,398.6 L 231.3,436.4; M 192.3,387.7 L 213.5,423.9; M 174.6,371.0 L 200.2,404.2; M 165.8,356.3 L 196.7,384.8; M 163.8,347.7 L 199.9,369.2; M 165.9,347.1 L 205.8,360.4; M 171.2,353.7 L 212.1,363.5; M 180.3,366.2 L 219.9,380.4; M 195.9,383.4 L 231.9,405.1; M 221.0,401.6 L 250.1,431.9; M 256.6,415.1 L 274.6,453.1; M 299.0,419.0 L 303.1,460.9; M 292.2,417.0 L 300.9,458.1; M 304.4,415.7 L 310.3,457.3; M 316.8,414.0 L 319.6,455.9; M 329.4,412.1 L 328.9,454.1; M 341.9,410.1 L 338.0,451.9; M 354.1,408.0 L 346.5,449.3; M 365.3,406.0 L 354.3,446.5; M 375.1,404.3 L 360.9,443.8; M 383.0,403.1 L 365.9,441.5" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Joint Coordinate Reference Triads (Hip & Knee) -->
-    <!-- Hip Triad X (Red) & Y (Green) -->
-    <path stroke="#ef4444" stroke-width="2" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 300.0,235.0 L 314.6,228.5; M 300.0,236.5 L 314.5,229.8; M 300.0,237.9 L 314.5,231.1; M 300.0,238.9 L 314.6,232.3; M 300.0,239.4 L 314.8,233.4; M 300.0,239.4 L 315.1,234.1; M 300.0,238.9 L 315.4,234.6; M 300.0,237.9 L 315.7,234.9; M 300.0,236.5 L 315.9,235.0; M 300.0,235.0 L 316.0,235.0; M 300.0,233.5 L 315.9,235.0; M 300.0,232.1 L 315.7,235.1; M 300.0,231.1 L 315.4,235.4; M 300.0,230.6 L 315.1,235.9; M 300.0,230.6 L 314.8,236.6; M 300.0,231.1 L 314.6,237.7; M 300.0,232.1 L 314.5,238.9; M 300.0,233.5 L 314.5,240.2; M 300.0,235.0 L 314.6,241.5; M 300.0,236.5 L 314.8,242.6; M 300.0,237.9 L 315.0,243.4; M 300.0,238.9 L 315.3,243.7; M 300.0,239.4 L 315.5,243.4; M 300.0,239.4 L 315.7,242.6; M 300.0,238.9 L 315.8,241.3; M 300.0,237.9 L 315.9,239.5; M 300.0,236.5 L 316.0,237.3; M 300.0,235.0 L 316.0,235.0; M 300.0,233.5 L 316.0,232.7; M 300.0,232.1 L 315.9,230.5; M 300.0,231.1 L 315.8,228.7; M 300.0,230.6 L 315.7,227.4; M 300.0,230.6 L 315.5,226.6; M 300.0,231.1 L 315.3,226.3; M 300.0,232.1 L 315.0,226.6; M 300.0,233.5 L 314.8,227.4; M 300.0,235.0 L 314.6,228.5" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#10b981" stroke-width="2" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 300.0,235.0 L 306.5,249.6; M 300.0,236.5 L 306.8,251.0; M 300.0,237.9 L 306.8,252.4; M 300.0,238.9 L 306.6,253.5; M 300.0,239.4 L 306.1,254.2; M 300.0,239.4 L 305.3,254.5; M 300.0,238.9 L 304.3,254.3; M 300.0,237.9 L 303.0,253.6; M 300.0,236.5 L 301.5,252.5; M 300.0,235.0 L 300.0,251.0; M 300.0,233.5 L 298.5,249.4; M 300.0,232.1 L 297.0,247.8; M 300.0,231.1 L 295.7,246.5; M 300.0,230.6 L 294.7,245.7; M 300.0,230.6 L 293.9,245.4; M 300.0,231.1 L 293.4,245.7; M 300.0,232.1 L 293.2,246.6; M 300.0,233.5 L 293.2,248.0; M 300.0,235.0 L 293.5,249.6; M 300.0,236.5 L 293.9,251.3; M 300.0,237.9 L 294.5,252.9; M 300.0,238.9 L 295.2,254.2; M 300.0,239.4 L 296.0,254.9; M 300.0,239.4 L 296.8,255.1; M 300.0,238.9 L 297.6,254.7; M 300.0,237.9 L 298.4,253.8; M 300.0,236.5 L 299.2,252.5; M 300.0,235.0 L 300.0,251.0; M 300.0,233.5 L 300.8,249.4; M 300.0,232.1 L 301.6,248.0; M 300.0,231.1 L 302.4,246.9; M 300.0,230.6 L 303.2,246.2; M 300.0,230.6 L 304.0,246.1; M 300.0,231.1 L 304.8,246.4; M 300.0,232.1 L 305.5,247.1; M 300.0,233.5 L 306.1,248.3; M 300.0,235.0 L 306.5,249.6" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <!-- Knee Triad X & Y -->
-    <path stroke="#ef4444" stroke-width="1.8" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 339.0,322.7 L 353.7,316.2; M 340.6,323.5 L 355.9,318.8; M 340.8,324.8 L 356.4,321.4; M 339.4,326.4 L 355.2,323.5; M 336.5,328.2 L 352.1,324.9; M 331.8,330.0 L 347.2,325.6; M 325.6,331.4 L 341.1,327.3; M 318.0,332.2 L 333.8,329.7; M 309.3,332.1 L 325.2,331.3; M 300.0,331.0 L 316.0,332.0; M 290.7,329.0 L 306.5,331.6; M 282.0,326.4 L 297.5,330.5; M 274.4,323.6 L 289.5,328.9; M 268.2,321.1 L 282.9,327.3; M 263.5,319.4 L 278.1,326.1; M 260.6,318.6 L 275.0,325.6; M 259.2,319.0 L 273.7,325.9; M 259.4,320.5 L 271.8,330.6; M 261.0,322.7 L 270.1,335.8; M 263.6,325.4 L 269.8,340.1; M 267.2,328.1 L 271.2,343.6; M 271.4,330.5 L 274.6,346.2; M 276.1,332.4 L 279.9,347.9; M 280.9,333.5 L 286.8,348.4; M 285.8,333.8 L 294.7,347.1; M 290.6,333.4 L 302.9,343.7; M 295.3,332.4 L 310.3,338.0; M 300.0,331.0 L 316.0,331.0; M 304.7,329.3 L 320.6,331.0; M 309.4,327.6 L 325.4,328.2; M 314.2,326.0 L 330.2,325.5; M 319.1,324.6 L 335.0,323.0; M 323.9,323.5 L 339.7,320.8; M 328.6,322.7 L 344.1,318.9; M 332.8,322.3 L 348.0,317.4; M 336.4,322.3 L 351.3,316.5; M 339.0,322.7 L 353.7,316.2" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#10b981" stroke-width="1.8" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 339.0,322.7 L 345.6,337.3; M 340.6,323.5 L 345.3,338.8; M 340.8,324.8 L 344.2,340.4; M 339.4,326.4 L 342.3,342.2; M 336.5,328.2 L 339.8,343.9; M 331.8,330.0 L 336.3,345.4; M 325.6,331.4 L 329.7,346.9; M 318.0,332.2 L 320.5,348.0; M 309.3,332.1 L 310.0,348.1; M 300.0,331.0 L 299.0,347.0; M 290.7,329.0 L 288.1,344.8; M 282.0,326.4 L 278.0,341.9; M 274.4,323.6 L 269.1,338.7; M 268.2,321.1 L 262.0,335.9; M 263.5,319.4 L 256.8,333.9; M 260.6,318.6 L 253.7,333.1; M 259.2,319.0 L 252.4,333.5; M 259.4,320.5 L 249.3,332.8; M 261.0,322.7 L 247.8,331.9; M 263.6,325.4 L 248.9,331.5; M 267.2,328.1 L 251.7,332.2; M 271.4,330.5 L 255.7,333.8; M 276.1,332.4 L 260.5,336.3; M 280.9,333.5 L 266.0,339.4; M 285.8,333.8 L 272.5,342.8; M 290.6,333.4 L 280.3,345.7; M 295.3,332.4 L 289.7,347.4; M 300.0,331.0 L 300.0,347.0; M 304.7,329.3 L 303.0,345.3; M 309.4,327.6 L 308.8,343.6; M 314.2,326.0 L 314.8,342.0; M 319.1,324.6 L 320.8,340.6; M 323.9,323.5 L 326.7,339.3; M 328.6,322.7 L 332.4,338.3; M 332.8,322.3 L 337.7,337.6; M 336.4,322.3 L 342.2,337.2; M 339.0,322.7 L 345.6,337.3" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Traveling Action Potential Wave -->
+    <path stroke="#d4af37" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="5 12" fill="none">
+      <animate attributeName="d" values="
+        M 300,235 L 300,151;
+        M 300,235 L 300,151;
+        M 300,233 L 300,149;
+        M 300,229 L 300,145;
+        M 300,226 L 300,142;
+        M 300,225 L 300,141;
+        M 300,227 L 300,143;
+        M 300,231 L 300,147;
+        M 300,235 L 300,151;
+        M 300,235 L 300,151;
+        M 300,233 L 300,149;
+        M 300,229 L 300,145;
+        M 300,226 L 300,142;
+        M 300,225 L 300,141;
+        M 300,227 L 300,143;
+        M 300,231 L 300,147;
+        M 300,235 L 300,151"
+        dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="34;0" dur="0.6s" repeatCount="indefinite"/>
     </path>
 
-    <!-- Joint Bearings / Pivots -->
-    <circle r="4.5" fill="#ffffff" stroke="#ef4444" stroke-width="1.5">
-      <animate attributeName="cx" values="300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0; 300.0" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="235.0; 236.5; 237.9; 238.9; 239.4; 239.4; 238.9; 237.9; 236.5; 235.0; 233.5; 232.1; 231.1; 230.6; 230.6; 231.1; 232.1; 233.5; 235.0; 236.5; 237.9; 238.9; 239.4; 239.4; 238.9; 237.9; 236.5; 235.0; 233.5; 232.1; 231.1; 230.6; 230.6; 231.1; 232.1; 233.5; 235.0" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Anatomical Pelvis Bone Basin (17 Keyframes) -->
+    <ellipse cx="300" rx="17" ry="9" fill="rgba(232, 222, 196, 0.22)" stroke="#e8dec4" stroke-width="1.8">
+      <animate attributeName="cy" values="235; 235; 233; 229; 226; 225; 227; 231; 235; 235; 233; 229; 226; 225; 227; 231; 235" dur="2.4s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Vitruvian Head Contour (17 Keyframes) -->
+    <ellipse cx="300" rx="11" ry="14" fill="rgba(245, 239, 224, 0.18)" stroke="#f5efe0" stroke-width="1.6">
+      <animate attributeName="cy" values="119; 119; 117; 113; 110; 109; 111; 115; 119; 119; 117; 113; 110; 109; 111; 115; 119" dur="2.4s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Front Arm (17 Keyframes) -->
+    <path stroke="#e8dec4" stroke-width="3.5" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 300,151 L 285,207 L 257,247;
+        M 300,151 L 288,208 L 264,249;
+        M 300,149 L 293,208 L 273,251;
+        M 300,145 L 300,207 L 285,253;
+        M 300,142 L 306,205 L 296,252;
+        M 300,141 L 311,204 L 305,251;
+        M 300,143 L 314,203 L 310,250;
+        M 300,147 L 315,203 L 312,250;
+        M 300,151 L 315,203 L 312,250;
+        M 300,151 L 314,205 L 309,252;
+        M 300,149 L 310,207 L 302,254;
+        M 300,145 L 304,208 L 292,255;
+        M 300,142 L 297,206 L 280,251;
+        M 300,141 L 291,204 L 270,246;
+        M 300,143 L 286,203 L 260,244;
+        M 300,147 L 284,204 L 255,243;
+        M 300,151 L 285,207 L 257,247"
+        dur="2.4s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Front Leg: Anatomical Muscle Bellies with Sanguine & Sepia Tone -->
+    <!-- Rectus Femoris (Quadriceps Anterior Thigh - 17 Keyframes) -->
+    <path stroke="#c85a3a" stroke-width="3.2" stroke-linecap="round" fill="none" opacity="0.85">
+      <animate attributeName="d" values="
+        M 294,235 Q 315,274 345,314;
+        M 295,235 Q 314,275 343,316;
+        M 295,233 Q 310,275 338,317;
+        M 296,229 Q 306,273 328,317;
+        M 296,226 Q 301,272 315,317;
+        M 296,225 Q 300,271 311,317;
+        M 295,227 Q 302,273 314,318;
+        M 295,231 Q 306,276 319,321;
+        M 294,235 Q 308,280 320,325;
+        M 293,235 Q 305,281 316,326;
+        M 293,233 Q 308,277 327,321;
+        M 292,229 Q 315,268 342,309;
+        M 292,226 Q 320,262 349,301;
+        M 292,225 Q 323,260 354,297;
+        M 293,227 Q 324,262 354,300;
+        M 293,231 Q 320,268 349,307;
+        M 294,235 Q 315,274 345,314"
+        dur="2.4s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Hamstrings (Posterior Thigh - 17 Keyframes) -->
+    <path stroke="#8c4227" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="5 3" fill="none" opacity="0.8">
+      <animate attributeName="d" values="
+        M 306,237 Q 332,279 353,320;
+        M 307,237 Q 330,281 351,322;
+        M 307,235 Q 328,282 346,323;
+        M 308,231 Q 322,282 336,323;
+        M 308,228 Q 312,282 323,323;
+        M 308,227 Q 310,281 319,323;
+        M 307,229 Q 312,283 322,324;
+        M 307,233 Q 316,286 327,327;
+        M 306,237 Q 318,290 328,331;
+        M 305,237 Q 314,291 324,332;
+        M 305,235 Q 316,287 335,327;
+        M 304,231 Q 324,278 350,315;
+        M 304,228 Q 330,272 357,307;
+        M 304,227 Q 334,270 362,303;
+        M 305,229 Q 334,272 362,306;
+        M 305,233 Q 330,278 357,313;
+        M 306,237 Q 332,279 353,320"
+        dur="2.4s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Gastrocnemius (Calf Muscle - 17 Keyframes) -->
+    <path stroke="#c85a3a" stroke-width="3.0" stroke-linecap="round" fill="none" opacity="0.85">
+      <animate attributeName="d" values="
+        M 349,317 Q 364,364 348,413;
+        M 347,319 Q 362,366 342,415;
+        M 342,320 Q 356,368 335,416;
+        M 332,320 Q 346,368 327,416;
+        M 319,320 Q 332,368 319,416;
+        M 315,320 Q 328,368 311,416;
+        M 318,321 Q 332,369 304,416;
+        M 323,324 Q 338,372 297,417;
+        M 324,328 Q 336,375 291,418;
+        M 320,329 Q 330,376 286,418;
+        M 331,324 Q 336,366 284,408;
+        M 346,312 Q 344,351 289,390;
+        M 353,304 Q 354,345 302,385;
+        M 358,300 Q 362,344 320,388;
+        M 358,303 Q 366,350 336,396;
+        M 353,310 Q 366,358 345,406;
+        M 349,317 Q 364,364 348,413"
+        dur="2.4s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Front Leg Bones (Femur, Tibia, Foot) - 17 Keyframes - STRICT ZERO SLIP & ZERO PENETRATION -->
+    <!-- Thigh Bone -->
+    <path stroke="#f5efe0" stroke-width="6.2" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 300,235 L 349,317;
+        M 301,235 L 347,319;
+        M 301,233 L 342,320;
+        M 302,229 L 332,320;
+        M 302,226 L 319,320;
+        M 302,225 L 315,320;
+        M 301,227 L 318,321;
+        M 301,231 L 323,324;
+        M 300,235 L 324,328;
+        M 299,235 L 320,329;
+        M 299,233 L 331,324;
+        M 298,229 L 346,312;
+        M 298,226 L 353,304;
+        M 298,225 L 358,300;
+        M 299,227 L 358,303;
+        M 299,231 L 353,310;
+        M 300,235 L 349,317"
+        dur="2.4s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Shank Bone -->
+    <path stroke="#f5efe0" stroke-width="5.2" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 349,317 L 348,413;
+        M 347,319 L 342,415;
+        M 342,320 L 335,416;
+        M 332,320 L 327,416;
+        M 319,320 L 319,416;
+        M 315,320 L 311,416;
+        M 318,321 L 304,416;
+        M 323,324 L 297,417;
+        M 324,328 L 291,418;
+        M 320,329 L 286,418;
+        M 331,324 L 284,408;
+        M 346,312 L 289,390;
+        M 353,304 L 302,385;
+        M 358,300 L 320,388;
+        M 358,303 L 336,396;
+        M 353,310 L 345,406;
+        M 349,317 L 348,413"
+        dur="2.4s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Foot Structure (Calcaneus Heel to Metatarsal Toe - Zero Sliding during stance 0-60%) -->
+    <path stroke="#f5efe0" stroke-width="4.2" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 338,430 L 378,421;
+        M 330,430 L 371,428;
+        M 322,430 L 363,430;
+        M 314,430 L 355,430;
+        M 306,430 L 347,430;
+        M 298,430 L 339,430;
+        M 291,430 L 332,430;
+        M 283,429 L 327,429;
+        M 276,425 L 323,430;
+        M 269,418 L 319,430;
+        M 267,408 L 316,421;
+        M 276,376 L 317,391;
+        M 290,370 L 330,383;
+        M 308,372 L 348,384;
+        M 324,381 L 364,392;
+        M 334,391 L 374,400;
+        M 338,430 L 378,421"
+        dur="2.4s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Articulation Joint Pivots (17 Keyframes) -->
+    <circle r="4" fill="#ffeed0" stroke="#c85a3a" stroke-width="1.5">
+      <animate attributeName="cx" values="300; 301; 301; 302; 302; 302; 301; 301; 300; 299; 299; 298; 298; 298; 299; 299; 300" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="235; 235; 233; 229; 226; 225; 227; 231; 235; 235; 233; 229; 226; 225; 227; 231; 235" dur="2.4s" repeatCount="indefinite"/>
     </circle>
-    <circle r="4" fill="#ffffff" stroke="#ef4444" stroke-width="1.5">
-      <animate attributeName="cx" values="339.0; 340.6; 340.8; 339.4; 336.5; 331.8; 325.6; 318.0; 309.3; 300.0; 290.7; 282.0; 274.4; 268.2; 263.5; 260.6; 259.2; 259.4; 261.0; 263.6; 267.2; 271.4; 276.1; 280.9; 285.8; 290.6; 295.3; 300.0; 304.7; 309.4; 314.2; 319.1; 323.9; 328.6; 332.8; 336.4; 339.0" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="322.7; 323.5; 324.8; 326.4; 328.2; 330.0; 331.4; 332.2; 332.1; 331.0; 329.0; 326.4; 323.6; 321.1; 319.4; 318.6; 319.0; 320.5; 322.7; 325.4; 328.1; 330.5; 332.4; 333.5; 333.8; 333.4; 332.4; 331.0; 329.3; 327.6; 326.0; 324.6; 323.5; 322.7; 322.3; 322.3; 322.7" dur="2.4s" repeatCount="indefinite"/>
+    <circle r="3.8" fill="#ffeed0" stroke="#c85a3a" stroke-width="1.5">
+      <animate attributeName="cx" values="349; 347; 342; 332; 319; 315; 318; 323; 324; 320; 331; 346; 353; 358; 358; 353; 349" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="317; 319; 320; 320; 320; 320; 321; 324; 328; 329; 324; 312; 304; 300; 303; 310; 317" dur="2.4s" repeatCount="indefinite"/>
     </circle>
-    <circle r="3.5" fill="#ffffff" stroke="#ef4444" stroke-width="1.5">
-      <animate attributeName="cx" values="378.9; 369.7; 361.6; 357.2; 357.1; 359.1; 350.6; 333.3; 314.0; 294.1; 274.7; 257.1; 242.1; 230.5; 222.6; 218.2; 217.3; 197.3; 180.7; 173.2; 172.4; 175.4; 181.0; 189.8; 204.5; 228.0; 260.9; 300.0; 294.3; 305.8; 317.4; 329.2; 341.0; 352.3; 362.7; 371.7; 378.9" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="412.2; 417.1; 420.6; 422.8; 424.0; 424.1; 426.2; 429.0; 430.0; 428.8; 425.7; 421.2; 416.2; 411.6; 408.4; 407.0; 407.6; 396.3; 378.9; 363.1; 352.8; 350.3; 356.1; 369.6; 388.6; 408.8; 424.2; 429.0; 426.8; 425.6; 424.0; 422.1; 420.0; 417.8; 415.7; 413.7; 412.2" dur="2.4s" repeatCount="indefinite"/>
+    <circle r="3.5" fill="#ffeed0" stroke="#c85a3a" stroke-width="1.5">
+      <animate attributeName="cx" values="348; 342; 335; 327; 319; 311; 304; 297; 291; 286; 284; 289; 302; 320; 336; 345; 348" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="413; 415; 416; 416; 416; 416; 416; 417; 418; 418; 408; 390; 385; 388; 396; 406; 413" dur="2.4s" repeatCount="indefinite"/>
     </circle>
   </g>
 
-  <!-- ================= RIGHT: WEARABLE POWERED EXOSKELETON ================= -->
-  <g id="exoskeleton-walker">
-    <!-- Section Title & Formulation Callout -->
+  <!-- ================= RIGHT: AUTOMATON CO-SIMULATUM (ROBOTIC EXOSKELETON) ================= -->
+  <g id="automaton-exoskeleton-walker">
+    <!-- Callout Title -->
     <g transform="translate(1140, 42)">
-      <circle cx="0" cy="0" r="4.5" fill="#06b6d4"/>
-      <text x="-14" y="4" text-anchor="end" fill="#38bdf8" class="mono-title">WEARABLE ROBOTIC EXOSKELETON</text>
-      <text x="-14" y="18" text-anchor="end" class="mono-sub">Hm-DMP &amp; PI² Adaptive Gait Matching · IROS 2025</text>
-      <text x="-14" y="32" text-anchor="end" fill="#06b6d4" class="mono-math">τ_assist(t) = K_p(θ_d - θ) + f_HmDMP(ϕ)</text>
+      <circle cx="0" cy="0" r="4" fill="#c49a45"/>
+      <text x="-14" y="4" text-anchor="end" class="codex-title" fill="#d4af37">AUTOMATON CO-SIMULATUM</text>
+      <text x="-14" y="18" text-anchor="end" class="codex-sub">Hm-DMP &amp; PI² Adaptatio · IROS 2025</text>
+      <text x="-14" y="32" text-anchor="end" fill="#c49a45" class="codex-math">τ_assist(t) = K_p(θ_d - θ) + f_HmDMP(ϕ)</text>
     </g>
 
-    <!-- Back Robotic Arm (Right) -->
-    <path stroke="#334155" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.4">
-      <animate attributeName="d" values="M 900.0,153.0 L 915.6,204.7 L 912.9,252.6; M 900.0,154.5 L 914.5,206.6 L 910.8,254.4; M 900.0,155.9 L 913.1,208.3 L 908.0,256.0; M 900.0,156.9 L 911.3,209.7 L 904.7,257.2; M 900.0,157.4 L 909.5,210.6 L 901.2,257.9; M 900.0,157.4 L 907.6,210.9 L 897.6,257.8; M 900.0,156.9 L 905.6,210.6 L 893.9,257.2; M 900.0,155.9 L 903.7,209.8 L 890.4,255.9; M 900.0,154.5 L 901.8,208.5 L 886.9,254.1; M 900.0,153.0 L 900.0,207.0 L 883.5,252.1; M 900.0,151.5 L 898.2,205.4 L 880.2,249.9; M 900.0,150.1 L 896.3,204.0 L 876.8,247.8; M 900.0,149.1 L 894.4,202.8 L 873.3,245.9; M 900.0,148.6 L 892.4,202.0 L 869.8,244.4; M 900.0,148.6 L 890.5,201.7 L 866.4,243.2; M 900.0,149.1 L 888.7,201.9 L 863.1,242.5; M 900.0,150.1 L 886.9,202.5 L 860.1,242.3; M 900.0,151.5 L 885.5,203.5 L 857.5,242.5; M 900.0,153.0 L 884.4,204.7 L 855.6,243.1; M 900.0,154.5 L 883.8,206.0 L 854.5,244.1; M 900.0,155.9 L 883.7,207.4 L 854.4,245.4; M 900.0,156.9 L 884.2,208.5 L 855.3,246.9; M 900.0,157.4 L 885.5,209.4 L 857.5,248.4; M 900.0,157.4 L 887.3,209.9 L 860.8,249.9; M 900.0,156.9 L 889.9,209.9 L 865.2,251.1; M 900.0,155.9 L 892.9,209.4 L 870.7,252.0; M 900.0,154.5 L 896.4,208.4 L 876.9,252.3; M 900.0,153.0 L 900.0,207.0 L 883.5,252.1; M 900.0,151.5 L 903.6,205.3 L 890.3,251.4; M 900.0,150.1 L 907.1,203.6 L 896.7,250.5; M 900.0,149.1 L 910.1,202.1 L 902.4,249.5; M 900.0,148.6 L 912.7,201.1 L 907.2,248.8; M 900.0,148.6 L 914.5,200.6 L 910.8,248.4; M 900.0,149.1 L 915.8,200.8 L 913.2,248.7; M 900.0,150.1 L 916.3,201.6 L 914.2,249.5; M 900.0,151.5 L 916.2,203.0 L 914.1,250.9; M 900.0,153.0 L 915.6,204.7 L 912.9,252.6" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Back Automaton Arm (Bronze Wash - 17 Keyframes) -->
+    <path stroke="#4a3625" stroke-width="4.2" stroke-linecap="round" fill="none" opacity="0.4">
+      <animate attributeName="d" values="
+        M 900,151 L 915,203 L 912,250;
+        M 900,151 L 914,205 L 909,252;
+        M 900,149 L 910,207 L 902,254;
+        M 900,145 L 904,208 L 892,255;
+        M 900,142 L 897,206 L 880,251;
+        M 900,141 L 891,204 L 870,246;
+        M 900,143 L 886,203 L 860,244;
+        M 900,147 L 884,204 L 855,243;
+        M 900,151 L 885,207 L 857,247;
+        M 900,151 L 888,208 L 864,249;
+        M 900,149 L 893,208 L 873,251;
+        M 900,145 L 900,207 L 885,253;
+        M 900,142 L 906,205 L 896,252;
+        M 900,141 L 911,204 L 905,251;
+        M 900,143 L 914,203 L 910,250;
+        M 900,147 L 915,203 L 912,250;
+        M 900,151 L 915,203 L 912,250"
+        dur="2.4s" repeatCount="indefinite"/>
     </path>
 
-    <!-- Back Robotic Leg (Right) -->
-    <g opacity="0.35">
-      <path stroke="#1e293b" stroke-width="8" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="M 900.0,235.0 L 861.0,322.7; M 900.0,236.5 L 863.6,325.4; M 900.0,237.9 L 867.2,328.1; M 900.0,238.9 L 871.4,330.5; M 900.0,239.4 L 876.1,332.4; M 900.0,239.4 L 880.9,333.5; M 900.0,238.9 L 885.8,333.8; M 900.0,237.9 L 890.6,333.4; M 900.0,236.5 L 895.3,332.4; M 900.0,235.0 L 900.0,331.0; M 900.0,233.5 L 904.7,329.3; M 900.0,232.1 L 909.4,327.6; M 900.0,231.1 L 914.2,326.0; M 900.0,230.6 L 919.1,324.6; M 900.0,230.6 L 923.9,323.5; M 900.0,231.1 L 928.6,322.7; M 900.0,232.1 L 932.8,322.3; M 900.0,233.5 L 936.4,322.3; M 900.0,235.0 L 939.0,322.7; M 900.0,236.5 L 940.6,323.5; M 900.0,237.9 L 940.8,324.8; M 900.0,238.9 L 939.4,326.4; M 900.0,239.4 L 936.5,328.2; M 900.0,239.4 L 931.8,330.0; M 900.0,238.9 L 925.6,331.4; M 900.0,237.9 L 918.0,332.2; M 900.0,236.5 L 909.3,332.1; M 900.0,235.0 L 900.0,331.0; M 900.0,233.5 L 890.7,329.0; M 900.0,232.1 L 882.0,326.4; M 900.0,231.1 L 874.4,323.6; M 900.0,230.6 L 868.2,321.1; M 900.0,230.6 L 863.5,319.4; M 900.0,231.1 L 860.6,318.6; M 900.0,232.1 L 859.2,319.0; M 900.0,233.5 L 859.4,320.5; M 900.0,235.0 L 861.0,322.7" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Back Robotic Leg (17 Keyframes) -->
+    <g opacity="0.38">
+      <path stroke="#38281a" stroke-width="7.5" stroke-linecap="round" fill="none">
+        <animate attributeName="d" values="
+          M 900,235 L 924,328;
+          M 899,235 L 920,329;
+          M 899,233 L 931,324;
+          M 898,229 L 946,312;
+          M 898,226 L 953,304;
+          M 898,225 L 958,300;
+          M 899,227 L 958,303;
+          M 899,231 L 953,310;
+          M 900,235 L 949,317;
+          M 901,235 L 947,319;
+          M 901,233 L 942,320;
+          M 902,229 L 932,320;
+          M 902,226 L 919,320;
+          M 902,225 L 915,320;
+          M 901,227 L 918,321;
+          M 901,231 L 923,324;
+          M 900,235 L 924,328"
+          dur="2.4s" repeatCount="indefinite"/>
       </path>
-      <path stroke="#06b6d4" stroke-width="2" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="M 900.0,235.0 L 861.0,322.7; M 900.0,236.5 L 863.6,325.4; M 900.0,237.9 L 867.2,328.1; M 900.0,238.9 L 871.4,330.5; M 900.0,239.4 L 876.1,332.4; M 900.0,239.4 L 880.9,333.5; M 900.0,238.9 L 885.8,333.8; M 900.0,237.9 L 890.6,333.4; M 900.0,236.5 L 895.3,332.4; M 900.0,235.0 L 900.0,331.0; M 900.0,233.5 L 904.7,329.3; M 900.0,232.1 L 909.4,327.6; M 900.0,231.1 L 914.2,326.0; M 900.0,230.6 L 919.1,324.6; M 900.0,230.6 L 923.9,323.5; M 900.0,231.1 L 928.6,322.7; M 900.0,232.1 L 932.8,322.3; M 900.0,233.5 L 936.4,322.3; M 900.0,235.0 L 939.0,322.7; M 900.0,236.5 L 940.6,323.5; M 900.0,237.9 L 940.8,324.8; M 900.0,238.9 L 939.4,326.4; M 900.0,239.4 L 936.5,328.2; M 900.0,239.4 L 931.8,330.0; M 900.0,238.9 L 925.6,331.4; M 900.0,237.9 L 918.0,332.2; M 900.0,236.5 L 909.3,332.1; M 900.0,235.0 L 900.0,331.0; M 900.0,233.5 L 890.7,329.0; M 900.0,232.1 L 882.0,326.4; M 900.0,231.1 L 874.4,323.6; M 900.0,230.6 L 868.2,321.1; M 900.0,230.6 L 863.5,319.4; M 900.0,231.1 L 860.6,318.6; M 900.0,232.1 L 859.2,319.0; M 900.0,233.5 L 859.4,320.5; M 900.0,235.0 L 861.0,322.7" dur="2.4s" repeatCount="indefinite"/>
-      </path>
-      <path stroke="#1e293b" stroke-width="7" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="M 861.0,322.7 L 780.7,378.9; M 863.6,325.4 L 773.2,363.1; M 867.2,328.1 L 772.4,352.8; M 871.4,330.5 L 775.4,350.3; M 876.1,332.4 L 781.0,356.1; M 880.9,333.5 L 789.8,369.6; M 885.8,333.8 L 804.5,388.6; M 890.6,333.4 L 828.0,408.8; M 895.3,332.4 L 860.9,424.2; M 900.0,331.0 L 900.0,429.0; M 904.7,329.3 L 894.3,426.8; M 909.4,327.6 L 905.8,425.6; M 914.2,326.0 L 917.4,424.0; M 919.1,324.6 L 929.2,422.1; M 923.9,323.5 L 941.0,420.0; M 928.6,322.7 L 952.3,417.8; M 932.8,322.3 L 962.7,415.7; M 936.4,322.3 L 971.7,413.7; M 939.0,322.7 L 978.9,412.2; M 940.6,323.5 L 969.7,417.1; M 940.8,324.8 L 961.6,420.6; M 939.4,326.4 L 957.2,422.8; M 936.5,328.2 L 957.1,424.0; M 931.8,330.0 L 959.1,424.1; M 925.6,331.4 L 950.6,426.2; M 918.0,332.2 L 933.3,429.0; M 909.3,332.1 L 914.0,430.0; M 900.0,331.0 L 894.1,428.8; M 890.7,329.0 L 874.7,425.7; M 882.0,326.4 L 857.1,421.2; M 874.4,323.6 L 842.1,416.2; M 868.2,321.1 L 830.5,411.6; M 863.5,319.4 L 822.6,408.4; M 860.6,318.6 L 818.2,407.0; M 859.2,319.0 L 817.3,407.6; M 859.4,320.5 L 797.3,396.3; M 861.0,322.7 L 780.7,378.9" dur="2.4s" repeatCount="indefinite"/>
-      </path>
-      <path stroke="#06b6d4" stroke-width="2" stroke-linecap="round" fill="none">
-        <animate attributeName="d" values="M 861.0,322.7 L 780.7,378.9; M 863.6,325.4 L 773.2,363.1; M 867.2,328.1 L 772.4,352.8; M 871.4,330.5 L 775.4,350.3; M 876.1,332.4 L 781.0,356.1; M 880.9,333.5 L 789.8,369.6; M 885.8,333.8 L 804.5,388.6; M 890.6,333.4 L 828.0,408.8; M 895.3,332.4 L 860.9,424.2; M 900.0,331.0 L 900.0,429.0; M 904.7,329.3 L 894.3,426.8; M 909.4,327.6 L 905.8,425.6; M 914.2,326.0 L 917.4,424.0; M 919.1,324.6 L 929.2,422.1; M 923.9,323.5 L 941.0,420.0; M 928.6,322.7 L 952.3,417.8; M 932.8,322.3 L 962.7,415.7; M 936.4,322.3 L 971.7,413.7; M 939.0,322.7 L 978.9,412.2; M 940.6,323.5 L 969.7,417.1; M 940.8,324.8 L 961.6,420.6; M 939.4,326.4 L 957.2,422.8; M 936.5,328.2 L 957.1,424.0; M 931.8,330.0 L 959.1,424.1; M 925.6,331.4 L 950.6,426.2; M 918.0,332.2 L 933.3,429.0; M 909.3,332.1 L 914.0,430.0; M 900.0,331.0 L 894.1,428.8; M 890.7,329.0 L 874.7,425.7; M 882.0,326.4 L 857.1,421.2; M 874.4,323.6 L 842.1,416.2; M 868.2,321.1 L 830.5,411.6; M 863.5,319.4 L 822.6,408.4; M 860.6,318.6 L 818.2,407.0; M 859.2,319.0 L 817.3,407.6; M 859.4,320.5 L 797.3,396.3; M 861.0,322.7 L 780.7,378.9" dur="2.4s" repeatCount="indefinite"/>
+      <path stroke="#38281a" stroke-width="6.5" stroke-linecap="round" fill="none">
+        <animate attributeName="d" values="
+          M 924,328 L 891,418;
+          M 920,329 L 886,418;
+          M 931,324 L 884,408;
+          M 946,312 L 889,390;
+          M 953,304 L 902,385;
+          M 958,300 L 920,388;
+          M 958,303 L 936,396;
+          M 953,310 L 945,406;
+          M 949,317 L 948,413;
+          M 947,319 L 942,415;
+          M 942,320 L 935,416;
+          M 932,320 L 927,416;
+          M 919,320 L 919,416;
+          M 915,320 L 911,416;
+          M 918,321 L 904,416;
+          M 923,324 L 897,417;
+          M 924,328 L 891,418"
+          dur="2.4s" repeatCount="indefinite"/>
       </path>
     </g>
 
-    <!-- Exoskeleton Rigid Spine & Pelvic Chassis Hub -->
-    <path stroke="#0284c7" stroke-width="3" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 896.0,160.0 L 900.0,235.0; M 896.0,161.5 L 900.0,236.5; M 896.0,162.9 L 900.0,237.9; M 896.0,163.9 L 900.0,238.9; M 896.0,164.4 L 900.0,239.4; M 896.0,164.4 L 900.0,239.4; M 896.0,163.9 L 900.0,238.9; M 896.0,162.9 L 900.0,237.9; M 896.0,161.5 L 900.0,236.5; M 896.0,160.0 L 900.0,235.0; M 896.0,158.5 L 900.0,233.5; M 896.0,157.1 L 900.0,232.1; M 896.0,156.1 L 900.0,231.1; M 896.0,155.6 L 900.0,230.6; M 896.0,155.6 L 900.0,230.6; M 896.0,156.1 L 900.0,231.1; M 896.0,157.1 L 900.0,232.1; M 896.0,158.5 L 900.0,233.5; M 896.0,160.0 L 900.0,235.0; M 896.0,161.5 L 900.0,236.5; M 896.0,162.9 L 900.0,237.9; M 896.0,163.9 L 900.0,238.9; M 896.0,164.4 L 900.0,239.4; M 896.0,164.4 L 900.0,239.4; M 896.0,163.9 L 900.0,238.9; M 896.0,162.9 L 900.0,237.9; M 896.0,161.5 L 900.0,236.5; M 896.0,160.0 L 900.0,235.0; M 896.0,158.5 L 900.0,233.5; M 896.0,157.1 L 900.0,232.1; M 896.0,156.1 L 900.0,231.1; M 896.0,155.6 L 900.0,230.6; M 896.0,155.6 L 900.0,230.6; M 896.0,156.1 L 900.0,231.1; M 896.0,157.1 L 900.0,232.1; M 896.0,158.5 L 900.0,233.5; M 896.0,160.0 L 900.0,235.0" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path fill="#0f172a" stroke="#38bdf8" stroke-width="1.8">
-      <animate attributeName="d" values="M 884.0,175.0 L 902.0,175.0 L 902.0,239.0 L 884.0,239.0 Z; M 884.0,176.5 L 902.0,176.5 L 902.0,240.5 L 884.0,240.5 Z; M 884.0,177.9 L 902.0,177.9 L 902.0,241.9 L 884.0,241.9 Z; M 884.0,178.9 L 902.0,178.9 L 902.0,242.9 L 884.0,242.9 Z; M 884.0,179.4 L 902.0,179.4 L 902.0,243.4 L 884.0,243.4 Z; M 884.0,179.4 L 902.0,179.4 L 902.0,243.4 L 884.0,243.4 Z; M 884.0,178.9 L 902.0,178.9 L 902.0,242.9 L 884.0,242.9 Z; M 884.0,177.9 L 902.0,177.9 L 902.0,241.9 L 884.0,241.9 Z; M 884.0,176.5 L 902.0,176.5 L 902.0,240.5 L 884.0,240.5 Z; M 884.0,175.0 L 902.0,175.0 L 902.0,239.0 L 884.0,239.0 Z; M 884.0,173.5 L 902.0,173.5 L 902.0,237.5 L 884.0,237.5 Z; M 884.0,172.1 L 902.0,172.1 L 902.0,236.1 L 884.0,236.1 Z; M 884.0,171.1 L 902.0,171.1 L 902.0,235.1 L 884.0,235.1 Z; M 884.0,170.6 L 902.0,170.6 L 902.0,234.6 L 884.0,234.6 Z; M 884.0,170.6 L 902.0,170.6 L 902.0,234.6 L 884.0,234.6 Z; M 884.0,171.1 L 902.0,171.1 L 902.0,235.1 L 884.0,235.1 Z; M 884.0,172.1 L 902.0,172.1 L 902.0,236.1 L 884.0,236.1 Z; M 884.0,173.5 L 902.0,173.5 L 902.0,237.5 L 884.0,237.5 Z; M 884.0,175.0 L 902.0,175.0 L 902.0,239.0 L 884.0,239.0 Z; M 884.0,176.5 L 902.0,176.5 L 902.0,240.5 L 884.0,240.5 Z; M 884.0,177.9 L 902.0,177.9 L 902.0,241.9 L 884.0,241.9 Z; M 884.0,178.9 L 902.0,178.9 L 902.0,242.9 L 884.0,242.9 Z; M 884.0,179.4 L 902.0,179.4 L 902.0,243.4 L 884.0,243.4 Z; M 884.0,179.4 L 902.0,179.4 L 902.0,243.4 L 884.0,243.4 Z; M 884.0,178.9 L 902.0,178.9 L 902.0,242.9 L 884.0,242.9 Z; M 884.0,177.9 L 902.0,177.9 L 902.0,241.9 L 884.0,241.9 Z; M 884.0,176.5 L 902.0,176.5 L 902.0,240.5 L 884.0,240.5 Z; M 884.0,175.0 L 902.0,175.0 L 902.0,239.0 L 884.0,239.0 Z; M 884.0,173.5 L 902.0,173.5 L 902.0,237.5 L 884.0,237.5 Z; M 884.0,172.1 L 902.0,172.1 L 902.0,236.1 L 884.0,236.1 Z; M 884.0,171.1 L 902.0,171.1 L 902.0,235.1 L 884.0,235.1 Z; M 884.0,170.6 L 902.0,170.6 L 902.0,234.6 L 884.0,234.6 Z; M 884.0,170.6 L 902.0,170.6 L 902.0,234.6 L 884.0,234.6 Z; M 884.0,171.1 L 902.0,171.1 L 902.0,235.1 L 884.0,235.1 Z; M 884.0,172.1 L 902.0,172.1 L 902.0,236.1 L 884.0,236.1 Z; M 884.0,173.5 L 902.0,173.5 L 902.0,237.5 L 884.0,237.5 Z; M 884.0,175.0 L 902.0,175.0 L 902.0,239.0 L 884.0,239.0 Z" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <!-- Micro-controller LED Indicators -->
-    <circle cx="893" cy="180" r="2" fill="#10b981" filter="url(#emeraldGlow)"/>
-    <circle cx="893" cy="190" r="2" fill="#38bdf8" filter="url(#cyanGlow)"/>
+    <!-- Automaton Spine & Bronze Pelvic Chassis (17 Keyframes) -->
+    <line x1="895" y1="156" x2="900" y2="235" stroke="#8c5a2b" stroke-width="3.8"/>
+    <rect x="883" width="20" height="64" rx="3" fill="#241a12" stroke="#c49a45" stroke-width="1.8">
+      <animate attributeName="y" values="175; 175; 173; 169; 166; 165; 167; 171; 175; 175; 173; 169; 166; 165; 167; 171; 175" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
 
-    <!-- Pilot Cybernetic Helmet Outline -->
-    <path fill="rgba(30, 41, 59, 0.4)" stroke="#06b6d4" stroke-width="1.8">
-      <animate attributeName="d" values="M 888.0,121.0 m 0,-14 h 24 v 28 h -24 Z; M 888.0,122.5 m 0,-14 h 24 v 28 h -24 Z; M 888.0,123.9 m 0,-14 h 24 v 28 h -24 Z; M 888.0,124.9 m 0,-14 h 24 v 28 h -24 Z; M 888.0,125.4 m 0,-14 h 24 v 28 h -24 Z; M 888.0,125.4 m 0,-14 h 24 v 28 h -24 Z; M 888.0,124.9 m 0,-14 h 24 v 28 h -24 Z; M 888.0,123.9 m 0,-14 h 24 v 28 h -24 Z; M 888.0,122.5 m 0,-14 h 24 v 28 h -24 Z; M 888.0,121.0 m 0,-14 h 24 v 28 h -24 Z; M 888.0,119.5 m 0,-14 h 24 v 28 h -24 Z; M 888.0,118.1 m 0,-14 h 24 v 28 h -24 Z; M 888.0,117.1 m 0,-14 h 24 v 28 h -24 Z; M 888.0,116.6 m 0,-14 h 24 v 28 h -24 Z; M 888.0,116.6 m 0,-14 h 24 v 28 h -24 Z; M 888.0,117.1 m 0,-14 h 24 v 28 h -24 Z; M 888.0,118.1 m 0,-14 h 24 v 28 h -24 Z; M 888.0,119.5 m 0,-14 h 24 v 28 h -24 Z; M 888.0,121.0 m 0,-14 h 24 v 28 h -24 Z; M 888.0,122.5 m 0,-14 h 24 v 28 h -24 Z; M 888.0,123.9 m 0,-14 h 24 v 28 h -24 Z; M 888.0,124.9 m 0,-14 h 24 v 28 h -24 Z; M 888.0,125.4 m 0,-14 h 24 v 28 h -24 Z; M 888.0,125.4 m 0,-14 h 24 v 28 h -24 Z; M 888.0,124.9 m 0,-14 h 24 v 28 h -24 Z; M 888.0,123.9 m 0,-14 h 24 v 28 h -24 Z; M 888.0,122.5 m 0,-14 h 24 v 28 h -24 Z; M 888.0,121.0 m 0,-14 h 24 v 28 h -24 Z; M 888.0,119.5 m 0,-14 h 24 v 28 h -24 Z; M 888.0,118.1 m 0,-14 h 24 v 28 h -24 Z; M 888.0,117.1 m 0,-14 h 24 v 28 h -24 Z; M 888.0,116.6 m 0,-14 h 24 v 28 h -24 Z; M 888.0,116.6 m 0,-14 h 24 v 28 h -24 Z; M 888.0,117.1 m 0,-14 h 24 v 28 h -24 Z; M 888.0,118.1 m 0,-14 h 24 v 28 h -24 Z; M 888.0,119.5 m 0,-14 h 24 v 28 h -24 Z; M 888.0,121.0 m 0,-14 h 24 v 28 h -24 Z" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Pilot Automaton Brass Mask / Visor (17 Keyframes) -->
+    <rect x="887" width="26" height="26" rx="5" fill="#241a12" stroke="#d4af37" stroke-width="1.8">
+      <animate attributeName="y" values="105; 105; 103; 99; 96; 95; 97; 101; 105; 105; 103; 99; 96; 95; 97; 101; 105" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Front Carbon-Bronze Structural Spars (17 Keyframes) -->
+    <!-- Thigh Spar -->
+    <path stroke="#2d1e13" stroke-width="10" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 900,235 L 949,317;
+        M 901,235 L 947,319;
+        M 901,233 L 942,320;
+        M 902,229 L 932,320;
+        M 902,226 L 919,320;
+        M 902,225 L 915,320;
+        M 901,227 L 918,321;
+        M 901,231 L 923,324;
+        M 900,235 L 924,328;
+        M 899,235 L 920,329;
+        M 899,233 L 931,324;
+        M 898,229 L 946,312;
+        M 898,226 L 953,304;
+        M 898,225 L 958,300;
+        M 899,227 L 958,303;
+        M 899,231 L 953,310;
+        M 900,235 L 949,317"
+        dur="2.4s" repeatCount="indefinite"/>
+    </path>
+    <path stroke="#c49a45" stroke-width="2.2" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 900,235 L 949,317;
+        M 901,235 L 947,319;
+        M 901,233 L 942,320;
+        M 902,229 L 932,320;
+        M 902,226 L 919,320;
+        M 902,225 L 915,320;
+        M 901,227 L 918,321;
+        M 901,231 L 923,324;
+        M 900,235 L 924,328;
+        M 899,235 L 920,329;
+        M 899,233 L 931,324;
+        M 898,229 L 946,312;
+        M 898,226 L 953,304;
+        M 898,225 L 958,300;
+        M 899,227 L 958,303;
+        M 899,231 L 953,310;
+        M 900,235 L 949,317"
+        dur="2.4s" repeatCount="indefinite"/>
     </path>
 
-    <!-- Front Robotic Arm (Left) -->
-    <path stroke="#475569" stroke-width="5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 900.0,153.0 L 884.4,204.7 L 855.6,243.1; M 900.0,154.5 L 883.8,206.0 L 854.5,244.1; M 900.0,155.9 L 883.7,207.4 L 854.4,245.4; M 900.0,156.9 L 884.2,208.5 L 855.3,246.9; M 900.0,157.4 L 885.5,209.4 L 857.5,248.4; M 900.0,157.4 L 887.3,209.9 L 860.8,249.9; M 900.0,156.9 L 889.9,209.9 L 865.2,251.1; M 900.0,155.9 L 892.9,209.4 L 870.7,252.0; M 900.0,154.5 L 896.4,208.4 L 876.9,252.3; M 900.0,153.0 L 900.0,207.0 L 883.5,252.1; M 900.0,151.5 L 903.6,205.3 L 890.3,251.4; M 900.0,150.1 L 907.1,203.6 L 896.7,250.5; M 900.0,149.1 L 910.1,202.1 L 902.4,249.5; M 900.0,148.6 L 912.7,201.1 L 907.2,248.8; M 900.0,148.6 L 914.5,200.6 L 910.8,248.4; M 900.0,149.1 L 915.8,200.8 L 913.2,248.7; M 900.0,150.1 L 916.3,201.6 L 914.2,249.5; M 900.0,151.5 L 916.2,203.0 L 914.1,250.9; M 900.0,153.0 L 915.6,204.7 L 912.9,252.6; M 900.0,154.5 L 914.5,206.6 L 910.8,254.4; M 900.0,155.9 L 913.1,208.3 L 908.0,256.0; M 900.0,156.9 L 911.3,209.7 L 904.7,257.2; M 900.0,157.4 L 909.5,210.6 L 901.2,257.9; M 900.0,157.4 L 907.6,210.9 L 897.6,257.8; M 900.0,156.9 L 905.6,210.6 L 893.9,257.2; M 900.0,155.9 L 903.7,209.8 L 890.4,255.9; M 900.0,154.5 L 901.8,208.5 L 886.9,254.1; M 900.0,153.0 L 900.0,207.0 L 883.5,252.1; M 900.0,151.5 L 898.2,205.4 L 880.2,249.9; M 900.0,150.1 L 896.3,204.0 L 876.8,247.8; M 900.0,149.1 L 894.4,202.8 L 873.3,245.9; M 900.0,148.6 L 892.4,202.0 L 869.8,244.4; M 900.0,148.6 L 890.5,201.7 L 866.4,243.2; M 900.0,149.1 L 888.7,201.9 L 863.1,242.5; M 900.0,150.1 L 886.9,202.5 L 860.1,242.3; M 900.0,151.5 L 885.5,203.5 L 857.5,242.5; M 900.0,153.0 L 884.4,204.7 L 855.6,243.1" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Shank Spar -->
+    <path stroke="#2d1e13" stroke-width="8.5" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 949,317 L 948,413;
+        M 947,319 L 942,415;
+        M 942,320 L 935,416;
+        M 932,320 L 927,416;
+        M 919,320 L 919,416;
+        M 915,320 L 911,416;
+        M 918,321 L 904,416;
+        M 923,324 L 897,417;
+        M 924,328 L 891,418;
+        M 920,329 L 886,418;
+        M 931,324 L 884,408;
+        M 946,312 L 889,390;
+        M 953,304 L 902,385;
+        M 958,300 L 920,388;
+        M 958,303 L 936,396;
+        M 953,310 L 945,406;
+        M 949,317 L 948,413"
+        dur="2.4s" repeatCount="indefinite"/>
     </path>
-    <path stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 900.0,153.0 L 884.4,204.7 L 855.6,243.1; M 900.0,154.5 L 883.8,206.0 L 854.5,244.1; M 900.0,155.9 L 883.7,207.4 L 854.4,245.4; M 900.0,156.9 L 884.2,208.5 L 855.3,246.9; M 900.0,157.4 L 885.5,209.4 L 857.5,248.4; M 900.0,157.4 L 887.3,209.9 L 860.8,249.9; M 900.0,156.9 L 889.9,209.9 L 865.2,251.1; M 900.0,155.9 L 892.9,209.4 L 870.7,252.0; M 900.0,154.5 L 896.4,208.4 L 876.9,252.3; M 900.0,153.0 L 900.0,207.0 L 883.5,252.1; M 900.0,151.5 L 903.6,205.3 L 890.3,251.4; M 900.0,150.1 L 907.1,203.6 L 896.7,250.5; M 900.0,149.1 L 910.1,202.1 L 902.4,249.5; M 900.0,148.6 L 912.7,201.1 L 907.2,248.8; M 900.0,148.6 L 914.5,200.6 L 910.8,248.4; M 900.0,149.1 L 915.8,200.8 L 913.2,248.7; M 900.0,150.1 L 916.3,201.6 L 914.2,249.5; M 900.0,151.5 L 916.2,203.0 L 914.1,250.9; M 900.0,153.0 L 915.6,204.7 L 912.9,252.6; M 900.0,154.5 L 914.5,206.6 L 910.8,254.4; M 900.0,155.9 L 913.1,208.3 L 908.0,256.0; M 900.0,156.9 L 911.3,209.7 L 904.7,257.2; M 900.0,157.4 L 909.5,210.6 L 901.2,257.9; M 900.0,157.4 L 907.6,210.9 L 897.6,257.8; M 900.0,156.9 L 905.6,210.6 L 893.9,257.2; M 900.0,155.9 L 903.7,209.8 L 890.4,255.9; M 900.0,154.5 L 901.8,208.5 L 886.9,254.1; M 900.0,153.0 L 900.0,207.0 L 883.5,252.1; M 900.0,151.5 L 898.2,205.4 L 880.2,249.9; M 900.0,150.1 L 896.3,204.0 L 876.8,247.8; M 900.0,149.1 L 894.4,202.8 L 873.3,245.9; M 900.0,148.6 L 892.4,202.0 L 869.8,244.4; M 900.0,148.6 L 890.5,201.7 L 866.4,243.2; M 900.0,149.1 L 888.7,201.9 L 863.1,242.5; M 900.0,150.1 L 886.9,202.5 L 860.1,242.3; M 900.0,151.5 L 885.5,203.5 L 857.5,242.5; M 900.0,153.0 L 884.4,204.7 L 855.6,243.1" dur="2.4s" repeatCount="indefinite"/>
+    <path stroke="#c49a45" stroke-width="1.8" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 949,317 L 948,413;
+        M 947,319 L 942,415;
+        M 942,320 L 935,416;
+        M 932,320 L 927,416;
+        M 919,320 L 919,416;
+        M 915,320 L 911,416;
+        M 918,321 L 904,416;
+        M 923,324 L 897,417;
+        M 924,328 L 891,418;
+        M 920,329 L 886,418;
+        M 931,324 L 884,408;
+        M 946,312 L 889,390;
+        M 953,304 L 902,385;
+        M 958,300 L 920,388;
+        M 958,303 L 936,396;
+        M 953,310 L 945,406;
+        M 949,317 L 948,413"
+        dur="2.4s" repeatCount="indefinite"/>
     </path>
 
-    <!-- Front Carbon-Fiber Structural Spars -->
-    <path stroke="#0f172a" stroke-width="9" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 900.0,235.0 L 939.0,322.7; M 900.0,236.5 L 940.6,323.5; M 900.0,237.9 L 940.8,324.8; M 900.0,238.9 L 939.4,326.4; M 900.0,239.4 L 936.5,328.2; M 900.0,239.4 L 931.8,330.0; M 900.0,238.9 L 925.6,331.4; M 900.0,237.9 L 918.0,332.2; M 900.0,236.5 L 909.3,332.1; M 900.0,235.0 L 900.0,331.0; M 900.0,233.5 L 890.7,329.0; M 900.0,232.1 L 882.0,326.4; M 900.0,231.1 L 874.4,323.6; M 900.0,230.6 L 868.2,321.1; M 900.0,230.6 L 863.5,319.4; M 900.0,231.1 L 860.6,318.6; M 900.0,232.1 L 859.2,319.0; M 900.0,233.5 L 859.4,320.5; M 900.0,235.0 L 861.0,322.7; M 900.0,236.5 L 863.6,325.4; M 900.0,237.9 L 867.2,328.1; M 900.0,238.9 L 871.4,330.5; M 900.0,239.4 L 876.1,332.4; M 900.0,239.4 L 880.9,333.5; M 900.0,238.9 L 885.8,333.8; M 900.0,237.9 L 890.6,333.4; M 900.0,236.5 L 895.3,332.4; M 900.0,235.0 L 900.0,331.0; M 900.0,233.5 L 904.7,329.3; M 900.0,232.1 L 909.4,327.6; M 900.0,231.1 L 914.2,326.0; M 900.0,230.6 L 919.1,324.6; M 900.0,230.6 L 923.9,323.5; M 900.0,231.1 L 928.6,322.7; M 900.0,232.1 L 932.8,322.3; M 900.0,233.5 L 936.4,322.3; M 900.0,235.0 L 939.0,322.7" dur="2.4s" repeatCount="indefinite"/>
+    <!-- Foot Spar (17 Keyframes) -->
+    <path stroke="#2d1e13" stroke-width="6.5" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 938,430 L 978,421;
+        M 930,430 L 971,428;
+        M 922,430 L 963,430;
+        M 914,430 L 955,430;
+        M 906,430 L 947,430;
+        M 898,430 L 939,430;
+        M 891,430 L 932,430;
+        M 883,429 L 927,429;
+        M 876,425 L 923,430;
+        M 869,418 L 919,430;
+        M 867,408 L 916,421;
+        M 876,376 L 917,391;
+        M 890,370 L 930,383;
+        M 908,372 L 948,384;
+        M 924,381 L 964,392;
+        M 934,391 L 974,400;
+        M 938,430 L 978,421"
+        dur="2.4s" repeatCount="indefinite"/>
     </path>
-    <path stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 900.0,235.0 L 939.0,322.7; M 900.0,236.5 L 940.6,323.5; M 900.0,237.9 L 940.8,324.8; M 900.0,238.9 L 939.4,326.4; M 900.0,239.4 L 936.5,328.2; M 900.0,239.4 L 931.8,330.0; M 900.0,238.9 L 925.6,331.4; M 900.0,237.9 L 918.0,332.2; M 900.0,236.5 L 909.3,332.1; M 900.0,235.0 L 900.0,331.0; M 900.0,233.5 L 890.7,329.0; M 900.0,232.1 L 882.0,326.4; M 900.0,231.1 L 874.4,323.6; M 900.0,230.6 L 868.2,321.1; M 900.0,230.6 L 863.5,319.4; M 900.0,231.1 L 860.6,318.6; M 900.0,232.1 L 859.2,319.0; M 900.0,233.5 L 859.4,320.5; M 900.0,235.0 L 861.0,322.7; M 900.0,236.5 L 863.6,325.4; M 900.0,237.9 L 867.2,328.1; M 900.0,238.9 L 871.4,330.5; M 900.0,239.4 L 876.1,332.4; M 900.0,239.4 L 880.9,333.5; M 900.0,238.9 L 885.8,333.8; M 900.0,237.9 L 890.6,333.4; M 900.0,236.5 L 895.3,332.4; M 900.0,235.0 L 900.0,331.0; M 900.0,233.5 L 904.7,329.3; M 900.0,232.1 L 909.4,327.6; M 900.0,231.1 L 914.2,326.0; M 900.0,230.6 L 919.1,324.6; M 900.0,230.6 L 923.9,323.5; M 900.0,231.1 L 928.6,322.7; M 900.0,232.1 L 932.8,322.3; M 900.0,233.5 L 936.4,322.3; M 900.0,235.0 L 939.0,322.7" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#0f172a" stroke-width="8" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 939.0,322.7 L 978.9,412.2; M 940.6,323.5 L 969.7,417.1; M 940.8,324.8 L 961.6,420.6; M 939.4,326.4 L 957.2,422.8; M 936.5,328.2 L 957.1,424.0; M 931.8,330.0 L 959.1,424.1; M 925.6,331.4 L 950.6,426.2; M 918.0,332.2 L 933.3,429.0; M 909.3,332.1 L 914.0,430.0; M 900.0,331.0 L 894.1,428.8; M 890.7,329.0 L 874.7,425.7; M 882.0,326.4 L 857.1,421.2; M 874.4,323.6 L 842.1,416.2; M 868.2,321.1 L 830.5,411.6; M 863.5,319.4 L 822.6,408.4; M 860.6,318.6 L 818.2,407.0; M 859.2,319.0 L 817.3,407.6; M 859.4,320.5 L 797.3,396.3; M 861.0,322.7 L 780.7,378.9; M 863.6,325.4 L 773.2,363.1; M 867.2,328.1 L 772.4,352.8; M 871.4,330.5 L 775.4,350.3; M 876.1,332.4 L 781.0,356.1; M 880.9,333.5 L 789.8,369.6; M 885.8,333.8 L 804.5,388.6; M 890.6,333.4 L 828.0,408.8; M 895.3,332.4 L 860.9,424.2; M 900.0,331.0 L 900.0,429.0; M 904.7,329.3 L 894.3,426.8; M 909.4,327.6 L 905.8,425.6; M 914.2,326.0 L 917.4,424.0; M 919.1,324.6 L 929.2,422.1; M 923.9,323.5 L 941.0,420.0; M 928.6,322.7 L 952.3,417.8; M 932.8,322.3 L 962.7,415.7; M 936.4,322.3 L 971.7,413.7; M 939.0,322.7 L 978.9,412.2" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 939.0,322.7 L 978.9,412.2; M 940.6,323.5 L 969.7,417.1; M 940.8,324.8 L 961.6,420.6; M 939.4,326.4 L 957.2,422.8; M 936.5,328.2 L 957.1,424.0; M 931.8,330.0 L 959.1,424.1; M 925.6,331.4 L 950.6,426.2; M 918.0,332.2 L 933.3,429.0; M 909.3,332.1 L 914.0,430.0; M 900.0,331.0 L 894.1,428.8; M 890.7,329.0 L 874.7,425.7; M 882.0,326.4 L 857.1,421.2; M 874.4,323.6 L 842.1,416.2; M 868.2,321.1 L 830.5,411.6; M 863.5,319.4 L 822.6,408.4; M 860.6,318.6 L 818.2,407.0; M 859.2,319.0 L 817.3,407.6; M 859.4,320.5 L 797.3,396.3; M 861.0,322.7 L 780.7,378.9; M 863.6,325.4 L 773.2,363.1; M 867.2,328.1 L 772.4,352.8; M 871.4,330.5 L 775.4,350.3; M 876.1,332.4 L 781.0,356.1; M 880.9,333.5 L 789.8,369.6; M 885.8,333.8 L 804.5,388.6; M 890.6,333.4 L 828.0,408.8; M 895.3,332.4 L 860.9,424.2; M 900.0,331.0 L 900.0,429.0; M 904.7,329.3 L 894.3,426.8; M 909.4,327.6 L 905.8,425.6; M 914.2,326.0 L 917.4,424.0; M 919.1,324.6 L 929.2,422.1; M 923.9,323.5 L 941.0,420.0; M 928.6,322.7 L 952.3,417.8; M 932.8,322.3 L 962.7,415.7; M 936.4,322.3 L 971.7,413.7; M 939.0,322.7 L 978.9,412.2" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#0f172a" stroke-width="6" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 983.0,403.1 L 965.9,441.5; M 973.4,407.8 L 957.9,446.8; M 964.9,411.2 L 950.8,450.7; M 960.4,413.3 L 947.2,453.2; M 960.2,414.5 L 947.2,454.5; M 962.2,414.6 L 949.2,454.6; M 952.8,416.4 L 943.4,457.4; M 934.0,419.0 L 930.8,460.9; M 913.3,420.0 L 916.3,461.9; M 892.0,419.0 L 900.8,460.1; M 871.4,416.2 L 885.2,455.9; M 852.9,412.1 L 870.5,450.2; M 837.3,407.4 L 857.5,444.3; M 825.5,403.0 L 846.8,439.2; M 817.5,399.8 L 838.9,435.9; M 813.3,398.3 L 833.7,435.0; M 812.9,398.6 L 831.3,436.4; M 792.3,387.7 L 813.5,423.9; M 774.6,371.0 L 800.2,404.2; M 765.8,356.3 L 796.7,384.8; M 763.8,347.7 L 799.9,369.2; M 765.9,347.1 L 805.8,360.4; M 771.2,353.7 L 812.1,363.5; M 780.3,366.2 L 819.9,380.4; M 795.9,383.4 L 831.9,405.1; M 821.0,401.6 L 850.1,431.9; M 856.6,415.1 L 874.6,453.1; M 899.0,419.0 L 903.1,460.9; M 892.2,417.0 L 900.9,458.1; M 904.4,415.7 L 910.3,457.3; M 916.8,414.0 L 919.6,455.9; M 929.4,412.1 L 928.9,454.1; M 941.9,410.1 L 938.0,451.9; M 954.1,408.0 L 946.5,449.3; M 965.3,406.0 L 954.3,446.5; M 975.1,404.3 L 960.9,443.8; M 983.0,403.1 L 965.9,441.5" dur="2.4s" repeatCount="indefinite"/>
-    </path>
-    <path stroke="#06b6d4" stroke-width="2" stroke-linecap="round" fill="none">
-      <animate attributeName="d" values="M 983.0,403.1 L 965.9,441.5; M 973.4,407.8 L 957.9,446.8; M 964.9,411.2 L 950.8,450.7; M 960.4,413.3 L 947.2,453.2; M 960.2,414.5 L 947.2,454.5; M 962.2,414.6 L 949.2,454.6; M 952.8,416.4 L 943.4,457.4; M 934.0,419.0 L 930.8,460.9; M 913.3,420.0 L 916.3,461.9; M 892.0,419.0 L 900.8,460.1; M 871.4,416.2 L 885.2,455.9; M 852.9,412.1 L 870.5,450.2; M 837.3,407.4 L 857.5,444.3; M 825.5,403.0 L 846.8,439.2; M 817.5,399.8 L 838.9,435.9; M 813.3,398.3 L 833.7,435.0; M 812.9,398.6 L 831.3,436.4; M 792.3,387.7 L 813.5,423.9; M 774.6,371.0 L 800.2,404.2; M 765.8,356.3 L 796.7,384.8; M 763.8,347.7 L 799.9,369.2; M 765.9,347.1 L 805.8,360.4; M 771.2,353.7 L 812.1,363.5; M 780.3,366.2 L 819.9,380.4; M 795.9,383.4 L 831.9,405.1; M 821.0,401.6 L 850.1,431.9; M 856.6,415.1 L 874.6,453.1; M 899.0,419.0 L 903.1,460.9; M 892.2,417.0 L 900.9,458.1; M 904.4,415.7 L 910.3,457.3; M 916.8,414.0 L 919.6,455.9; M 929.4,412.1 L 928.9,454.1; M 941.9,410.1 L 938.0,451.9; M 954.1,408.0 L 946.5,449.3; M 965.3,406.0 L 954.3,446.5; M 975.1,404.3 L 960.9,443.8; M 983.0,403.1 L 965.9,441.5" dur="2.4s" repeatCount="indefinite"/>
+    <path stroke="#c49a45" stroke-width="1.8" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 938,430 L 978,421;
+        M 930,430 L 971,428;
+        M 922,430 L 963,430;
+        M 914,430 L 955,430;
+        M 906,430 L 947,430;
+        M 898,430 L 939,430;
+        M 891,430 L 932,430;
+        M 883,429 L 927,429;
+        M 876,425 L 923,430;
+        M 869,418 L 919,430;
+        M 867,408 L 916,421;
+        M 876,376 L 917,391;
+        M 890,370 L 930,383;
+        M 908,372 L 948,384;
+        M 924,381 L 964,392;
+        M 934,391 L 974,400;
+        M 938,430 L 978,421"
+        dur="2.4s" repeatCount="indefinite"/>
     </path>
 
-    <!-- High-Torque Actuators (Concentric Gearhead CAD Wireframes) -->
-    <!-- Hip Actuator Assembly -->
+    <!-- Rotating Clockwork Spur Gears at Hip Joint -->
+    <g transform="translate(900, 235)">
+      <circle r="16" fill="#241a12" stroke="#c49a45" stroke-width="2"/>
+      <circle r="12" fill="none" stroke="#d4af37" stroke-width="1.2" stroke-dasharray="3 3">
+        <animate attributeName="stroke-dashoffset" values="0; 75.4" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="3.5" fill="#ffeed0"/>
+    </g>
+
+    <!-- Rotating Gear at Knee Joint (Centered & Smoothly Translated) -->
     <g>
-      <circle r="13" fill="#0b1329" stroke="#38bdf8" stroke-width="2">
-        <animate attributeName="cx" values="900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="cy" values="235.0; 236.5; 237.9; 238.9; 239.4; 239.4; 238.9; 237.9; 236.5; 235.0; 233.5; 232.1; 231.1; 230.6; 230.6; 231.1; 232.1; 233.5; 235.0; 236.5; 237.9; 238.9; 239.4; 239.4; 238.9; 237.9; 236.5; 235.0; 233.5; 232.1; 231.1; 230.6; 230.6; 231.1; 232.1; 233.5; 235.0" dur="2.4s" repeatCount="indefinite"/>
+      <circle r="14" fill="#241a12" stroke="#b87333" stroke-width="1.8">
+        <animate attributeName="cx" values="949; 947; 942; 932; 919; 915; 918; 923; 924; 920; 931; 946; 953; 958; 958; 953; 949" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="317; 319; 320; 320; 320; 320; 321; 324; 328; 329; 324; 312; 304; 300; 303; 310; 317" dur="2.4s" repeatCount="indefinite"/>
       </circle>
-      <circle r="8" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 3">
-        <animate attributeName="cx" values="900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="cy" values="235.0; 236.5; 237.9; 238.9; 239.4; 239.4; 238.9; 237.9; 236.5; 235.0; 233.5; 232.1; 231.1; 230.6; 230.6; 231.1; 232.1; 233.5; 235.0; 236.5; 237.9; 238.9; 239.4; 239.4; 238.9; 237.9; 236.5; 235.0; 233.5; 232.1; 231.1; 230.6; 230.6; 231.1; 232.1; 233.5; 235.0" dur="2.4s" repeatCount="indefinite"/>
+      <circle r="10" fill="none" stroke="#c49a45" stroke-width="1.2" stroke-dasharray="2 3">
+        <animate attributeName="cx" values="949; 947; 942; 932; 919; 915; 918; 923; 924; 920; 931; 946; 953; 958; 958; 953; 949" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="317; 319; 320; 320; 320; 320; 321; 324; 328; 329; 324; 312; 304; 300; 303; 310; 317" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-dashoffset" values="62.83; 0" dur="2.4s" repeatCount="indefinite"/>
       </circle>
-      <circle r="3.5" fill="#38bdf8">
-        <animate attributeName="cx" values="900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0; 900.0" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="cy" values="235.0; 236.5; 237.9; 238.9; 239.4; 239.4; 238.9; 237.9; 236.5; 235.0; 233.5; 232.1; 231.1; 230.6; 230.6; 231.1; 232.1; 233.5; 235.0; 236.5; 237.9; 238.9; 239.4; 239.4; 238.9; 237.9; 236.5; 235.0; 233.5; 232.1; 231.1; 230.6; 230.6; 231.1; 232.1; 233.5; 235.0" dur="2.4s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-
-    <!-- Knee SEA Actuator Assembly -->
-    <g>
-      <circle r="12" fill="#0b1329" stroke="#06b6d4" stroke-width="2">
-        <animate attributeName="cx" values="939.0; 940.6; 940.8; 939.4; 936.5; 931.8; 925.6; 918.0; 909.3; 900.0; 890.7; 882.0; 874.4; 868.2; 863.5; 860.6; 859.2; 859.4; 861.0; 863.6; 867.2; 871.4; 876.1; 880.9; 885.8; 890.6; 895.3; 900.0; 904.7; 909.4; 914.2; 919.1; 923.9; 928.6; 932.8; 936.4; 939.0" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="cy" values="322.7; 323.5; 324.8; 326.4; 328.2; 330.0; 331.4; 332.2; 332.1; 331.0; 329.0; 326.4; 323.6; 321.1; 319.4; 318.6; 319.0; 320.5; 322.7; 325.4; 328.1; 330.5; 332.4; 333.5; 333.8; 333.4; 332.4; 331.0; 329.3; 327.6; 326.0; 324.6; 323.5; 322.7; 322.3; 322.3; 322.7" dur="2.4s" repeatCount="indefinite"/>
-      </circle>
-      <circle r="7" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="2 3">
-        <animate attributeName="cx" values="939.0; 940.6; 940.8; 939.4; 936.5; 931.8; 925.6; 918.0; 909.3; 900.0; 890.7; 882.0; 874.4; 868.2; 863.5; 860.6; 859.2; 859.4; 861.0; 863.6; 867.2; 871.4; 876.1; 880.9; 885.8; 890.6; 895.3; 900.0; 904.7; 909.4; 914.2; 919.1; 923.9; 928.6; 932.8; 936.4; 939.0" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="cy" values="322.7; 323.5; 324.8; 326.4; 328.2; 330.0; 331.4; 332.2; 332.1; 331.0; 329.0; 326.4; 323.6; 321.1; 319.4; 318.6; 319.0; 320.5; 322.7; 325.4; 328.1; 330.5; 332.4; 333.5; 333.8; 333.4; 332.4; 331.0; 329.3; 327.6; 326.0; 324.6; 323.5; 322.7; 322.3; 322.3; 322.7" dur="2.4s" repeatCount="indefinite"/>
-      </circle>
-      <circle r="3" fill="#06b6d4">
-        <animate attributeName="cx" values="939.0; 940.6; 940.8; 939.4; 936.5; 931.8; 925.6; 918.0; 909.3; 900.0; 890.7; 882.0; 874.4; 868.2; 863.5; 860.6; 859.2; 859.4; 861.0; 863.6; 867.2; 871.4; 876.1; 880.9; 885.8; 890.6; 895.3; 900.0; 904.7; 909.4; 914.2; 919.1; 923.9; 928.6; 932.8; 936.4; 939.0" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="cy" values="322.7; 323.5; 324.8; 326.4; 328.2; 330.0; 331.4; 332.2; 332.1; 331.0; 329.0; 326.4; 323.6; 321.1; 319.4; 318.6; 319.0; 320.5; 322.7; 325.4; 328.1; 330.5; 332.4; 333.5; 333.8; 333.4; 332.4; 331.0; 329.3; 327.6; 326.0; 324.6; 323.5; 322.7; 322.3; 322.3; 322.7" dur="2.4s" repeatCount="indefinite"/>
+      <circle r="3" fill="#ffeed0">
+        <animate attributeName="cx" values="949; 947; 942; 932; 919; 915; 918; 923; 924; 920; 931; 946; 953; 958; 958; 953; 949" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="317; 319; 320; 320; 320; 320; 321; 324; 328; 329; 324; 312; 304; 300; 303; 310; 317" dur="2.4s" repeatCount="indefinite"/>
       </circle>
     </g>
 
-    <!-- Dynamic Assistive Torque Vector (Active during push-off) -->
-    <g>
-      <path d="M -22 -10 A 24 24 0 0 1 18 16" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" filter="url(#cyanGlow)">
-        <animateTransform attributeName="transform" type="translate" values="900.0,235.0; 900.0,236.5; 900.0,237.9; 900.0,238.9; 900.0,239.4; 900.0,239.4; 900.0,238.9; 900.0,237.9; 900.0,236.5; 900.0,235.0; 900.0,233.5; 900.0,232.1; 900.0,231.1; 900.0,230.6; 900.0,230.6; 900.0,231.1; 900.0,232.1; 900.0,233.5; 900.0,235.0; 900.0,236.5; 900.0,237.9; 900.0,238.9; 900.0,239.4; 900.0,239.4; 900.0,238.9; 900.0,237.9; 900.0,236.5; 900.0,235.0; 900.0,233.5; 900.0,232.1; 900.0,231.1; 900.0,230.6; 900.0,230.6; 900.0,231.1; 900.0,232.1; 900.0,233.5; 900.0,235.0" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.26; 0.53; 0.75; 0.91; 0.99; 0.99; 0.90; 0.74; 0.52; 0.25; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0" dur="2.4s" repeatCount="indefinite"/>
-      </path>
-    </g>
+    <!-- Dynamic Assistive Torque Arc during push-off (Active during push-off 0.38 - 0.58) -->
+    <path stroke="#d4af37" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0" filter="url(#goldGlow)">
+      <animate attributeName="d" values="
+        M 922,220 A 26,26 0 0,1 924,248;
+        M 924,222 A 26,26 0 0,1 926,250;
+        M 920,224 A 26,26 0 0,1 918,252;
+        M 914,226 A 26,26 0 0,1 910,254;
+        M 910,224 A 26,26 0 0,1 906,252;
+        M 906,220 A 26,26 0 0,1 904,248;
+        M 910,222 A 26,26 0 0,1 908,250;
+        M 914,224 A 26,26 0 0,1 912,252;
+        M 918,222 A 26,26 0 0,1 916,250;
+        M 922,220 A 26,26 0 0,1 924,248;
+        M 924,222 A 26,26 0 0,1 926,250;
+        M 920,224 A 26,26 0 0,1 918,252;
+        M 914,226 A 26,26 0 0,1 910,254;
+        M 910,224 A 26,26 0 0,1 906,252;
+        M 906,220 A 26,26 0 0,1 904,248;
+        M 910,222 A 26,26 0 0,1 908,250;
+        M 922,220 A 26,26 0 0,1 924,248"
+        dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0; 0; 0; 0; 0; 0.4; 0.9; 1.0; 0.6; 0; 0; 0; 0; 0; 0; 0" dur="2.4s" repeatCount="indefinite"/>
+    </path>
 
-    <!-- Dynamic Ground Reaction Force (GRF) Vector -->
-    <g>
-      <line x1="0" y1="0" x2="-14" y2="-45" stroke="#10b981" stroke-width="3" stroke-linecap="round" filter="url(#emeraldGlow)">
-        <animateTransform attributeName="transform" type="translate" values="965.9,441.5; 957.9,446.8; 950.8,450.7; 947.2,453.2; 947.2,454.5; 949.2,454.6; 943.4,457.4; 930.8,460.9; 916.3,461.9; 900.8,460.1; 885.2,455.9; 870.5,450.2; 857.5,444.3; 846.8,439.2; 838.9,435.9; 833.7,435.0; 831.3,436.4; 813.5,423.9; 800.2,404.2; 796.7,384.8; 799.9,369.2; 805.8,360.4; 812.1,363.5; 819.9,380.4; 831.9,405.1; 850.1,431.9; 874.6,453.1; 903.1,460.9; 900.9,458.1; 910.3,457.3; 919.6,455.9; 928.9,454.1; 938.0,451.9; 946.5,449.3; 954.3,446.5; 960.9,443.8; 965.9,441.5" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.0; 0.0; 0.03; 0.21; 0.37; 0.53; 0.67; 0.79; 0.88; 0.95; 0.99; 1.00; 0.98; 0.93; 0.85; 0.74; 0.62; 0.47; 0.31; 0.14; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0" dur="2.4s" repeatCount="indefinite"/>
-      </line>
-      <polygon points="-14,-45 -20,-35 -8,-37" fill="#10b981">
-        <animateTransform attributeName="transform" type="translate" values="965.9,441.5; 957.9,446.8; 950.8,450.7; 947.2,453.2; 947.2,454.5; 949.2,454.6; 943.4,457.4; 930.8,460.9; 916.3,461.9; 900.8,460.1; 885.2,455.9; 870.5,450.2; 857.5,444.3; 846.8,439.2; 838.9,435.9; 833.7,435.0; 831.3,436.4; 813.5,423.9; 800.2,404.2; 796.7,384.8; 799.9,369.2; 805.8,360.4; 812.1,363.5; 819.9,380.4; 831.9,405.1; 850.1,431.9; 874.6,453.1; 903.1,460.9; 900.9,458.1; 910.3,457.3; 919.6,455.9; 928.9,454.1; 938.0,451.9; 946.5,449.3; 954.3,446.5; 960.9,443.8; 965.9,441.5" dur="2.4s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.0; 0.0; 0.03; 0.21; 0.37; 0.53; 0.67; 0.79; 0.88; 0.95; 0.99; 1.00; 0.98; 0.93; 0.85; 0.74; 0.62; 0.47; 0.31; 0.14; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0; 0.0" dur="2.4s" repeatCount="indefinite"/>
-      </polygon>
-    </g>
-  </g>
-
-  <!-- Bottom Academic Branding Footer -->
-  <g id="academic-branding" transform="translate(600, 488)">
-    <text x="0" y="0" text-anchor="middle" fill="#94a3b8" class="mono-title">ZHEJIANG UNIVERSITY · NINGBO GLOBAL INNOVATION CENTER</text>
-    <text x="0" y="13" text-anchor="middle" class="mono-sub">HAMZA AZAM · BIOMECHATRONICS &amp; WEARABLE ROBOTICS CO-SIMULATION</text>
+    <!-- Front Robotic Arm (17 Keyframes) -->
+    <path stroke="#8c5a2b" stroke-width="4.6" stroke-linecap="round" fill="none">
+      <animate attributeName="d" values="
+        M 900,151 L 885,207 L 857,247;
+        M 900,151 L 888,208 L 864,249;
+        M 900,149 L 893,208 L 873,251;
+        M 900,145 L 900,207 L 885,253;
+        M 900,142 L 906,205 L 896,252;
+        M 900,141 L 911,204 L 905,251;
+        M 900,143 L 914,203 L 910,250;
+        M 900,147 L 915,203 L 912,250;
+        M 900,151 L 915,203 L 912,250;
+        M 900,151 L 914,205 L 909,252;
+        M 900,149 L 910,207 L 902,254;
+        M 900,145 L 904,208 L 892,255;
+        M 900,142 L 897,206 L 880,251;
+        M 900,141 L 891,204 L 870,246;
+        M 900,143 L 886,203 L 860,244;
+        M 900,147 L 884,204 L 855,243;
+        M 900,151 L 885,207 L 857,247"
+        dur="2.4s" repeatCount="indefinite"/>
+    </path>
   </g>
 </svg>
