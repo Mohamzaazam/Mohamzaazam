@@ -214,13 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     {
-      title: "Chapter 06 · Beyond the Lab & Invitation",
-      sub: "Collaborations, Postdoctoral Inquiries & Translation",
+      title: "Chapter 06 · Services, Translation & Collaboration",
+      sub: "R&D Consultation, Embedded AI Deployment & Partnerships",
       points: [
-        "Industrial experience: Jiangsu Dongyuan Xinsheng Technology (data acquisition to on-device edge deployment).",
-        "Editorial leadership: Khair Publications (Deputy Director, Content & Research).",
-        "Actively seeking research collaborations in musculoskeletal modeling and exoskeleton control.",
-        "Explore full publications and academic portfolio: mohamzaazam.github.io · ORCID: 0000-0002-3508-7332"
+        "Research & Development (R&D) Services: Biomechanical simulation (OpenSim), exoskeleton control (Hm-DMP), and custom deep learning architectures.",
+        "Engineering & Development Services: Hard real-time embedded edge AI deployment (<4ms latency on ARM Cortex / Jetson), scientific software, and HIL sensor fusion.",
+        "Industrial & Editorial Leadership: Proven translation from mathematical algorithms to field-ready hardware; Deputy Director at Khair Publications.",
+        "Invitation for Collaboration: Open to postdoctoral inquiries, joint academic grants, and industrial robotics partnerships (hamza.azam@zju.edu.cn)."
       ]
     }
   ];

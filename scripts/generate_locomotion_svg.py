@@ -477,48 +477,48 @@ def generate_svg():
   <text x="950" y="49" text-anchor="end" class="terminal-header">ZHEJIANG UNIVERSITY</text>
 
   <!-- Dynamic Information Slides (Synchronized 25s Cycle) -->
-  <!-- Slide 1: Musculoskeletal Modeling & Gait Biomechanics -->
+  <!-- Slide 1: Introduction & Doctoral Profile -->
   <g id="slide-1" opacity="1">
     <animate attributeName="opacity" values="1;1;0;0;0;0;0;0;0;0;1" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="25s" repeatCount="indefinite"/>
-    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">01 / 05 · DOCTORAL RESEARCH · ZHEJIANG UNIVERSITY</text>
-    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Musculoskeletal Modeling &amp; Gait Biomechanics</text>
-    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Inferring unobservable joint dynamics from wearable sensors outside laboratory constraints.</text>
+    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">01 / 05 · BIOMECHATRONICS &amp; WEARABLE ROBOTICS · ZHEJIANG UNIVERSITY</text>
+    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Hamza Azam · Doctoral Researcher &amp; Algorithm Engineer</text>
+    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Musculoskeletal Modeling · Gait Biomechanics · Exoskeleton Control · Embedded Edge AI.</text>
     <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#262626"/>
   </g>
 
-  <!-- Slide 2: Subject-Independent Hip Moment Estimation -->
+  <!-- Slide 2: Services Offered (R&D & Engineering Development) -->
   <g id="slide-2" opacity="0">
     <animate attributeName="opacity" values="0;0;1;1;0;0;0;0;0;0;0" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="25s" repeatCount="indefinite"/>
-    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">02 / 05 · FLAGSHIP PUBLICATION · ESWA 2026</text>
-    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Subject-Independent Hip Moment Estimation</text>
-    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Continuous sagittal moments from bilateral encoder angles in transitional &amp; steady gait (R² &gt; 0.92).</text>
+    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">02 / 05 · SERVICES OFFERED · R&amp;D &amp; ENGINEERING SOLUTIONS</text>
+    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Research &amp; Development (R&amp;D) · Embedded Edge AI · Robotics</text>
+    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Locomotion Modeling · Exoskeleton Control · Real-Time Edge Inference · Scientific Software.</text>
     <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#262626"/>
   </g>
 
-  <!-- Slide 3: Dynamic Exoskeleton Gait Adaptation -->
+  <!-- Slide 3: Subject-Independent Hip Moment Estimation (ESWA 2026) -->
   <g id="slide-3" opacity="0">
     <animate attributeName="opacity" values="0;0;0;0;1;1;0;0;0;0;0" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="25s" repeatCount="indefinite"/>
-    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">03 / 05 · ROBOTIC EXOSKELETON CONTROL · IEEE/RSJ IROS 2025</text>
-    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Dynamic Exoskeleton Gait Adaptation (Hm-DMP &amp; PI²)</text>
-    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Harmonizing biological locomotion with robotic assistance using Dynamic Movement Primitives.</text>
+    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">03 / 05 · FLAGSHIP PUBLICATION · ESWA 2026</text>
+    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Subject-Independent Hip Moment Estimation</text>
+    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Continuous sagittal moments from bilateral encoder angles in transitional &amp; steady gait (R² &gt; 0.92).</text>
     <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#262626"/>
   </g>
 
-  <!-- Slide 4: MetaTran: Hybrid Transformers -->
+  <!-- Slide 4: Dynamic Exoskeleton Gait Adaptation (IROS 2025) -->
   <g id="slide-4" opacity="0">
     <animate attributeName="opacity" values="0;0;0;0;0;0;1;1;0;0;0" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="25s" repeatCount="indefinite"/>
-    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">04 / 05 · DEEP LEARNING TRANSFORMERS · MST 2026</text>
-    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">MetaTran: Hybrid Transformers for Fatigue Life</text>
-    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">1D-dilated convolutions and self-attention transformers predicting multi-scale biological &amp; structural fatigue.</text>
+    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">04 / 05 · ROBOTIC EXOSKELETON CONTROL · IEEE/RSJ IROS 2025</text>
+    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Dynamic Exoskeleton Gait Adaptation (Hm-DMP &amp; PI²)</text>
+    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Harmonizing biological locomotion with robotic assistance using Dynamic Movement Primitives.</text>
     <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#262626"/>
   </g>
 
-  <!-- Slide 5: Closed-Loop Mobility Matching -->
+  <!-- Slide 5: MetaTran: Hybrid Transformers for Fatigue Life (MST 2026) -->
   <g id="slide-5" opacity="0">
     <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;1;1;0" keyTimes="0.00;0.18;0.20;0.38;0.40;0.58;0.60;0.78;0.80;0.98;1.00" dur="25s" repeatCount="indefinite"/>
-    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">05 / 05 · WEARABLE BIOMECHATRONICS PARADIGM</text>
-    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">Closed-Loop Mobility Matching &amp; Wearable Robotics</text>
-    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Series Elastic Actuators · Zero Per-Subject Calibration · Adaptive Real-Time Torque Assistance.</text>
+    <text x="225" y="74" fill="#777777" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" letter-spacing="0.8">05 / 05 · DEEP LEARNING TRANSFORMERS · MST 2026</text>
+    <text x="225" y="96" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700">MetaTran: Hybrid Transformers for Fatigue Life</text>
+    <text x="225" y="117" fill="#aaaaaa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="400">Multi-scale 1D-dilated convolutions &amp; self-attention predicting structural &amp; biological fatigue.</text>
     <rect x="225" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="243" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="261" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="279" y="132" width="12" height="3" rx="1.5" fill="#262626"/><rect x="297" y="132" width="12" height="3" rx="1.5" fill="#ffffff"/>
   </g>
 
