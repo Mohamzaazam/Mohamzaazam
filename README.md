@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/algorithmic-locomotion.svg" alt="Animated @ Character Walking and Bringing Doctoral Research Information" width="100%">
+  <img src="./assets/algorithmic-locomotion.svg" alt="Hamza Azam · Hybrid Biomechatronic Exoskeleton Walker &amp; Doctoral Research Dossier | Zhejiang University" width="100%">
 </p>
 
 <h1 align="center">Hamza Azam</h1>
